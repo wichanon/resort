@@ -6,4 +6,8 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('home');
 	}
+	public function detail($id)
+	{
+		$this->load->view('detail');
+	}
 }

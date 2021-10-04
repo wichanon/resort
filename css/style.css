@@ -1,7 +1,8 @@
 html,
 body {
   font-family: "Kanit", sans-serif;
-  font-size: calc(60% +0.8vmin) !important; }
+  font-size: calc(60% +0.8vmin) !important;
+  background-color: #f1f1f1; }
 
 img {
   width: 100%; }
@@ -273,3 +274,67 @@ img {
         color: #000;
         background-color: #f1f1f1;
         transition: 0.3s; }
+
+.detail .box {
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 100%; }
+  .detail .box .title p {
+    color: #ccc; }
+    .detail .box .title p cut {
+      text-decoration: line-through; }
+
+.detail .home_detail h2 {
+  color: #936c46; }
+
+.detail .home_detail p {
+  color: #c0a88d;
+  text-indent: 2em; }
+
+.detail .home_detail .box_home_service {
+  width: 100%;
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+  display: flex; }
+  .detail .home_detail .box_home_service .box_service {
+    width: 50px;
+    margin: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center; }
+    .detail .home_detail .box_home_service .box_service p {
+      text-indent: unset;
+      font-size: .7rem;
+      margin: 0;
+      width: 200%;
+      text-align: center; }
+
+.detail .activity .line {
+  border-top: 1px solid #ccc; }
+
+.detail .activity .config {
+  display: flex;
+  align-items: center; }
+  .detail .activity .config .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px; }
+    .detail .activity .config .circle.red {
+      background-color: #FF6666; }
+    .detail .activity .config .circle.blue {
+      background-color: #669AFF; }
+  .detail .activity .config span {
+    margin-left: 1rem; }
+    .detail .activity .config span.red {
+      color: #FF6666; }
+    .detail .activity .config span.blue {
+      color: #669AFF; }
+
+.detail .activity .btn_chenge {
+  display: flex;
+  justify-content: flex-end; }
+  .detail .activity .btn_chenge .btn_day {
+    width: 10px;
+    margin: 0 .5rem; }

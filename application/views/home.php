@@ -105,7 +105,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 													</div>
 												</div>
 											</div>
-											<div class="box mt-5">
+											<!-- <div class="box mt-5">
 												<div class="image">
 													<img src="<?= base_url() ?>../images/mock/pack_1.png" alt="">
 												</div>
@@ -134,7 +134,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 														</div>
 													</div>
 												</div>
-											</div>
+											</div> -->
 										</div>
 									</div>
 								</li>
@@ -189,7 +189,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		}).mount();
 
 		let y = new Splide('#pack', {
-			type: 'loop',
 			perPage: 3,
 			perMove: 1,
 		}).mount();

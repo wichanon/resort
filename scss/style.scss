@@ -2,6 +2,7 @@ html,
 body {
 	font-family: "Kanit", sans-serif;
 	font-size: calc(60% +0.8vmin) !important;
+	background-color: #f1f1f1;
 }
 
 img {
@@ -335,6 +336,90 @@ img {
 					background-color: #f1f1f1;
 					transition: 0.3s;
 				}
+			}
+		}
+	}
+}
+.detail{
+	.box{
+		padding: 2rem;
+		border-radius: 15px;
+		background-color: #fff;
+		box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+		width: 100%;
+		.title{
+			p{
+				color: #ccc;
+				cut{
+					text-decoration: line-through;
+				}
+			}
+		}
+	}
+	.home_detail{
+		h2{
+			color: #936c46;
+		}
+		p{
+			color: #c0a88d;
+			text-indent: 2em;
+		}
+		.box_home_service{
+			width: 100%;
+			padding: 1rem;
+			border-top: 1px solid #ccc;
+			display: flex;
+			.box_service{
+				width: 50px;
+				margin: 0 1rem;
+				display: flex;
+				flex-flow: column;
+				align-items: center;
+				p{
+					text-indent: unset;
+					font-size: .7rem;
+					margin: 0;
+					width: 200%;
+					text-align: center;
+				}
+			}
+		}
+		
+	}
+	.activity{
+		.line{
+			border-top: 1px solid #ccc;
+		}
+		.config{
+			display: flex;
+			align-items: center;
+			.circle{
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				&.red{
+					background-color: #FF6666;
+				}
+				&.blue{
+					background-color: #669AFF;
+				}
+			}
+			span{
+				margin-left: 1rem;
+				&.red{
+					color: #FF6666;
+				}
+				&.blue{
+					color: #669AFF;
+				}
+			}
+		}
+		.btn_chenge{
+			display: flex;
+			justify-content: flex-end;
+			.btn_day{
+				width: 10px;
+				margin: 0 .5rem;
 			}
 		}
 	}
