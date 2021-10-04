@@ -1,0 +1,14 @@
+{
+  "name": "resort",
+  "version": "1.0.0",
+  "description": "What is CodeIgniter ###################",
+  "main": "index.js",
+  "scripts" : {
+    "run:scss" : "node-sass scss/style.scss css/style.css -w"
+    },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
