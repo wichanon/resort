@@ -111,9 +111,13 @@ img {
         transform: scale(1.05);
         transition: 0.3s; }
   .list_pack .slide_pack .detail {
-    padding: 1rem; }
+    padding: 1rem;
+    max-height: 150px;
+    overflow: hidden;
+    color: #936c46; }
   .list_pack .slide_pack .detail_2 {
     width: 100%;
+    margin-top: 1rem;
     display: flex; }
     .list_pack .slide_pack .detail_2 .box1,
     .list_pack .slide_pack .detail_2 .box2,
@@ -227,10 +231,10 @@ img {
       width: 30px;
       margin: 0 1rem;
       cursor: pointer;
-      transition: .3s; }
+      transition: 0.3s; }
       .footer .box .social .icon:hover {
         transform: scale(1.1);
-        transition: .3s; }
+        transition: 0.3s; }
   .footer .box .contact {
     color: #c0a88d;
     margin-top: 1rem; }
@@ -244,10 +248,10 @@ img {
       .footer .box .sub_menu .sub p {
         margin: 0;
         cursor: pointer;
-        transition: .3s; }
+        transition: 0.3s; }
         .footer .box .sub_menu .sub p:hover {
           transform: scale(1.1);
-          transition: .3s; }
+          transition: 0.3s; }
   .footer .box .contact_box {
     display: flex;
     justify-content: center;
@@ -306,7 +310,7 @@ img {
     align-items: center; }
     .detail .home_detail .box_home_service .box_service p {
       text-indent: unset;
-      font-size: .7rem;
+      font-size: 0.7rem;
       margin: 0;
       width: 200%;
       text-align: center; }
@@ -322,19 +326,80 @@ img {
     height: 20px;
     border-radius: 10px; }
     .detail .activity .config .circle.red {
-      background-color: #FF6666; }
+      background-color: #ff6666; }
     .detail .activity .config .circle.blue {
-      background-color: #669AFF; }
+      background-color: #669aff; }
   .detail .activity .config span {
     margin-left: 1rem; }
     .detail .activity .config span.red {
-      color: #FF6666; }
+      color: #ff6666; }
     .detail .activity .config span.blue {
-      color: #669AFF; }
+      color: #669aff; }
 
 .detail .activity .btn_chenge {
   display: flex;
   justify-content: flex-end; }
   .detail .activity .btn_chenge .btn_day {
     width: 10px;
-    margin: 0 .5rem; }
+    margin: 0 0.5rem; }
+
+.detail .activity_change .box_activity {
+  width: 150px;
+  background-color: #ece2d2;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow: hidden; }
+  .detail .activity_change .box_activity .image {
+    width: 100%;
+    height: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-image: url("../images/mock/act.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; }
+  .detail .activity_change .box_activity .title {
+    margin-top: 0.5rem;
+    text-align: center; }
+    .detail .activity_change .box_activity .title p {
+      color: #936C46; }
+  .detail .activity_change .box_activity .tools {
+    text-align: center;
+    font-size: .5rem; }
+    .detail .activity_change .box_activity .tools p {
+      margin: 0;
+      color: #936C46; }
+
+.detail .activity_change .activty_cha {
+  display: flex; }
+  .detail .activity_change .activty_cha .box_activity {
+    margin: 0 .5rem;
+    background-color: #C0A88D; }
+    .detail .activity_change .activty_cha .box_activity .title p {
+      color: #fff; }
+    .detail .activity_change .activty_cha .box_activity .tools img {
+      width: 20%; }
+
+.detail .checkin input {
+  height: 50px; }
+
+.detail .checkin .detail_checkin {
+  background-color: #F5F5F5;
+  padding: 1rem;
+  border-radius: 10px; }
+
+.detail .checkin .btn_checkin {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: #936C46;
+  border-top-right-radius: 30px;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: .3s;
+  cursor: pointer; }
+  .detail .checkin .btn_checkin:hover {
+    border: 1px solid #936c46;
+    background-color: unset;
+    color: #936c46;
+    transition: .3s; }

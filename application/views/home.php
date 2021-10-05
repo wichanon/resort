@@ -72,40 +72,43 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<div id="pack" class="splide">
 						<div class="splide__track">
 							<ul class="splide__list">
-								<li class="splide__slide">
-									<div class="box_pack">
-										<div class="box_2_row">
-											<div class="box">
-												<div class="image">
-													<img src="<?= base_url() ?>../images/mock/pack_1.png" alt="">
-												</div>
-												<div class="detail">
-													<h3>แพ็คเกจ 1</h3>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus eget viverra turpis id id feugiat vulputate. Sit dictum nulla quis ultrices dolor lectus.</p>
-												</div>
-												<div class="detail_2">
-													<div class="box1">
-														<h6>3 วัน 2 คืน</h6>
-													</div>
-													<div class="box2">
-														<img src="<?= base_url() ?>../images/mock/image3.png" alt="">
-													</div>
-													<div class="box3">
-														<div class="price">
-															<div class="old">
-																15,000
+								<?php foreach ($list as $key => $value) { ?>
+									<li class="splide__slide">
+										<div class="box_pack">
+											<div class="box_2_row">
+												<a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/<?= $value['id'] ?>">
+													<div class="box">
+														<div class="image">
+															<img src="<?= base_url() ?>../<?= $value['cover'] ?>" alt="">
+														</div>
+														<div class="detail">
+															<h3><?= $value['name'] ?></h3>
+															<p><?= $value['detail'] ?></p>
+														</div>
+														<div class="detail_2">
+															<div class="box1">
+																<h6><?= $value['type'] ?></h6>
 															</div>
-															<div class="new">
-																9,999 <last>บาท</last>
+															<div class="box2">
+																<img src="<?= base_url() ?>../images/mock/image3.png" alt="">
+															</div>
+															<div class="box3">
+																<div class="price">
+																	<div class="old">
+																		<?= number_format($value['price_full']); ?>
+																	</div>
+																	<div class="new">
+																		<?= number_format($value['price']); ?> <last>บาท</last>
+																	</div>
+																</div>
+																<div class="start_pack">
+																	ราคาเริ่มต้น (ต่อแพ็คเกจ)
+																</div>
 															</div>
 														</div>
-														<div class="start_pack">
-															ราคาเริ่มต้น (ต่อแพ็คเกจ)
-														</div>
 													</div>
-												</div>
-											</div>
-											<!-- <div class="box mt-5">
+												</a>
+												<!-- <div class="box mt-5">
 												<div class="image">
 													<img src="<?= base_url() ?>../images/mock/pack_1.png" alt="">
 												</div>
@@ -135,9 +138,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 													</div>
 												</div>
 											</div> -->
+											</div>
 										</div>
-									</div>
-								</li>
+									</li>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>
@@ -178,6 +182,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container-fluid mt-5">
 		<?php $this->load->view('_footer') ?>
 	</div>
 </body>
@@ -191,6 +197,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		let y = new Splide('#pack', {
 			perPage: 3,
 			perMove: 1,
+			focus: 'left'
 		}).mount();
 	});
 </script>
