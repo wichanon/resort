@@ -7,7 +7,7 @@
             <div class="list_menu">
                 <div class="menu">
                     <div class="name_menu">
-                        <p>หน้าแรก</p>
+                        <a href="<?=base_url()?>"><p>หน้าแรก</p></a>
                     </div>
                     <div class="name_menu">
                         <p>แพ็คเกจ</p>
