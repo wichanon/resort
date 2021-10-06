@@ -18,6 +18,7 @@ img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 110;
 	.box {
 		width: 30%;
 		padding: 4rem 1rem;
@@ -27,12 +28,20 @@ img {
 		flex-flow: column;
 		align-items: center;
 		position: relative;
+		label{
+			font-size: .8rem;
+			color: #ff6666;
+		}
+		span{
+			font-size: .7rem;
+			color: #333;
+		}
 		.logo {
 			background-color: #ccc;
 			width: 40%;
 		}
 		.box_input {
-			width: 40%;
+			width: 70%;
 		}
 		.btn_login {
 			background-color: #c99446;
@@ -69,7 +78,11 @@ img {
 			top: 10px;
 			cursor: pointer;
 		}
+		&.register{
+			width: 50%;
+		}
 	}
+	
 }
 .menu {
 	.bar {
@@ -145,6 +158,22 @@ img {
 			background-color: #fff;
 			border-radius: 10px;
 			color: #c99446;
+		}
+		.logout{
+			background-color: #ff6666;
+			padding: .4rem;
+			display: flex;
+			align-items: center;
+			border-radius: 10px;
+			margin-left: 10px;
+			color: #fff;
+			cursor: pointer;
+			transition: .3s;
+			&:hover{
+				background-color: #fff;
+				color: #ff6666;
+				transition: .3s;
+			}
 		}
 	}
 }

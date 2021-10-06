@@ -16,7 +16,8 @@ img {
   left: 0;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  z-index: 110; }
   .bg_login .box {
     width: 30%;
     padding: 4rem 1rem;
@@ -26,11 +27,17 @@ img {
     flex-flow: column;
     align-items: center;
     position: relative; }
+    .bg_login .box label {
+      font-size: .8rem;
+      color: #ff6666; }
+    .bg_login .box span {
+      font-size: .7rem;
+      color: #333; }
     .bg_login .box .logo {
       background-color: #ccc;
       width: 40%; }
     .bg_login .box .box_input {
-      width: 40%; }
+      width: 70%; }
     .bg_login .box .btn_login {
       background-color: #c99446;
       padding: 0.4rem 1rem;
@@ -60,6 +67,8 @@ img {
       right: 10px;
       top: 10px;
       cursor: pointer; }
+    .bg_login .box.register {
+      width: 50%; }
 
 .menu .bar {
   width: 100%;
@@ -122,6 +131,20 @@ img {
     background-color: #fff;
     border-radius: 10px;
     color: #c99446; }
+  .menu .bar .logout {
+    background-color: #ff6666;
+    padding: .4rem;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s; }
+    .menu .bar .logout:hover {
+      background-color: #fff;
+      color: #ff6666;
+      transition: .3s; }
 
 .home .cover {
   width: 100%; }

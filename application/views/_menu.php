@@ -24,6 +24,9 @@
                         <div class="box_user">
                             <?=$_SESSION['firstname'];?> <?=$_SESSION['lastname'];?> 
                         </div>
+                        <div class="logout">
+                            logout
+                        </div>
                     <?php }else{ ?>
                     <div class="btn btn_login">เข้าสู่ระบบ</div>
                     <div class="register">
