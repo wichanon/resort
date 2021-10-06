@@ -8,6 +8,69 @@ body {
 img {
 	width: 100%;
 }
+.bg_login {
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.box {
+		width: 30%;
+		padding: 4rem 1rem;
+		background-color: #fff;
+		border-radius: 10px;
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		position: relative;
+		.logo {
+			background-color: #ccc;
+			width: 40%;
+		}
+		.box_input {
+			width: 40%;
+		}
+		.btn_login {
+			background-color: #c99446;
+			padding: 0.4rem 1rem;
+			color: #fff;
+			cursor: pointer;
+			transition: 0.3s;
+			&:hover {
+				background-color: #fff;
+				color: #c99446;
+				border: 1px solid #c99446;
+				transition: 0.3s;
+			}
+		}
+		.register {
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+			transition: 0.3s;
+			&:hover {
+				transform: scale(1.1);
+				transition: 0.3s;
+			}
+			p {
+				margin: 0;
+				padding: 0;
+				text-decoration: underline;
+			}
+		}
+		.btn_close{
+			width: 30px;
+			position:absolute;
+			right: 10px;
+			top: 10px;
+			cursor: pointer;
+		}
+	}
+}
 .menu {
 	.bar {
 		width: 100%;
@@ -77,6 +140,12 @@ img {
 				}
 			}
 		}
+		.box_user{
+			padding: 1rem;
+			background-color: #fff;
+			border-radius: 10px;
+			color: #c99446;
+		}
 	}
 }
 .home {
@@ -111,7 +180,6 @@ img {
 			}
 		}
 	}
-	
 }
 .list_pack {
 	.line {
@@ -448,60 +516,60 @@ img {
 				margin-top: 0.5rem;
 				text-align: center;
 				p {
-					color: #936C46;
+					color: #936c46;
 				}
 			}
 			.tools {
 				text-align: center;
-				font-size: .5rem;
-				p{
+				font-size: 0.5rem;
+				p {
 					margin: 0;
-					color: #936C46;
+					color: #936c46;
 				}
 			}
 		}
-		.activty_cha{
+		.activty_cha {
 			display: flex;
-			.box_activity{
-				margin: 0 .5rem;
-				background-color: #C0A88D;
-				.title{
-					p{
+			.box_activity {
+				margin: 0 0.5rem;
+				background-color: #c0a88d;
+				.title {
+					p {
 						color: #fff;
 					}
 				}
 				.tools {
-					img{
+					img {
 						width: 20%;
 					}
 				}
 			}
 		}
 	}
-	.checkin{
-		input{
+	.checkin {
+		input {
 			height: 50px;
 		}
-		.detail_checkin{
-			background-color: #F5F5F5;
+		.detail_checkin {
+			background-color: #f5f5f5;
 			padding: 1rem;
 			border-radius: 10px;
 		}
-		.btn_checkin{
+		.btn_checkin {
 			margin-top: 1rem;
 			padding: 1.5rem;
-			background-color: #936C46;
+			background-color: #936c46;
 			border-top-right-radius: 30px;
 			color: #fff;
 			font-size: 1.2rem;
 			text-align: center;
-			transition: .3s;
+			transition: 0.3s;
 			cursor: pointer;
-			&:hover{
+			&:hover {
 				border: 1px solid #936c46;
 				background-color: unset;
 				color: #936c46;
-				transition: .3s;
+				transition: 0.3s;
 			}
 		}
 	}

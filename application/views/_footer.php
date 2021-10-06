@@ -81,3 +81,66 @@
         </div>
     </div>
 </div>
+<div class="bg_login" style="display:none">
+    <div class="box">
+        <div class="logo">
+            <img src="<?= base_url() ?>../images/logo.png" alt="">
+        </div>
+        <div class="box_input mt-4">
+            <input type="text" class="form-control my-1 username" placeholder="ํUsername">
+            <input type="password" class="form-control my-1 password" placeholder="Password">
+        </div>
+        <div class="btn btn_login sent mt-4">เข้าสู่ระบบ</div>
+        <div class="register mt-2">
+            <p>สมัครสมาชิก</p>
+        </div>
+        <div class="btn_close">
+            <img src="<?= base_url() ?>../images/icons/cancel.png" alt="">
+        </div>
+    </div>
+</div>
+<script>
+    let base_url = '<?= base_url() ?>';
+    $('.btn_login').click(function(){
+        $('.bg_login').fadeIn('fast')
+    })
+    $('.bg_login .btn_close').click(function(){
+        $('.bg_login').fadeOut('fast')
+    })
+    $('.btn_login.sent').click(function() {
+        $.ajax({
+                url: base_url + 'user/login',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    username: $('.username').val(),
+                    password: $('.password').val()
+                },
+            })
+            .done(function() {
+                console.log("success");
+            })
+            .fail(function() {
+                console.log("error");
+                Swal.fire(
+                    'เกิดข้อผิดพลาด !',
+                    'ตรวจสอบข้อมูลอีกครั้ง',
+                    'warning'
+                )
+            })
+            .always(function(data) {
+                console.log(data);
+                if (data == true) {
+                    $('.bg_login').fadeOut();
+                    Swal.fire(
+                        'เข้าสู่ระบบสำเร็จ',
+                        'เก่งมาก',
+                        'success'
+                    )
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1000);
+                }
+            });
+    })
+</script>

@@ -7,6 +7,60 @@ body {
 img {
   width: 100%; }
 
+.bg_login {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .bg_login .box {
+    width: 30%;
+    padding: 4rem 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative; }
+    .bg_login .box .logo {
+      background-color: #ccc;
+      width: 40%; }
+    .bg_login .box .box_input {
+      width: 40%; }
+    .bg_login .box .btn_login {
+      background-color: #c99446;
+      padding: 0.4rem 1rem;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s; }
+      .bg_login .box .btn_login:hover {
+        background-color: #fff;
+        color: #c99446;
+        border: 1px solid #c99446;
+        transition: 0.3s; }
+    .bg_login .box .register {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s; }
+      .bg_login .box .register:hover {
+        transform: scale(1.1);
+        transition: 0.3s; }
+      .bg_login .box .register p {
+        margin: 0;
+        padding: 0;
+        text-decoration: underline; }
+    .bg_login .box .btn_close {
+      width: 30px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer; }
+
 .menu .bar {
   width: 100%;
   padding: 1rem;
@@ -63,6 +117,11 @@ img {
           padding: 0;
           color: #fff;
           text-decoration: underline; }
+  .menu .bar .box_user {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #c99446; }
 
 .home .cover {
   width: 100%; }
@@ -362,19 +421,19 @@ img {
     margin-top: 0.5rem;
     text-align: center; }
     .detail .activity_change .box_activity .title p {
-      color: #936C46; }
+      color: #936c46; }
   .detail .activity_change .box_activity .tools {
     text-align: center;
-    font-size: .5rem; }
+    font-size: 0.5rem; }
     .detail .activity_change .box_activity .tools p {
       margin: 0;
-      color: #936C46; }
+      color: #936c46; }
 
 .detail .activity_change .activty_cha {
   display: flex; }
   .detail .activity_change .activty_cha .box_activity {
-    margin: 0 .5rem;
-    background-color: #C0A88D; }
+    margin: 0 0.5rem;
+    background-color: #c0a88d; }
     .detail .activity_change .activty_cha .box_activity .title p {
       color: #fff; }
     .detail .activity_change .activty_cha .box_activity .tools img {
@@ -384,22 +443,22 @@ img {
   height: 50px; }
 
 .detail .checkin .detail_checkin {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   padding: 1rem;
   border-radius: 10px; }
 
 .detail .checkin .btn_checkin {
   margin-top: 1rem;
   padding: 1.5rem;
-  background-color: #936C46;
+  background-color: #936c46;
   border-top-right-radius: 30px;
   color: #fff;
   font-size: 1.2rem;
   text-align: center;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer; }
   .detail .checkin .btn_checkin:hover {
     border: 1px solid #936c46;
     background-color: unset;
     color: #936c46;
-    transition: .3s; }
+    transition: 0.3s; }

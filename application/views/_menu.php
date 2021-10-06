@@ -20,8 +20,16 @@
                     </div>
                 </div>
                 <div class="user">
+                    <?php if (isset($_SESSION['username'])) { ?>
+                        <div class="box_user">
+                            <?=$_SESSION['firstname'];?> <?=$_SESSION['lastname'];?> 
+                        </div>
+                    <?php }else{ ?>
                     <div class="btn btn_login">เข้าสู่ระบบ</div>
-                    <div class="register"><p>สมัครสมาชิก</p></div>
+                    <div class="register">
+                        <p>สมัครสมาชิก</p>
+                    </div>
+                    <?php }?>
                 </div>
             </div>
         </div>
