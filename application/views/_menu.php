@@ -1,3 +1,8 @@
+<?php $sess = 'xx';
+    if(isset($_SESSION['firstname'])){
+        $sess = $_SESSION['firstname'];
+    }
+?>
 <div class="row menu p-0">
     <div class="col p-0">
         <div class="bar">

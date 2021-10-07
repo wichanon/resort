@@ -28,10 +28,10 @@ img {
     align-items: center;
     position: relative; }
     .bg_login .box label {
-      font-size: .8rem;
+      font-size: 0.8rem;
       color: #ff6666; }
     .bg_login .box span {
-      font-size: .7rem;
+      font-size: 0.7rem;
       color: #333; }
     .bg_login .box .logo {
       background-color: #ccc;
@@ -133,18 +133,18 @@ img {
     color: #c99446; }
   .menu .bar .logout {
     background-color: #ff6666;
-    padding: .4rem;
+    padding: 0.4rem;
     display: flex;
     align-items: center;
     border-radius: 10px;
     margin-left: 10px;
     color: #fff;
     cursor: pointer;
-    transition: .3s; }
+    transition: 0.3s; }
     .menu .bar .logout:hover {
       background-color: #fff;
       color: #ff6666;
-      transition: .3s; }
+      transition: 0.3s; }
 
 .home .cover {
   width: 100%; }
@@ -485,3 +485,66 @@ img {
     background-color: unset;
     color: #936c46;
     transition: 0.3s; }
+
+.package .box {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #fff; }
+  .package .box .btn_search {
+    padding: 1rem 3rem;
+    background-color: #936c46;
+    border-radius: 50px;
+    color: #fff;
+    transition: 0.3s;
+    cursor: pointer; }
+    .package .box .btn_search:hover {
+      transform: scale(1.05);
+      transition: 0.3s; }
+
+.package .box_search {
+  border-radius: 10px;
+  background-color: #c0a88d;
+  display: flex; }
+  .package .box_search .image {
+    width: 40%;
+    height: 340px;
+    background-size: cover;
+    background-position: center; }
+  .package .box_search .detail {
+    width: 60%;
+    color: #fff;
+    padding: 1rem;
+    position: relative; }
+    .package .box_search .detail .box_bottom {
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      .package .box_search .detail .box_bottom .box_price h1 {
+        margin: 0; }
+      .package .box_search .detail .box_bottom .box_price p {
+        margin: 0;
+        text-decoration: line-through; }
+      .package .box_search .detail .box_bottom .btn_see_detail {
+        background-color: #FFAC12;
+        border-radius: 10px;
+        color: #fff;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        transition: .3s; }
+        .package .box_search .detail .box_bottom .btn_see_detail:hover {
+          transform: scale(1.1);
+          transition: .3s; }
+    .package .box_search .detail .sub p {
+      text-indent: 1.5em; }
+    .package .box_search .detail .total_activity p {
+      margin: 0;
+      text-indent: 2em; }
+    .package .box_search .detail h2 ss {
+      font-size: 1rem;
+      margin-left: 1rem; }

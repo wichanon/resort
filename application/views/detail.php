@@ -11,6 +11,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body>
+    <!-- <?php echo "<pre>";
+            print_r($activity);
+            echo "</pre>"; ?> -->
     <div class="container-fluid">
         <?php $this->load->view('_menu'); ?>
     </div>
@@ -39,9 +42,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div id="primary-slider" class="splide">
                                 <div class="splide__track">
                                     <ul class="splide__list">
-                                        <li class="splide__slide"><img src="<?= base_url() ?>../<?= $list['cover'] ?>" alt=""></li>
-                                        <li class="splide__slide"><img src="<?= base_url() ?>../<?= $list['cover'] ?>" alt=""></li>
-                                        <li class="splide__slide"><img src="<?= base_url() ?>../<?= $list['cover'] ?>" alt=""></li>
+                                        <?php foreach ($list['image_cover'] as $key => $value) { ?>
+                                            <li class="splide__slide"><img src="<?= base_url() ?>../<?= $value['image'] ?>" alt=""></li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -54,9 +57,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div id="secondary-slider" class="splide">
                                 <div class="splide__track">
                                     <ul class="splide__list">
-                                        <li class="splide__slide"><img src="<?= base_url() ?>../<?= $list['cover'] ?>" alt=""></li>
-                                        <li class="splide__slide"><img src="<?= base_url() ?>../<?= $list['cover'] ?>" alt=""></li>
-                                        <li class="splide__slide"><img src="<?= base_url() ?>../<?= $list['cover'] ?>" alt=""></li>
+                                        <?php foreach ($list['image_cover'] as $key => $value) { ?>
+                                            <li class="splide__slide"><img src="<?= base_url() ?>../<?= $value['image'] ?>" alt=""></li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -68,25 +71,61 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="box">
                             <div class="row">
                                 <div class="col">
-                                    <h2>Peemvana 10</h2>
-                                    <p>ห้องพักกว้างขวาง 2 หลังตั้งอยู่ริมแม่น้ำแควที่มีเสน่ห์ มีห้องนอน 3 ห้อง ห้องนั่งเล่นและสามารถสวนเขตร้อนอันเขียวชอุ่มในแบบส่วนตัว</p>
+                                    <h2><?= $list['house_id']['name'] ?></h2>
+                                    <p><?= $list['house_id']['detail'] ?></p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col p-0">
                                     <div class="box_home_service">
-                                        <div class="box_service">
-                                            <img src="<?= base_url() ?>../images/icons/services/wifi.png" alt="">
-                                            <p>Free Wifi</p>
-                                        </div>
-                                        <div class="box_service">
-                                            <img src="<?= base_url() ?>../images/icons/services/living.png" alt="">
-                                            <p>1 Living Room</p>
-                                        </div>
-                                        <div class="box_service">
-                                            <img src="<?= base_url() ?>../images/icons/services/minibar.png" alt="">
-                                            <p>Mini Bar</p>
-                                        </div>
+                                        <?php if ($list['house_id']['FreeWifi'] == '1') { ?>
+                                            <div class="box_service">
+                                                <img src="<?= base_url() ?>../images/icons/services/FreeWifi.png" alt="">
+                                                <p>Free Wifi</p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($list['house_id']['1LivingRoom'] == '1') { ?>
+                                            <div class="box_service">
+                                                <img src="<?= base_url() ?>../images/icons/services/1LivingRoom.png" alt="">
+                                                <p>1 Living Room</p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($list['house_id']['MiniBar'] == '1') { ?>
+                                            <div class="box_service">
+                                                <img src="<?= base_url() ?>../images/icons/services/MiniBar.png" alt="">
+                                                <p>Mini Bar</p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($list['house_id']['Pantry'] == '1') { ?>
+                                            <div class="box_service">
+                                                <img src="<?= base_url() ?>../images/icons/services/Pantry.png" alt="">
+                                                <p>Pantry</p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($list['house_id']['MicrowaveOvens'] == '1') { ?>
+                                            <div class="box_service">
+                                                <img src="<?= base_url() ?>../images/icons/services/MicrowaveOvens.png" alt="">
+                                                <p>Microwave Ovens</p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($list['house_id']['Television'] == '1') { ?>
+                                            <div class="box_service">
+                                                <img src="<?= base_url() ?>../images/icons/services/Television.png" alt="">
+                                                <p>Television</p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($list['house_id']['Hairdryer'] == '1') { ?>
+                                            <div class="box_service">
+                                                <img src="<?= base_url() ?>../images/icons/services/Hairdryer.png" alt="">
+                                                <p>Hair dryer</p>
+                                            </div>
+                                        <?php } ?>
+                                        <?php if ($list['house_id']['HotColdShower'] == '1') { ?>
+                                            <div class="box_service">
+                                                <img src="<?= base_url() ?>../images/icons/services/HotColdShower.png" alt="">
+                                                <p>Hot & Cold Shower</p>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -103,27 +142,60 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                             <div class="line"></div>
                             <div class="row my-4">
+                                <input type="text" hidden class="day_all" value="<?= $list['day_all'] ?>">
                                 <div class="col">
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col change_day" data_day="1">
                                             <h5>วันที่ 1</h5>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            07.00 น.
-                                        </div>
-                                        <div class="col">
-                                            รับประทานอาหารเช้า ที่ทาง รอยัล ริเวอร์แคว รีสอร์ท แอนด์ สปา จัดเตรียมไว้ให้
-                                        </div>
+                                    <div class="activity_group day_1">
+                                        <?php foreach ($activity['day1'] as $key => $value) { ?>
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <?= $value['time'] ?> น.
+                                                </div>
+                                                <div class="col">
+                                                    <?= $value['name'] ?>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            08.00 น.
-                                        </div>
-                                        <div class="col">
-                                            รับประทานอาหารเช้า
-                                        </div>
+                                    <div class="activity_group day_2" style="display: none;">
+                                        <?php foreach ($activity['day2'] as $key => $value) { ?>
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <?= $value['time'] ?> น.
+                                                </div>
+                                                <div class="col">
+                                                    <?= $value['name'] ?>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="activity_group day_3" style="display: none;">
+                                        <?php foreach ($activity['day3'] as $key => $value) { ?>
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <?= $value['time'] ?> น.
+                                                </div>
+                                                <div class="col">
+                                                    <?= $value['name'] ?>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="activity_group day_4" style="display: none;">
+                                        <?php foreach ($activity['day4'] as $key => $value) { ?>
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <?= $value['time'] ?> น.
+                                                </div>
+                                                <div class="col">
+                                                    <?= $value['name'] ?>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -146,10 +218,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 </div>
                                                 <div class="col-2">
                                                     <div class="btn_chenge">
-                                                        <div class="btn_day">
+                                                        <div class="btn_day back">
                                                             <img src="<?= base_url() ?>../images/icons/back.png" alt="">
                                                         </div>
-                                                        <div class="btn_day">
+                                                        <div class="btn_day next">
                                                             <img src="<?= base_url() ?>../images/icons/next.png" alt="">
                                                         </div>
                                                     </div>
@@ -330,7 +402,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
 </body>
 <script>
+    let day_all = '<?= $list['day_all'] ?>';
+    let sess = '<?= $sess ?>';
     $(document).ready(function() {
+        console.log(sess)
         var secondarySlider = new Splide('#secondary-slider', {
             rewind: true,
             fixedWidth: 100,
@@ -375,6 +450,33 @@ defined('BASEPATH') or exit('No direct script access allowed');
             focus: 'left',
         }).mount();
     });
+    $('.btn_day.next').click(function() {
+        let day = $('.change_day').attr('data_day')
+        $('.activity_group.day_' + day).css('display', 'none')
+        if (day <= day_all - 1) {
+            day++;
+        }
+        $('.change_day').attr('data_day', day)
+        $('.activity_group.day_' + day).fadeIn('fast')
+        $('.change_day h5').html('วันที่ ' + day)
+    })
+    $('.btn_day.back').click(function() {
+        let day = $('.change_day').attr('data_day')
+        $('.activity_group.day_' + day).css('display', 'none')
+        if (day >= 2) {
+            day--;
+        }
+        $('.activity_group.day_' + day).fadeIn('fast')
+        $('.change_day').attr('data_day', day)
+        $('.change_day h5').html('วันที่ ' + day)
+    })
+    $('.btn_checkin').click(function() {
+        if (sess == '' || session == null) {
+            $('.box.register').addClass('d-none')
+            $('.box.login').removeClass('d-none')
+            $('.bg_login').fadeIn('fast')
+        }
+    })
 </script>
 
 </html>

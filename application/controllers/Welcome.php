@@ -17,6 +17,22 @@ class Welcome extends CI_Controller
 	{
 		$data['list'] = $this->package_model->get_package_by_id($id);
 		$data['package'] = $this->package_model->get_all_package();
+		$data['activity']['day1'] = $this->package_model->get_activity_by_package($id,1);
+		$data['activity']['day2'] = $this->package_model->get_activity_by_package($id,2);
+		$data['activity']['day3'] = $this->package_model->get_activity_by_package($id,3);
+		$data['activity']['day4'] = $this->package_model->get_activity_by_package($id,4);
+		$data['list']['image_cover'] = $this->package_model->get_images_package($id);
+		$data['list']['house_id'] = $this->package_model->get_house($data['list']['house_id']);
+		$data['sess'] = '';
+		if(isset($_SESSION['lastname'])){
+			$data['sess'] = $_SESSION['lastname'];
+		}
+		//echo"<pre>";print_r($data);echo "</pre>";
 		$this->load->view('detail',$data);
+	}
+	public function package()
+	{
+		$data['package'] = $this->package_model->get_all_package();
+		$this->load->view('package',$data);
 	}
 }

@@ -28,12 +28,12 @@ img {
 		flex-flow: column;
 		align-items: center;
 		position: relative;
-		label{
-			font-size: .8rem;
+		label {
+			font-size: 0.8rem;
 			color: #ff6666;
 		}
-		span{
-			font-size: .7rem;
+		span {
+			font-size: 0.7rem;
 			color: #333;
 		}
 		.logo {
@@ -71,18 +71,17 @@ img {
 				text-decoration: underline;
 			}
 		}
-		.btn_close{
+		.btn_close {
 			width: 30px;
-			position:absolute;
+			position: absolute;
 			right: 10px;
 			top: 10px;
 			cursor: pointer;
 		}
-		&.register{
+		&.register {
 			width: 50%;
 		}
 	}
-	
 }
 .menu {
 	.bar {
@@ -153,26 +152,26 @@ img {
 				}
 			}
 		}
-		.box_user{
+		.box_user {
 			padding: 1rem;
 			background-color: #fff;
 			border-radius: 10px;
 			color: #c99446;
 		}
-		.logout{
+		.logout {
 			background-color: #ff6666;
-			padding: .4rem;
+			padding: 0.4rem;
 			display: flex;
 			align-items: center;
 			border-radius: 10px;
 			margin-left: 10px;
 			color: #fff;
 			cursor: pointer;
-			transition: .3s;
-			&:hover{
+			transition: 0.3s;
+			&:hover {
 				background-color: #fff;
 				color: #ff6666;
-				transition: .3s;
+				transition: 0.3s;
 			}
 		}
 	}
@@ -599,6 +598,92 @@ img {
 				background-color: unset;
 				color: #936c46;
 				transition: 0.3s;
+			}
+		}
+	}
+}
+.package {
+	.box {
+		padding: 1rem;
+		border-radius: 10px;
+		background-color: #fff;
+		.btn_search {
+			padding: 1rem 3rem;
+			background-color: #936c46;
+			border-radius: 50px;
+			color: #fff;
+			transition: 0.3s;
+			cursor: pointer;
+			&:hover {
+				transform: scale(1.05);
+				transition: 0.3s;
+			}
+		}
+	}
+	.box_search {
+		border-radius: 10px;
+		background-color: #c0a88d;
+		display: flex;
+		.image {
+			width: 40%;
+			height: 340px;
+			background-size: cover;
+			background-position: center;
+		}
+		.detail {
+			width: 60%;
+			color: #fff;
+			padding: 1rem;
+			position: relative;
+			.box_bottom {
+				width: 100%;
+				height: 100px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				padding: 1rem 3rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				.box_price {
+					h1 {
+						margin: 0;
+					}
+					p {
+						margin: 0;
+						text-decoration: line-through;
+					}
+				}
+				.btn_see_detail{
+					background-color: #FFAC12;
+					border-radius: 10px;
+					color: #fff;
+					padding: 1rem 2rem;
+					cursor: pointer;
+					transition: .3s;
+					&:hover{
+						transform: scale(1.1);
+						transition: .3s;
+					}
+				}
+			}
+
+			.sub {
+				p {
+					text-indent: 1.5em;
+				}
+			}
+			.total_activity {
+				p {
+					margin: 0;
+					text-indent: 2em;
+				}
+			}
+			h2 {
+				ss {
+					font-size: 1rem;
+					margin-left: 1rem;
+				}
 			}
 		}
 	}

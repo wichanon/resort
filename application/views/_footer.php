@@ -82,7 +82,7 @@
     </div>
 </div>
 <div class="bg_login" style="display:none">
-    <div class="box login">
+    <div class="box login ">
         <div class="logo">
             <img src="<?= base_url() ?>../images/logo.png" alt="">
         </div>
@@ -109,33 +109,33 @@
                 <div class="row">
                     <div class="col-6 mx-auto">
                         <span>* ภาษาอังกฤษเท่านั้น ไม่ต่ำกว่า 4 ตัวอักษร </span>
-                        <input type="text" class="form-control my-1 regis username" name="username" required placeholder="ํUsername">
+                        <input type="text" class="form-control my-1 regis username" name="username" value="" required placeholder="ํUsername">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <span>* ภาษาไทยเท่านั้น</span>
-                        <input type="text" class="form-control my-1 regis firstname" name="firstname" required placeholder="ชื่อจริง">
+                        <input type="text" class="form-control my-1 regis firstname" name="firstname" value="" required placeholder="ชื่อจริง">
                     </div>
                     <div class="col">
                         <span>* ภาษาไทยเท่านั้น</span>
-                        <input type="text" class="form-control my-1 regis lastname" name="lastname" required placeholder="นามสกุล">
+                        <input type="text" class="form-control my-1 regis lastname" name="lastname" value="" required placeholder="นามสกุล">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <span></span>
-                        <input type="text" class="form-control my-1 regis tel" title="เบอร์โทรศัพท์ต้องมี 10 ตัว" minlength="10" name="tel" required placeholder="เบอร์โทรศัพท์">
+                        <input type="text" class="form-control my-1 regis tel" title="เบอร์โทรศัพท์ต้องมี 10 ตัว" value="" minlength="10" name="tel" required placeholder="เบอร์โทรศัพท์">
                     </div>
                     <div class="col">
                         <span></span>
-                        <input type="text" class="form-control my-1 regis email" name="email" required placeholder="อีเมล์">
+                        <input type="text" class="form-control my-1 regis email" name="email" required value="" placeholder="อีเมล์">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6 mx-auto">
                         <span>* ไม่ต่ำกว่า 8 ตัวอักษร ห้ามมีสัญลักษณ์ </span>
-                        <input type="password" class="form-control my-1 regis password" title="รหัสผ่านต้องมีมากกว่าหรือเท่ากับ 8 ตัวอักษร" minlength="8" name="password" required placeholder="Password">
+                        <input type="password" class="form-control my-1 regis password" value="" title="รหัสผ่านต้องมีมากกว่าหรือเท่ากับ 8 ตัวอักษร" minlength="8" name="password" required placeholder="Password">
                     </div>
                 </div>
             </form>
@@ -153,6 +153,9 @@
 
 <script>
     let base_url = '<?= base_url() ?>';
+    
+    $("#form").validate()
+    $("#form_login").validate();
     $('.btn_login').click(function() {
         $('.box.register').addClass('d-none')
         $('.box.login').removeClass('d-none')
@@ -161,46 +164,44 @@
     $('.bg_login .btn_close').click(function() {
         $('.bg_login').fadeOut('fast')
     })
-    $("#form_login").validate();
     $('.btn_login.sent').click(function() {
         if ($('#form_login').valid()) {
-        $.ajax({
-                url: base_url + 'user/login',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    username: $('.username').val(),
-                    password: $('.password').val()
-                },
-            })
-            .done(function() {
-                console.log("success");
-            })
-            .fail(function() {
-                console.log("error");
-                Swal.fire(
-                    'เกิดข้อผิดพลาด !',
-                    'ตรวจสอบข้อมูลอีกครั้ง',
-                    'warning'
-                )
-            })
-            .always(function(data) {
-                console.log(data);
-                if (data == true) {
-                    $('.bg_login').fadeOut();
+            $.ajax({
+                    url: base_url + 'user/login',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        username: $('.username').val(),
+                        password: $('.password').val()
+                    },
+                })
+                .done(function() {
+                    console.log("success");
+                })
+                .fail(function() {
+                    console.log("error");
                     Swal.fire(
-                        'เข้าสู่ระบบสำเร็จ',
-                        'เก่งมาก',
-                        'success'
+                        'เกิดข้อผิดพลาด !',
+                        'ตรวจสอบข้อมูลอีกครั้ง',
+                        'warning'
                     )
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1000);
-                }
-            });
+                })
+                .always(function(data) {
+                    console.log(data);
+                    if (data == true) {
+                        $('.bg_login').fadeOut();
+                        Swal.fire(
+                            'เข้าสู่ระบบสำเร็จ',
+                            'เก่งมาก',
+                            'success'
+                        )
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    }
+                });
         }
     })
-    $("#form").validate();
     $('.btn_login.register_sent').click(function() {
         if ($('#form').valid()) {
             $.ajax({
