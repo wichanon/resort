@@ -195,7 +195,7 @@
                         $('.bg_login').fadeOut();
                         Swal.fire(
                             'เข้าสู่ระบบสำเร็จ',
-                            'เก่งมาก',
+                            '',
                             'success'
                         )
                         setTimeout(function() {
@@ -236,7 +236,7 @@
                     if (data == true) {
                         Swal.fire(
                             'สมัครสมาชิกสำเร็จ',
-                            'เก่งมาก',
+                            '',
                             'success'
                         )
                         $('.box.register').addClass('d-none')
@@ -277,7 +277,7 @@
                 if (data == true) {
                     Swal.fire(
                         'ออกจากระบบสำเร็จ',
-                        'เก่งมาก',
+                        '',
                         'success'
                     )
                     setTimeout(function() {
