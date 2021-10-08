@@ -17,7 +17,8 @@ class user extends CI_Controller
             'firstname' => $check['firstname'],
             'lastname' => $check['lastname'],
             'tel'=>$check['tel'],
-            'email'=>$check['email']
+            'email'=>$check['email'],
+            'id'=>$check['id']
         );
         $this->session->set_userdata($newdata);
         echo 'true';

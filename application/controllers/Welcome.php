@@ -24,10 +24,11 @@ class Welcome extends CI_Controller
 		$data['list']['image_cover'] = $this->package_model->get_images_package($id);
 		$data['list']['house_id'] = $this->package_model->get_house($data['list']['house_id']);
 		$data['sess'] = '';
+		
+		//echo"<pre>";print_r($_SESSION);echo "</pre>";
 		if(isset($_SESSION['lastname'])){
-			$data['sess'] = $_SESSION['lastname'];
+			$data['sess'] = $_SESSION['id'];
 		}
-		//echo"<pre>";print_r($data);echo "</pre>";
 		$this->load->view('detail',$data);
 	}
 	public function package()

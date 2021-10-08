@@ -404,8 +404,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script>
     let day_all = '<?= $list['day_all'] ?>';
     let sess = '<?= $sess ?>';
+    let pagkage_id = '<?= $list['id'] ?>'
     $(document).ready(function() {
-        console.log(sess)
+        console.log(pagkage_id)
         var secondarySlider = new Splide('#secondary-slider', {
             rewind: true,
             fixedWidth: 100,
@@ -471,10 +472,48 @@ defined('BASEPATH') or exit('No direct script access allowed');
         $('.change_day h5').html('วันที่ ' + day)
     })
     $('.btn_checkin').click(function() {
-        if (sess == '' || session == null) {
+        if (sess == '' || sess == null) {
             $('.box.register').addClass('d-none')
             $('.box.login').removeClass('d-none')
             $('.bg_login').fadeIn('fast')
+        } else {
+            console.log(sess)
+            $.ajax({
+                    url: base_url + 'package/booking',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        name: $('.checkin .name').val(),
+                        tel: $('.checkin .tel').val(),
+                        email: $('.checkin .email').val(),
+                        member_id: sess,
+                        package_id: pagkage_id,
+                        checkin: $('.checkin .date_checkin').val()
+                    },
+                })
+                .done(function() {
+                    console.log("success");
+                })
+                .fail(function() {
+                    console.log("error");
+                    Swal.fire(
+                        'เกิดข้อผิดพลาด !',
+                        'ตรวจสอบข้อมูลอีกครั้ง',
+                        'warning'
+                    )
+                })
+                .always(function(data) {
+                    if (data == true) {
+                        Swal.fire(
+                            'จองแพ็คเกจสำเร็จ',
+                            'เก่งมาก',
+                            'success'
+                        )
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    }
+                });
         }
     })
 </script>

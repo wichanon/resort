@@ -80,4 +80,21 @@ class package_model extends CI_model
         }
         return $output;
     }
+    public function booking($data)
+    {
+        $data_insert = array(
+            'member_id' => $data['member_id'],
+            'package_id' => $data['package_id'],
+            'name_booking' => $data['name'],
+            'tel_booking' => $data['tel'],
+            'email_booking' => $data['email'],
+            'checkin' => $data['checkin']
+        );
+        $check = $this->db->insert('booking', $data_insert);
+        if ($check == true) {
+            echo "true";
+        } else {
+            echo "false";
+        }
+    }
 }
