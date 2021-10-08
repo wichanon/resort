@@ -49,8 +49,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="col">
                             <span>จำนวนผู้ใหญ่</span>
                             <select name="" id="" class="form-select total_adult">
-                                <option value="">ไม่ระบุ</option>
-                                <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -64,9 +62,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </select>
                         </div>
                         <div class="col">
-                            <span>จำนวนเด็ก</span>
+                            <span>จำนวนเด็ก <sss style="font-size: .6rem;">*อายุต่ำกว่า 13ปี</sss></span>
                             <select name="" id="" class="form-select total_kid">
-                                <option value="">ไม่ระบุ</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
