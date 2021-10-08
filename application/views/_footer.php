@@ -88,8 +88,8 @@
         </div>
         <div class="box_input mt-4">
             <form id="form_login">
-                <input type="text" class="form-control my-1 username" required name="username" placeholder="ํUsername">
-                <input type="password" class="form-control my-1 password" required name="password" placeholder="Password">
+                <input type="text" class="form-control my-1 username" required name="username_login" placeholder="ํUsername">
+                <input type="password" class="form-control my-1 password" required name="password_login" placeholder="Password">
             </form>
         </div>
         <div class="btn btn_login sent mt-4">เข้าสู่ระบบ</div>
@@ -105,37 +105,37 @@
             <img src="<?= base_url() ?>../images/logo.png" alt="">
         </div>
         <div class="box_input mt-4">
-            <form id="form">
+            <form id="form_regis">
                 <div class="row">
                     <div class="col-6 mx-auto">
                         <span>* ภาษาอังกฤษเท่านั้น ไม่ต่ำกว่า 4 ตัวอักษร </span>
-                        <input type="text" class="form-control my-1 regis username" name="username" value="" required placeholder="ํUsername">
+                        <input type="text" class="form-control my-1 regis username" required name="username" value=""  placeholder="ํUsername">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <span>* ภาษาไทยเท่านั้น</span>
-                        <input type="text" class="form-control my-1 regis firstname" name="firstname" value="" required placeholder="ชื่อจริง">
+                        <input type="text" class="form-control my-1 regis firstname" required name="firstname" value=""  placeholder="ชื่อจริง">
                     </div>
                     <div class="col">
                         <span>* ภาษาไทยเท่านั้น</span>
-                        <input type="text" class="form-control my-1 regis lastname" name="lastname" value="" required placeholder="นามสกุล">
+                        <input type="text" class="form-control my-1 regis lastname" required name="lastname" value=""  placeholder="นามสกุล">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <span></span>
-                        <input type="text" class="form-control my-1 regis tel" title="เบอร์โทรศัพท์ต้องมี 10 ตัว" value="" minlength="10" name="tel" required placeholder="เบอร์โทรศัพท์">
+                        <input type="text" class="form-control my-1 regis tel" title="เบอร์โทรศัพท์ต้องมี 10 ตัว" required value="" minlength="10" name="tel" placeholder="เบอร์โทรศัพท์">
                     </div>
                     <div class="col">
                         <span></span>
-                        <input type="text" class="form-control my-1 regis email" name="email" required value="" placeholder="อีเมล์">
+                        <input type="text" class="form-control my-1 regis email" required name="email" value="" placeholder="อีเมล์">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6 mx-auto">
                         <span>* ไม่ต่ำกว่า 8 ตัวอักษร ห้ามมีสัญลักษณ์ </span>
-                        <input type="password" class="form-control my-1 regis password" value="" title="รหัสผ่านต้องมีมากกว่าหรือเท่ากับ 8 ตัวอักษร" minlength="8" name="password" required placeholder="Password">
+                        <input type="password" class="form-control my-1 regis password" required value="" title="รหัสผ่านต้องมีมากกว่าหรือเท่ากับ 8 ตัวอักษร" minlength="8" name="password" placeholder="Password">
                     </div>
                 </div>
             </form>
@@ -153,10 +153,11 @@
 
 <script>
     let base_url = '<?= base_url() ?>';
-    
-    $("#form").validate()
-    $("#form_login").validate();
-    $('.btn_login').click(function() {
+    $(function() {
+        $("#form_regis").validate()
+        $("#form_login").validate();
+    });
+    $('.user .btn_login').click(function() {
         $('.box.register').addClass('d-none')
         $('.box.login').removeClass('d-none')
         $('.bg_login').fadeIn('fast')
@@ -203,7 +204,7 @@
         }
     })
     $('.btn_login.register_sent').click(function() {
-        if ($('#form').valid()) {
+        if ($('#form_regis').valid()) {
             $.ajax({
                     url: base_url + 'user/register',
                     type: 'post',
