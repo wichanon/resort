@@ -505,7 +505,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     if (data == true) {
                         Swal.fire(
                             'จองแพ็คเกจสำเร็จ',
-                            'เก่งมาก',
+                            'กรุณาเช็คอีเมลเพื่อชำระค่าใช้จ่าย',
                             'success'
                         )
                         setTimeout(function() {
