@@ -205,7 +205,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <div class="row">
                                         <div class="col">
                                             <div class="row">
-                                                <div class="col-3"></div>
                                                 <div class="col">
                                                     <div class="config">
                                                         <div class="circle red"></div>
