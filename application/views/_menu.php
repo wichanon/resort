@@ -7,7 +7,7 @@
     <div class="col p-0">
         <div class="bar">
             <div class="logo">
-                <img src="" alt="">
+                <img src="<?= base_url() ?>../images/logo.png" alt="">
             </div>
             <div class="list_menu">
                 <div class="menu">

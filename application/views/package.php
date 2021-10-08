@@ -21,30 +21,36 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="row">
                         <div class="col">
                             <span>ค้นหาแพ็คเกจที่ต้องการ</span>
-                            <input type="text" class="form-control keyword">
+                            <input type="text" class="form-control keyword" placeholder="แพ็คเกจ 1">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <span>วันที่เข้าพัก</span>
+                            <input type="date" class="form-control" name="" id="">
+                        </div>
+                        <div class="col">
+                            <span>วันที่ออกจากที่พัก</span>
+                            <input type="date" class="form-control" name="" id="">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col">
                             <span>จำนวนคน</span>
                             <select name="" id="" class="form-select total_menber">
-                                <option value="">ทั้งหมด</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
+                                <option value="5" data-min='1'>1-5</option>
+                                <option value="10" data-min='6'>6-10</option>
+                                <option value="15" data-min='11'>11-15</option>
+                                <option value="20" data-min='16'>16-20</option>
+                                <option value="25" data-min='21'>21-25</option>
+                                <option value="30" data-min='26'>26-30</option>
                             </select>
                         </div>
                         <div class="col">
                             <span>จำนวนผู้ใหญ่</span>
                             <select name="" id="" class="form-select total_adult">
-                                <option value="">ทั้งหมด</option>
+                                <option value="">ไม่ระบุ</option>
+                                <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -60,7 +66,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="col">
                             <span>จำนวนเด็ก</span>
                             <select name="" id="" class="form-select total_kid">
-                                <option value="">ทั้งหมด</option>
+                                <option value="">ไม่ระบุ</option>
+                                <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -192,6 +199,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     });
 
     $('.btn_search').click(function() {
+        let min = $('.total_menber option:selected').attr('data-min');
+        console.log(min)
         $.ajax({
                 url: base_url + 'package/search_package',
                 type: 'post',
@@ -199,6 +208,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 data: {
                     keyword: $('.keyword').val(),
                     total_member: $('.total_menber').val(),
+                    total_min: min,
                     total_adult: $('.total_adult').val(),
                     total_kid: $('.total_kid').val()
                 },
@@ -219,7 +229,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $('.list_search').empty()
                 console.log(list)
                 $(list).each(function(key, e) {
-                    $('.list_search').append('<div class="box_search my-4"><div class="image" style="background-image: url(<?= base_url() ?>../' + list[key].cover + ');"></div><div class="detail"><div class="title"><h2>' + list[key].name + '<ss>' + list[key].type + '</ss></h2></div><div class="sub"><p>' + list[key].detail + '</p></div><div class="sub_2"><div class="total_activity"> <p>10 กิจกรรม (รวมทั้ง ' + list[key].type + ') </p><p>บ้านพัก ' + list[key].house_id['name'] + '</p><p>' + list[key].total_adult + ' ผู้ใหญ่</p><p>' + list[key].total_kid + ' เด็ก</p></div></div><div class="box_bottom"><div class="box_price"><p>' + addCommas(list[key].price_full) + '</p><h2>' + addCommas(list[key].price) + ' บาท</h2></div><a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/'+list[key].id+'"><div class="btn_see_detail">ดูรายละเอียด</div></a></div></div></div>')
+                    $('.list_search').append('<div class="box_search my-4"><div class="image" style="background-image: url(<?= base_url() ?>../' + list[key].cover + ');"></div><div class="detail"><div class="title"><h2>' + list[key].name + '<ss>' + list[key].type + '</ss></h2></div><div class="sub"><p>' + list[key].detail + '</p></div><div class="sub_2"><div class="total_activity"> <p>10 กิจกรรม (รวมทั้ง ' + list[key].type + ') </p><p>บ้านพัก ' + list[key].house_id['name'] + '</p><p>' + list[key].total_adult + ' ผู้ใหญ่</p><p>' + list[key].total_kid + ' เด็ก</p></div></div><div class="box_bottom"><div class="box_price"><p>' + addCommas(list[key].price_full) + '</p><h2>' + addCommas(list[key].price) + ' บาท</h2></div><a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/' + list[key].id + '"><div class="btn_see_detail">ดูรายละเอียด</div></a></div></div></div>')
                 })
             });
     })

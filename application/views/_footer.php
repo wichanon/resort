@@ -3,7 +3,9 @@
         <div class="box">
             <div class="row">
                 <div class="col">
-                    <div class="logo"></div>
+                    <div class="logo">
+                        <img src="<?= base_url() ?>../images/logo.png" alt="">
+                    </div>
                     <div class="social">
                         <div class="icon">
                             <img src="<?= base_url() ?>../images/icons/facebook.png" alt="">
@@ -109,17 +111,17 @@
                 <div class="row">
                     <div class="col-6 mx-auto">
                         <span>* ภาษาอังกฤษเท่านั้น ไม่ต่ำกว่า 4 ตัวอักษร </span>
-                        <input type="text" class="form-control my-1 regis username" required name="username" value=""  placeholder="ํUsername">
+                        <input type="text" class="form-control my-1 regis username" required name="username" value="" placeholder="ํUsername">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <span>* ภาษาไทยเท่านั้น</span>
-                        <input type="text" class="form-control my-1 regis firstname" required name="firstname" value=""  placeholder="ชื่อจริง">
+                        <input type="text" class="form-control my-1 regis firstname" required name="firstname" value="" placeholder="ชื่อจริง">
                     </div>
                     <div class="col">
                         <span>* ภาษาไทยเท่านั้น</span>
-                        <input type="text" class="form-control my-1 regis lastname" required name="lastname" value=""  placeholder="นามสกุล">
+                        <input type="text" class="form-control my-1 regis lastname" required name="lastname" value="" placeholder="นามสกุล">
                     </div>
                 </div>
                 <div class="row">
