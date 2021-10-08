@@ -510,7 +510,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         )
                         setTimeout(function() {
                             location.reload();
-                        }, 1000);
+                        }, 3000);
                     }
                 });
         }
