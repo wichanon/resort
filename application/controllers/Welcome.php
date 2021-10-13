@@ -13,7 +13,7 @@ class Welcome extends CI_Controller
 		$data['list'] = $this->package_model->get_all_package();
 		$this->load->view('home',$data);
 	}
-	public function detail($id)
+	public function detail($id,$date_start = 0,$date_end = 0)
 	{
 		$data['list'] = $this->package_model->get_package_by_id($id);
 		$data['package'] = $this->package_model->get_all_package();
@@ -24,6 +24,8 @@ class Welcome extends CI_Controller
 		$data['list']['image_cover'] = $this->package_model->get_images_package($id);
 		$data['list']['house_id'] = $this->package_model->get_house($data['list']['house_id']);
 		$data['sess'] = '';
+		$data['date_start']=$date_start;
+		$data['date_end']=$date_end;
 		
 		//echo"<pre>";print_r($_SESSION);echo "</pre>";
 		if(isset($_SESSION['lastname'])){

@@ -27,11 +27,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="row mt-3">
                         <div class="col">
                             <span>วันที่เข้าพัก</span>
-                            <input type="date" class="form-control" name="" id="">
+                            <input class="form-control start_date" name="" id="">
                         </div>
                         <div class="col">
                             <span>วันที่ออกจากที่พัก</span>
-                            <input type="date" class="form-control" name="" id="">
+                            <input class="form-control end_date" name="" id="">
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -193,11 +193,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
             perMove: 1,
             focus: 'left',
         }).mount();
+        $('.start_date').datepicker({
+            format: 'dd-mm-yyyy',
+        })
+        $('.start_date').datepicker("setDate", new Date());
+        $('.end_date').datepicker({
+            format: 'dd-mm-yyyy',
+        })
+        $('.end_date').datepicker("setDate", new Date());
     });
 
     $('.btn_search').click(function() {
         let min = $('.total_menber option:selected').attr('data-min');
         console.log(min)
+        let start_date = $('.start_date').val()
+        let end_date = $('.end_date').val()
         $.ajax({
                 url: base_url + 'package/search_package',
                 type: 'post',
@@ -226,7 +236,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $('.list_search').empty()
                 console.log(list)
                 $(list).each(function(key, e) {
-                    $('.list_search').append('<div class="box_search my-4"><div class="image" style="background-image: url(<?= base_url() ?>../' + list[key].cover + ');"></div><div class="detail"><div class="title"><h2>' + list[key].name + '<ss>' + list[key].type + '</ss></h2></div><div class="sub"><p>' + list[key].detail + '</p></div><div class="sub_2"><div class="total_activity"> <p>10 กิจกรรม (รวมทั้ง ' + list[key].type + ') </p><p>บ้านพัก ' + list[key].house_id['name'] + '</p><p>' + list[key].total_adult + ' ผู้ใหญ่</p><p>' + list[key].total_kid + ' เด็ก</p></div></div><div class="box_bottom"><div class="box_price"><p>' + addCommas(list[key].price_full) + '</p><h2>' + addCommas(list[key].price) + ' บาท</h2></div><a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/' + list[key].id + '"><div class="btn_see_detail">ดูรายละเอียด</div></a></div></div></div>')
+                    $('.list_search').append('<div class="box_search my-4"><div class="image" style="background-image: url(<?= base_url() ?>../' + list[key].cover + ');"></div><div class="detail"><div class="title"><h2>' + list[key].name + '<ss>' + list[key].type + '</ss></h2></div><div class="sub"><p>' + list[key].detail + '</p></div><div class="sub_2"><div class="total_activity"> <p>10 กิจกรรม (รวมทั้ง ' + list[key].type + ') </p><p>บ้านพัก ' + list[key].house_id['name'] + '</p><p>' + list[key].total_adult + ' ผู้ใหญ่</p><p>' + list[key].total_kid + ' เด็ก</p></div></div><div class="box_bottom"><div class="box_price"><p>' + addCommas(list[key].price_full) + '</p><h2>' + addCommas(list[key].price) + ' บาท</h2></div><a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/' + list[key].id + '/'+start_date+'/'+end_date+'"><div class="btn_see_detail">ดูรายละเอียด</div></a></div></div></div>')
                 })
             });
     })

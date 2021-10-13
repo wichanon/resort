@@ -156,7 +156,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <?= $value['time'] ?> น.
                                                 </div>
                                                 <div class="col">
-                                                    <?= $value['name'] ?>
+                                                    <?php if ($value['canchange'] == 1) { ?>
+                                                        <color style="color:#669AFF"><?= $value['name'] ?></color>
+                                                    <?php } else { ?>
+                                                        <color style=""><?= $value['name'] ?></color>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -168,7 +172,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <?= $value['time'] ?> น.
                                                 </div>
                                                 <div class="col">
-                                                    <?= $value['name'] ?>
+                                                    <?php if ($value['canchange'] == 1) { ?>
+                                                        <color style="color:#669AFF"><?= $value['name'] ?></color>
+                                                    <?php } else { ?>
+                                                        <color style=""><?= $value['name'] ?></color>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -180,7 +188,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <?= $value['time'] ?> น.
                                                 </div>
                                                 <div class="col">
-                                                    <?= $value['name'] ?>
+                                                    <?php if ($value['canchange'] == 1) { ?>
+                                                        <color style="color:#669AFF"><?= $value['name'] ?></color>
+                                                    <?php } else { ?>
+                                                        <color style=""><?= $value['name'] ?></color>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -192,7 +204,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <?= $value['time'] ?> น.
                                                 </div>
                                                 <div class="col">
-                                                    <?= $value['name'] ?>
+                                                    <?php if ($value['canchange'] == 1) { ?>
+                                                        <color style="color:#669AFF"><?= $value['name'] ?></color>
+                                                    <?php } else { ?>
+                                                        <color style=""><?= $value['name'] ?></color>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -293,7 +309,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="col-4 checkin">
                 <div class="box">
                     <span>วันที่เข้าใช้บริการ</span>
-                    <input type="date" class="form-control date_checkin my-1">
+                    <input class="form-control date_checkin my-1">
                     <input type="text" class="form-control name my-2" placeholder="ชื่อ-นามสกุล">
                     <input type="text" class="form-control tel my-2" placeholder="เบอร์โทรศัพท์">
                     <input type="text" class="form-control email my-2" placeholder="อีเมล์">
@@ -399,13 +415,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="container-fluid mt-5">
         <?php $this->load->view('_footer') ?>
     </div>
+
 </body>
 <script>
     let day_all = '<?= $list['day_all'] ?>';
     let sess = '<?= $sess ?>';
-    let pagkage_id = '<?= $list['id'] ?>'
+    let pagkage_id = '<?= $list['id'] ?>';
+    let date_start = '<?= $date_start ?>';
+    let date_end = '<?= $date_end ?>';
     $(document).ready(function() {
-        console.log(pagkage_id)
+        $('.date_checkin').datepicker({
+            format: 'dd-mm-yyyy',
+        })
+        $('.date_checkin').datepicker("setDate", date_start);
+        console.log(date_start)
         var secondarySlider = new Splide('#secondary-slider', {
             rewind: true,
             fixedWidth: 100,
