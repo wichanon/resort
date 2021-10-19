@@ -31,6 +31,18 @@ class package_model extends CI_model
         $data = $this->db->get('activity');
         if ($data->num_rows() > 0) {
             $output = $data->result_array();
+            foreach ($output as $key => $value) {
+                if ($value['canchange'] == 1) {
+                    $output2 = [];
+                    $this->db->where('activity_id', $value['id']);
+                    $data = $this->db->get('activity_change');
+                    if ($data->num_rows() > 0) {
+                        $output2 = $data->result_array();
+                        $output[$key]['activity_change'] = $output2;
+                        //echo"<pre>";print_r($output);echo "</pre>";
+                    }
+                }
+            }
         }
         return $output;
     }
@@ -62,7 +74,7 @@ class package_model extends CI_model
         $total_adult = '';
         $total_kid = '';
         if ($data['total_member'] != '') {
-            $total_member = ' AND total_member <=' . $data['total_member'].' AND total_member >='. $data['total_min'];
+            $total_member = ' AND total_member <=' . $data['total_member'] . ' AND total_member >=' . $data['total_min'];
         }
         if ($data['total_adult'] != '') {
             $total_adult = ' AND total_adult =' . $data['total_adult'];
@@ -96,5 +108,15 @@ class package_model extends CI_model
         } else {
             echo "false";
         }
+    }
+    public function get_activity_change($data)
+    {
+        $output = [];
+        $this->db->where('activity_id', $data);
+        $data = $this->db->get('activity_change');
+        if ($data->num_rows() > 0) {
+            $output = $data->result_array();
+        }
+        return $output;
     }
 }

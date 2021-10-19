@@ -430,8 +430,7 @@ img {
   width: 150px;
   background-color: #ece2d2;
   border-radius: 10px;
-  padding: 1rem;
-  overflow: hidden; }
+  padding: 1rem; }
   .detail .activity_change .box_activity .image {
     width: 100%;
     height: 110px;
@@ -457,11 +456,26 @@ img {
   display: flex; }
   .detail .activity_change .activty_cha .box_activity {
     margin: 0 0.5rem;
-    background-color: #c0a88d; }
+    background-color: #c0a88d;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s; }
+    .detail .activity_change .activty_cha .box_activity:hover {
+      transform: scale(1.05);
+      transition: .3s; }
     .detail .activity_change .activty_cha .box_activity .title p {
       color: #fff; }
-    .detail .activity_change .activty_cha .box_activity .tools img {
-      width: 20%; }
+    .detail .activity_change .activty_cha .box_activity .tools {
+      position: absolute;
+      bottom: -2rem;
+      width: 110px;
+      display: flex;
+      justify-content: center; }
+      .detail .activity_change .activty_cha .box_activity .tools img {
+        width: 20%; }
 
 .detail .checkin input {
   height: 50px; }
@@ -532,15 +546,15 @@ img {
         margin: 0;
         text-decoration: line-through; }
       .package .box_search .detail .box_bottom .btn_see_detail {
-        background-color: #FFAC12;
+        background-color: #ffac12;
         border-radius: 10px;
         color: #fff;
         padding: 1rem 2rem;
         cursor: pointer;
-        transition: .3s; }
+        transition: 0.3s; }
         .package .box_search .detail .box_bottom .btn_see_detail:hover {
           transform: scale(1.1);
-          transition: .3s; }
+          transition: 0.3s; }
     .package .box_search .detail .sub p {
       text-indent: 1.5em; }
     .package .box_search .detail .total_activity p {

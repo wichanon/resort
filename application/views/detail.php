@@ -266,39 +266,143 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-3">
-                                            <div class="box_activity">
-                                                <div class="image"></div>
-                                                <div class="title">
-                                                    <p>ปั่นจักรยาน</p>
-                                                </div>
-                                                <div class="tools">
-                                                    <p>กิจกรรมเดิม</p>
-                                                </div>
-                                            </div>
+                                        <div class="activity_change d-flex day_1">
+                                            <?php foreach ($activity['day1'] as $key => $value) {
+                                                if ($value['canchange'] == 1) { ?>
+                                                    <div class="col-3">
+                                                        <div class="box_activity df">
+                                                            <div class="image"></div>
+                                                            <div class="title">
+                                                                <p><?=$value['name']?></p>
+                                                            </div>
+                                                            <div class="tools">
+                                                                <p>กิจกรรมเดิม</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="activty_cha">
+                                                            <?php
+                                                            foreach ($value['activity_change'] as $k => $v) {?>
+                                                            <div class="box_activity change">
+                                                                <div class="image"></div>
+                                                                <div class="title">
+                                                                    <p><?=$v['name']?><br>+<?=$v['price']?> บาท</p>
+                                                                </div>
+                                                                <div class="tools">
+                                                                    <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <?php }?>
+                                                        </div>
+                                                    </div>
+
+                                            <?php }
+                                            } ?>
                                         </div>
-                                        <div class="col">
-                                            <div class="activty_cha">
-                                                <div class="box_activity">
-                                                    <div class="image"></div>
-                                                    <div class="title">
-                                                        <p>รถบักกี้ <br>+1600 : 1 ชั่วโมง </p>
+                                        <div class="activity_change d-flex day_2 d-none">
+                                            <?php foreach ($activity['day2'] as $key => $value) {
+                                                if ($value['canchange'] == 1) { ?>
+                                                    <div class="col-3">
+                                                        <div class="box_activity df">
+                                                            <div class="image"></div>
+                                                            <div class="title">
+                                                                <p><?=$value['name']?></p>
+                                                            </div>
+                                                            <div class="tools">
+                                                                <p>กิจกรรมเดิม</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="tools">
-                                                        <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                    <div class="col">
+                                                        <div class="activty_cha">
+                                                            <?php
+                                                            foreach ($value['activity_change'] as $k => $v) {?>
+                                                            <div class="box_activity change">
+                                                                <div class="image"></div>
+                                                                <div class="title">
+                                                                    <p><?=$v['name']?><br>+<?=$v['price']?> บาท</p>
+                                                                </div>
+                                                                <div class="tools">
+                                                                    <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <?php }?>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="box_activity">
-                                                    <div class="image"></div>
-                                                    <div class="title">
-                                                        <p>ปั่นจักรยาน</p>
-                                                    </div>
-                                                    <div class="tools">
-                                                        <img src="<?= base_url() ?>../images/icons/re.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
+
+                                            <?php }
+                                            } ?>
                                         </div>
+                                        <div class="activity_change d-flex day_3 d-none">
+                                            <?php foreach ($activity['day3'] as $key => $value) {
+                                                if ($value['canchange'] == 1) { ?>
+                                                    <div class="col-3">
+                                                        <div class="box_activity df">
+                                                            <div class="image"></div>
+                                                            <div class="title">
+                                                                <p><?=$value['name']?></p>
+                                                            </div>
+                                                            <div class="tools">
+                                                                <p>กิจกรรมเดิม</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="activty_cha">
+                                                            <?php
+                                                            foreach ($value['activity_change'] as $k => $v) {?>
+                                                            <div class="box_activity change">
+                                                                <div class="image"></div>
+                                                                <div class="title">
+                                                                    <p><?=$v['name']?><br>+<?=$v['price']?> บาท</p>
+                                                                </div>
+                                                                <div class="tools">
+                                                                    <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <?php }?>
+                                                        </div>
+                                                    </div>
+
+                                            <?php }
+                                            } ?>
+                                        </div>
+                                        <div class="activity_change d-flex day_4 d-none">
+                                            <?php foreach ($activity['day4'] as $key => $value) {
+                                                if ($value['canchange'] == 1) { ?>
+                                                    <div class="col-3">
+                                                        <div class="box_activity df">
+                                                            <div class="image"></div>
+                                                            <div class="title">
+                                                                <p><?=$value['name']?></p>
+                                                            </div>
+                                                            <div class="tools">
+                                                                <p>กิจกรรมเดิม</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="activty_cha">
+                                                            <?php
+                                                            foreach ($value['activity_change'] as $k => $v) {?>
+                                                            <div class="box_activity change">
+                                                                <div class="image"></div>
+                                                                <div class="title">
+                                                                    <p><?=$v['name']?><br>+<?=$v['price']?> บาท</p>
+                                                                </div>
+                                                                <div class="tools">
+                                                                    <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <?php }?>
+                                                        </div>
+                                                    </div>
+
+                                            <?php }
+                                            } ?>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -476,21 +580,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
     $('.btn_day.next').click(function() {
         let day = $('.change_day').attr('data_day')
         $('.activity_group.day_' + day).css('display', 'none')
+        $('.activity_change.day_'+ day).addClass('d-none')
         if (day <= day_all - 1) {
             day++;
         }
         $('.change_day').attr('data_day', day)
         $('.activity_group.day_' + day).fadeIn('fast')
+        $('.activity_change.day_' + day).removeClass('d-none')
         $('.change_day h5').html('วันที่ ' + day)
     })
     $('.btn_day.back').click(function() {
         let day = $('.change_day').attr('data_day')
         $('.activity_group.day_' + day).css('display', 'none')
+        $('.activity_change.day_'+ day).addClass('d-none')
         if (day >= 2) {
             day--;
         }
         $('.activity_group.day_' + day).fadeIn('fast')
         $('.change_day').attr('data_day', day)
+        $('.activity_change.day_' + day).removeClass('d-none')
         $('.change_day h5').html('วันที่ ' + day)
     })
     $('.btn_checkin').click(function() {
