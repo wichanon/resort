@@ -398,6 +398,12 @@ img {
       width: 200%;
       text-align: center; }
 
+.detail .activity blue {
+  color: #669AFF; }
+
+.detail .activity red {
+  color: #ff6666; }
+
 .detail .activity .line {
   border-top: 1px solid #ccc; }
 
@@ -462,10 +468,10 @@ img {
     flex-flow: column;
     align-items: center;
     cursor: pointer;
-    transition: .3s; }
+    transition: 0.3s; }
     .detail .activity_change .activty_cha .box_activity:hover {
       transform: scale(1.05);
-      transition: .3s; }
+      transition: 0.3s; }
     .detail .activity_change .activty_cha .box_activity .title p {
       color: #fff; }
     .detail .activity_change .activty_cha .box_activity .tools {
@@ -477,29 +483,37 @@ img {
       .detail .activity_change .activty_cha .box_activity .tools img {
         width: 20%; }
 
-.detail .checkin input {
-  height: 50px; }
-
-.detail .checkin .detail_checkin {
-  background-color: #f5f5f5;
-  padding: 1rem;
-  border-radius: 10px; }
-
-.detail .checkin .btn_checkin {
-  margin-top: 1rem;
-  padding: 1.5rem;
-  background-color: #936c46;
-  border-top-right-radius: 30px;
-  color: #fff;
-  font-size: 1.2rem;
-  text-align: center;
-  transition: 0.3s;
-  cursor: pointer; }
-  .detail .checkin .btn_checkin:hover {
-    border: 1px solid #936c46;
-    background-color: unset;
-    color: #936c46;
-    transition: 0.3s; }
+.detail .checkin {
+  position: relative; }
+  .detail .checkin input {
+    height: 50px; }
+  .detail .checkin .box_check_me {
+    display: flex;
+    justify-content: flex-end; }
+    .detail .checkin .box_check_me span {
+      color: #535353; }
+    .detail .checkin .box_check_me .checkin_me {
+      width: 20px;
+      height: 20px; }
+  .detail .checkin .detail_checkin {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 10px; }
+  .detail .checkin .btn_checkin {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: #936c46;
+    border-top-right-radius: 30px;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer; }
+    .detail .checkin .btn_checkin:hover {
+      border: 1px solid #936c46;
+      background-color: unset;
+      color: #936c46;
+      transition: 0.3s; }
 
 .package .box {
   padding: 1rem;

@@ -30,6 +30,7 @@ class Welcome extends CI_Controller
 		//echo"<pre>";print_r($data['activity']);echo "</pre>";
 		if (isset($_SESSION['lastname'])) {
 			$data['sess'] = $_SESSION['id'];
+			$data['sess_user'] = json_encode($_SESSION);
 		}
 		$this->load->view('detail', $data);
 	}
