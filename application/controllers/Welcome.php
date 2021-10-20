@@ -24,6 +24,7 @@ class Welcome extends CI_Controller
 		$data['list']['image_cover'] = $this->package_model->get_images_package($id);
 		$data['list']['house_id'] = $this->package_model->get_house($data['list']['house_id']);
 		$data['sess'] = '';
+		$data['sess_user']= '';
 		$data['date_start'] = $date_start;
 		$data['date_end'] = $date_end;
 

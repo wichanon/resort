@@ -512,10 +512,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
     let pagkage_id = '<?= $list['id'] ?>';
     let date_start = '<?= $date_start ?>';
     let date_end = '<?= $date_end ?>';
-    let sess_user = '<?= $sess_user ?>';
+    let sess_user = '';
     $(document).ready(function() {
-        if (sess != '') {
-            sess_user = jQuery.parseJSON(sess_user);
+        console.log(sess)
+        if (sess != '' && sess != null) {
+            sess_user = jQuery.parseJSON('<?= $sess_user ?>');
         }
         $('.date_checkin').datepicker({
             format: 'dd-mm-yyyy',
@@ -637,17 +638,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
     })
     $('.checkin_me').change(function() {
         let status_check = $(this).is(":checked")
-        if (status_check) {
-            $('.checkin .name').val(sess_user.firstname + ' ' + sess_user.lastname)
-            $('.checkin .tel').val(sess_user.tel)
-            $('.checkin .email').val(sess_user.email)
-            $('.checkin .name ,.checkin .tel ,.checkin .email').attr('readonly', 'readonly')
-        } else {
-            $('.checkin .name').val('')
-            $('.checkin .tel').val('')
-            $('.checkin .email').val('')
-            $('.checkin .name ,.checkin .tel ,.checkin .email').removeAttr('readonly')
+        if (sess != '' || sess == null) {
+            if (status_check) {
+                $('.checkin .name').val(sess_user.firstname + ' ' + sess_user.lastname)
+                $('.checkin .tel').val(sess_user.tel)
+                $('.checkin .email').val(sess_user.email)
+                $('.checkin .name ,.checkin .tel ,.checkin .email').attr('readonly', 'readonly')
+            } else {
+                $('.checkin .name').val('')
+                $('.checkin .tel').val('')
+                $('.checkin .email').val('')
+                $('.checkin .name ,.checkin .tel ,.checkin .email').removeAttr('readonly')
+            }
         }
+
     })
 </script>
 
