@@ -77,10 +77,10 @@ class package_model extends CI_model
             $total_member = ' AND total_member <=' . $data['total_member'] . ' AND total_member >=' . $data['total_min'];
         }
         if ($data['total_adult'] != '') {
-            $total_adult = ' AND total_adult =' . $data['total_adult'];
+            $total_adult = ' AND total_adult >=' . $data['total_adult'];
         }
         if ($data['total_kid'] != '') {
-            $total_kid = ' AND total_kid =' . $data['total_kid'];
+            $total_kid = ' AND total_kid >=' . $data['total_kid'];
         }
 
         $data = $this->db->query('SELECT 

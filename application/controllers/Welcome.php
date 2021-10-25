@@ -11,10 +11,12 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		$data['list'] = $this->package_model->get_all_package();
+		$data['menu'] = 'home';
 		$this->load->view('home', $data);
 	}
 	public function detail($id, $date_start = 0, $date_end = 0)
 	{
+		$data['menu'] = 'package';
 		$data['list'] = $this->package_model->get_package_by_id($id);
 		$data['package'] = $this->package_model->get_all_package();
 		$data['activity']['day1'] = $this->package_model->get_activity_by_package($id, 1);
@@ -24,7 +26,7 @@ class Welcome extends CI_Controller
 		$data['list']['image_cover'] = $this->package_model->get_images_package($id);
 		$data['list']['house_id'] = $this->package_model->get_house($data['list']['house_id']);
 		$data['sess'] = '';
-		$data['sess_user']= '';
+		$data['sess_user'] = '';
 		$data['date_start'] = $date_start;
 		$data['date_end'] = $date_end;
 
@@ -37,7 +39,18 @@ class Welcome extends CI_Controller
 	}
 	public function package()
 	{
+		$data['menu'] = 'package';
 		$data['package'] = $this->package_model->get_all_package();
 		$this->load->view('package', $data);
+	}
+	public function contact()
+	{
+		$data['menu'] = 'contact';
+		$this->load->view('contact', $data);
+	}
+	public function review()
+	{
+		$data['menu'] = 'review';
+		$this->load->view('review', $data);
 	}
 }

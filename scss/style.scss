@@ -87,6 +87,7 @@ img {
 	a {
 		text-decoration: none;
 	}
+	
 	.bar {
 		width: 100%;
 		padding: 1rem;
@@ -110,6 +111,16 @@ img {
 					align-items: center;
 					cursor: pointer;
 					transition: 0.3s;
+					position: relative;
+					justify-content: center;
+					.active{
+						width: 9px;
+						height: 9px;
+						border-radius: 5px;
+						background-color: #FFAC12;
+						position: absolute;
+						bottom: 0px;
+					}
 					&:hover {
 						transform: scale(1.1);
 						transition: 0.3s;
@@ -184,7 +195,7 @@ img {
 	}
 	.text_title {
 		padding: 1rem 2rem;
-		background-color: #fff;
+		background-color: #f1f1f1;
 		margin-top: -3rem;
 		margin-right: 5rem;
 		text-align: center;
@@ -488,12 +499,15 @@ img {
 		}
 	}
 	.activity {
-		blue{
-			color: #669AFF;
+		.activity_group {
+			blue {
+				color: #669aff;
+			}
+			red {
+				color: #ff6666;
+			}
 		}
-		red{
-			color: #ff6666 ;
-		}
+
 		.line {
 			border-top: 1px solid #ccc;
 		}
@@ -536,6 +550,7 @@ img {
 			background-color: #ece2d2;
 			border-radius: 10px;
 			padding: 1rem;
+			position: relative;
 			.image {
 				width: 100%;
 				height: 110px;
@@ -561,6 +576,21 @@ img {
 					color: #936c46;
 				}
 			}
+			.box_detail {
+				position: absolute;
+				width: 300px;
+				background-color: rgba(0, 0, 0, 0.7);
+				padding: 1rem;
+				border-radius: 10px;
+				color: #fff;
+				z-index: 100;
+				text-align: left;
+				top: 0;
+				right: -310px;
+				.title {
+					text-align: left;
+				}
+			}
 		}
 		.activty_cha {
 			display: flex;
@@ -574,8 +604,9 @@ img {
 				cursor: pointer;
 				transition: 0.3s;
 				&:hover {
-					transform: scale(1.05);
+					transform: scale(1.02);
 					transition: 0.3s;
+					z-index: 100;
 				}
 				.title {
 					p {
@@ -603,7 +634,7 @@ img {
 		.box_check_me {
 			display: flex;
 			justify-content: flex-end;
-			span{
+			span {
 				color: #535353;
 			}
 			.checkin_me {
@@ -718,6 +749,157 @@ img {
 					font-size: 1rem;
 					margin-left: 1rem;
 				}
+			}
+		}
+	}
+}
+.contact{
+	.text{
+		color: #936C46;
+		padding: 0 2rem;
+		p{
+			font-size: 1.2rem;
+			margin: .5rem 0;
+		}
+	}
+	.map{
+		width: 100%;
+		height: 400px;
+	}
+	.contact_me{
+		color: #936C46;
+		background-color: #fff;
+		width: 100%;
+		padding: 2rem;
+		border-radius: 10px;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		.btn_sent{
+			padding: .5rem 2rem;
+			border-radius: 10px;
+			background-color: #C99446;
+			color: #fff;
+			cursor: pointer;
+			transition: .3s;
+			&:hover{
+				transform: scale(1.05);
+				transition: .3s;
+			}
+		}
+	}
+}
+.review{
+	.box_review{
+		.review_list{
+			padding: 2rem;
+			background-color: #ECE2D2;
+			border-radius: 10px;
+			box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+			display: flex;
+			.package{
+				width: 15%;
+				padding: 0;
+				.image{
+					width: 100%;
+					background-size: cover;
+					border-radius: 10px;
+					overflow: hidden;
+				}
+			}
+			.review_{
+				width: 85%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				span{
+					font-size: .8rem;
+					color: #C0A88D;
+				}
+				.text_review{
+					color: #936C46;
+				}
+				.box{
+					width: 65%;
+					padding: 1rem;
+					border-radius: 10px;
+					background-color: #fff;
+				}
+			}
+		}
+	}
+	.box{
+		padding: 0;
+	}
+	.detail {
+		padding: 1rem;
+		max-height: 90px;
+		overflow: hidden;
+		color: #936c46;
+		h3{
+			font-size: 1.4rem;
+		}
+		p{
+			font-size: .9rem;
+		}
+	}
+	.detail_2 {
+		width: 100%;
+		margin-top: 1rem;
+		display: flex;
+		.box1,
+		.box2,
+		.box3 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1rem;
+		}
+		.box1 {
+			width: 35%;
+			color: #936c46;
+			border-top: 1px solid #ccc;
+			h6 {
+				margin: 0;
+				font-size: .7rem;
+			}
+		}
+		.box2 {
+			width: 25%;
+			border-top: 1px solid #ccc;
+			border-left: 1px solid #ccc;
+			border-right: 1px solid #ccc;
+			padding: .1rem;
+		}
+		.box3 {
+			width: 40%;
+			padding: 0.3rem;
+			border-top: 1px solid #ccc;
+			flex-flow: column;
+			.price {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				.old {
+					color: #ccc;
+					display: flex;
+					align-items: flex-start;
+					font-size: 0.5rem;
+					margin: 0.1rem;
+					text-decoration: line-through;
+				}
+				.new {
+					font-size: 1rem;
+					display: flex;
+					align-items: flex-end;
+					margin: 0.1rem;
+					color: red;
+					last {
+						font-size: 0.5rem;
+					}
+				}
+			}
+			.start_pack {
+				font-size: 0.5rem;
+				text-align: left;
 			}
 		}
 	}

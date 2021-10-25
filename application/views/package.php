@@ -89,6 +89,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="row">
             <div class="col-10 mx-auto">
                 <div class="list_search">
+
                     <!-- <div class="box_search">
                         <div class="image" style="background-image: url(<?= base_url() ?>../images/mock/pack_1.png);"></div>
                         <div class="detail">
@@ -234,10 +235,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
             .always(function(data) {
                 let list = data.list;
                 $('.list_search').empty()
-                console.log(list)
-                $(list).each(function(key, e) {
-                    $('.list_search').append('<div class="box_search my-4"><div class="image" style="background-image: url(<?= base_url() ?>../' + list[key].cover + ');"></div><div class="detail"><div class="title"><h2>' + list[key].name + '<ss>' + list[key].type + '</ss></h2></div><div class="sub"><p>' + list[key].detail + '</p></div><div class="sub_2"><div class="total_activity"> <p>10 กิจกรรม (รวมทั้ง ' + list[key].type + ') </p><p>บ้านพัก ' + list[key].house_id['name'] + '</p><p>' + list[key].total_adult + ' ผู้ใหญ่</p><p>' + list[key].total_kid + ' เด็ก</p></div></div><div class="box_bottom"><div class="box_price"><p>' + addCommas(list[key].price_full) + '</p><h2>' + addCommas(list[key].price) + ' บาท</h2></div><a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/' + list[key].id + '/'+start_date+'/'+end_date+'"><div class="btn_see_detail">ดูรายละเอียด</div></a></div></div></div>')
-                })
+                if (list == '') {
+                    $('.list_search').append('<div class="no_list text-center mt-5"><h2>ไม่มีแพ็คเกจที่ตามหา</h2></div>')
+                } else {
+                    $(list).each(function(key, e) {
+                        $('.list_search').append('<div class="box_search my-4"><div class="image" style="background-image: url(<?= base_url() ?>../' + list[key].cover + ');"></div><div class="detail"><div class="title"><h2>' + list[key].name + '<ss>' + list[key].type + '</ss></h2></div><div class="sub"><p>' + list[key].detail + '</p></div><div class="sub_2"><div class="total_activity"> <p>10 กิจกรรม (รวมทั้ง ' + list[key].type + ') </p><p>บ้านพัก ' + list[key].house_id['name'] + '</p><p>' + list[key].total_adult + ' ผู้ใหญ่</p><p>' + list[key].total_kid + ' เด็ก</p></div></div><div class="box_bottom"><div class="box_price"><p>' + addCommas(list[key].price_full) + '</p><h2>' + addCommas(list[key].price) + ' บาท</h2></div><a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/' + list[key].id + '/' + start_date + '/' + end_date + '"><div class="btn_see_detail">ดูรายละเอียด</div></a></div></div></div>')
+                    })
+                }
+
             });
     })
 

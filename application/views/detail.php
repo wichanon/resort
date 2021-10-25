@@ -252,7 +252,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <?php foreach ($activity['day1'] as $key => $value) {
                                                 if ($value['canchange'] == 1) { ?>
                                                     <div class="col-3">
-                                                        <div class="box_activity df">
+                                                        <div class="box_activity df df_<?= $key ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
                                                             <div class="image"></div>
                                                             <div class="title">
                                                                 <p><?= $value['name'] ?></p>
@@ -264,15 +264,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     </div>
                                                     <div class="col">
                                                         <div class="activty_cha">
+
                                                             <?php
                                                             foreach ($value['activity_change'] as $k => $v) { ?>
-                                                                <div class="box_activity change">
+                                                                <div class="box_activity change change_<?= $k ?>">
                                                                     <div class="image"></div>
                                                                     <div class="title">
                                                                         <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
                                                                     </div>
-                                                                    <div class="tools">
+                                                                    <div class="tools" data-day="1" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
                                                                         <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                    </div>
+                                                                    <div class="box_detail" style="display: none;">
+                                                                        <div class="title"><?= $v['name'] ?></div>
+                                                                        <div class="detail"><?= $v['detail'] ?></div>
                                                                     </div>
                                                                 </div>
                                                             <?php } ?>
@@ -286,7 +291,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <?php foreach ($activity['day2'] as $key => $value) {
                                                 if ($value['canchange'] == 1) { ?>
                                                     <div class="col-3">
-                                                        <div class="box_activity df">
+                                                        <div class="box_activity df df_<?= $key ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
                                                             <div class="image"></div>
                                                             <div class="title">
                                                                 <p><?= $value['name'] ?></p>
@@ -300,13 +305,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                         <div class="activty_cha">
                                                             <?php
                                                             foreach ($value['activity_change'] as $k => $v) { ?>
-                                                                <div class="box_activity change">
+                                                                <div class="box_activity change change_<?= $k ?>">
                                                                     <div class="image"></div>
                                                                     <div class="title">
                                                                         <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
                                                                     </div>
-                                                                    <div class="tools">
+                                                                    <div class="tools" data-day="2" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
                                                                         <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                    </div>
+                                                                    <div class="box_detail" style="display: none;">
+                                                                        <div class="title"><?= $v['name'] ?></div>
+                                                                        <div class="detail"><?= $v['detail'] ?></div>
                                                                     </div>
                                                                 </div>
                                                             <?php } ?>
@@ -320,7 +329,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <?php foreach ($activity['day3'] as $key => $value) {
                                                 if ($value['canchange'] == 1) { ?>
                                                     <div class="col-3">
-                                                        <div class="box_activity df">
+                                                        <div class="box_activity df df_<?= $key ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
                                                             <div class="image"></div>
                                                             <div class="title">
                                                                 <p><?= $value['name'] ?></p>
@@ -334,13 +343,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                         <div class="activty_cha">
                                                             <?php
                                                             foreach ($value['activity_change'] as $k => $v) { ?>
-                                                                <div class="box_activity change">
+                                                                <div class="box_activity change change_<?= $k ?>">
                                                                     <div class="image"></div>
                                                                     <div class="title">
                                                                         <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
                                                                     </div>
-                                                                    <div class="tools">
+                                                                    <div class="tools" data-day="3" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
                                                                         <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                    </div>
+                                                                    <div class="box_detail" style="display: none;">
+                                                                        <div class="title"><?= $v['name'] ?></div>
+                                                                        <div class="detail"><?= $v['detail'] ?></div>
                                                                     </div>
                                                                 </div>
                                                             <?php } ?>
@@ -354,7 +367,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <?php foreach ($activity['day4'] as $key => $value) {
                                                 if ($value['canchange'] == 1) { ?>
                                                     <div class="col-3">
-                                                        <div class="box_activity df">
+                                                        <div class="box_activity df df_<?= $key ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
                                                             <div class="image"></div>
                                                             <div class="title">
                                                                 <p><?= $value['name'] ?></p>
@@ -366,15 +379,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     </div>
                                                     <div class="col">
                                                         <div class="activty_cha">
+
                                                             <?php
                                                             foreach ($value['activity_change'] as $k => $v) { ?>
-                                                                <div class="box_activity change">
+                                                                <div class="box_activity change change_<?= $k ?>">
                                                                     <div class="image"></div>
                                                                     <div class="title">
                                                                         <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
                                                                     </div>
-                                                                    <div class="tools">
+                                                                    <div class="tools" data-day="4" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
                                                                         <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                    </div>
+                                                                    <div class="box_detail" style="display: none;">
+                                                                        <div class="title"><?= $v['name'] ?></div>
+                                                                        <div class="detail"><?= $v['detail'] ?></div>
                                                                     </div>
                                                                 </div>
                                                             <?php } ?>
@@ -395,10 +413,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="col-4 checkin">
                 <div class="box">
                     <span>วันที่เข้าใช้บริการ</span>
+                    <?php if(isset($_SESSION['id'])){?>
                     <div class="box_check_me">
                         <span class="mx-2">เข้าพักเอง</span>
                         <input type="checkbox" class="form-check-input checkin_me">
                     </div>
+                    <?php }?>
                     <input class="form-control date_checkin my-1">
                     <input type="text" class="form-control name my-2" placeholder="ชื่อ-นามสกุล">
                     <input type="text" class="form-control tel my-2" placeholder="เบอร์โทรศัพท์">
@@ -411,16 +431,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="list">
                             <div class="row">
                                 <div class="col px-5">แพ็คเกจ</div>
+                                <input type="text" class="package_price" value="<?= $list['price'] ?>" hidden>
                                 <div class="col text-end"><?= number_format($list['price']); ?></div>
                             </div>
-                            <div class="row">
+                            <div class="row add_price_activity">
                                 <div class="col px-5">เปลี่ยนกิจกรรม</div>
-                                <div class="col text-end">0</div>
+                                <input type="text" class="package_price_activity" value="0" hidden>
+                                <div class="col text-end price_show">0</div>
                             </div>
                         </div>
-                        <div class="row mt-4">
+                        <div class="row mt-4 price_package_all">
                             <div class="col"><b>ราคารวม</b></div>
-                            <div class="col text-end"><b><?= number_format($list['price']); ?></b></div>
+                            <div class="col text-end price_show"><b><?= number_format($list['price']); ?></b></div>
                         </div>
                     </div>
                     <div class="btn_checkin">
@@ -653,6 +675,75 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
 
     })
+    $('.box_activity.change').click(function() {
+        $('.box_detail', this).fadeIn('fast')
+    }).mouseout(function() {
+        $('.box_detail', this).fadeOut('fast')
+    })
+    $('.box_activity .tools').click(function(e) {
+        let name = $(this).attr('data-name')
+        let detail = $(this).attr('data-detail')
+        let price = $(this).attr('data-price')
+        let key = $(this).attr('key')
+        let key_me = $(this).attr('key_me')
+        let df_name = $('.df_' + key).attr('data-name')
+        let df_detail = $('.df_' + key).attr('data-detail')
+        let df_price = $('.df_' + key).attr('data-price')
+        let day = $(this).attr('data-day')
+
+        $('.day_'+day+' .df_' + key + ' .title p').html(name)
+        $('.day_'+day+' .df_' + key).attr('data-name', name)
+        $('.day_'+day+' .df_' + key).attr('data-detail', detail)
+        $('.day_'+day+' .df_' + key).attr('data-price', price)
+
+        $('.day_'+day+' .change_' + key_me + ' .title p').html(df_name + '<br>+' + df_price + ' บาท')
+        $('.day_'+day+' .change_' + key_me + ' .box_detail .title').html(df_name)
+        $('.day_'+day+' .change_' + key_me + ' .box_detail .detail').html(df_detail)
+        $(this).attr('data-name', df_name)
+        $(this).attr('data-detail', df_detail)
+        $(this).attr('data-price', df_price)
+
+        if (df_price == 0 && price != 0) {
+            let price_add = $('.add_price_activity .package_price_activity').val();
+            price_add = parseInt(price_add) + parseInt(price)
+            $('.package_price_activity').attr('value', price_add)
+            $('.add_price_activity .price_show').html(addCommas(price_add))
+        } else if (price == 0 && df_price != 0) {
+            let price_add = $('.add_price_activity .package_price_activity').val();
+            price_add = parseInt(price_add) - parseInt(df_price)
+            $('.package_price_activity').attr('value', price_add)
+            $('.add_price_activity .price_show').html(addCommas(price_add))
+        } else {
+            let price_add = $('.add_price_activity .package_price_activity').val();
+            price_add = parseInt(price_add) - parseInt(df_price)
+            price_add = parseInt(price_add) + parseInt(price)
+            $('.package_price_activity').attr('value', price_add)
+            $('.add_price_activity .price_show').html(addCommas(price_add))
+        }
+
+        sum_price()
+
+    })
+
+    function sum_price() {
+        let price_package = $('.package_price').val();
+        let price_package_add = $('.package_price_activity').val();
+        console.log(price_package, price_package_add)
+        price_package = parseInt(price_package) + parseInt(price_package_add)
+        $('.price_package_all .price_show').html(addCommas(price_package))
+    }
+
+    function addCommas(nStr) {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+    }
 </script>
 
 </html>
