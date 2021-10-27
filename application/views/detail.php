@@ -244,7 +244,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
-                                            <h5>วันที่ 1</h5>
+                                            <h5 class="activity_change_day">วันที่ 1</h5>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -262,7 +262,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col" style="width: 75%; display:flex">
                                                         <div class="activty_cha">
 
                                                             <?php
@@ -301,7 +301,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col" style="width: 75%; display:flex">
                                                         <div class="activty_cha">
                                                             <?php
                                                             foreach ($value['activity_change'] as $k => $v) { ?>
@@ -339,7 +339,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col" style="width: 75%; display:flex">
                                                         <div class="activty_cha">
                                                             <?php
                                                             foreach ($value['activity_change'] as $k => $v) { ?>
@@ -377,7 +377,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col" style="width: 75%; display:flex">
                                                         <div class="activty_cha">
 
                                                             <?php
@@ -413,12 +413,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="col-4 checkin">
                 <div class="box">
                     <span>วันที่เข้าใช้บริการ</span>
-                    <?php if(isset($_SESSION['id'])){?>
-                    <div class="box_check_me">
-                        <span class="mx-2">เข้าพักเอง</span>
-                        <input type="checkbox" class="form-check-input checkin_me">
-                    </div>
-                    <?php }?>
+                    <?php if (isset($_SESSION['id'])) { ?>
+                        <div class="box_check_me">
+                            <span class="mx-2">เข้าพักเอง</span>
+                            <input type="checkbox" class="form-check-input checkin_me">
+                        </div>
+                    <?php } ?>
                     <input class="form-control date_checkin my-1">
                     <input type="text" class="form-control name my-2" placeholder="ชื่อ-นามสกุล">
                     <input type="text" class="form-control tel my-2" placeholder="เบอร์โทรศัพท์">
@@ -536,6 +536,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     let date_end = '<?= $date_end ?>';
     let sess_user = '';
     $(document).ready(function() {
+       
         console.log(sess)
         if (sess != '' && sess != null) {
             sess_user = jQuery.parseJSON('<?= $sess_user ?>');
@@ -587,6 +588,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
             perPage: 5,
             perMove: 1,
             focus: 'left',
+            breakpoints: {
+                1700: {
+                    perPage: 4,
+                },
+                1200: {
+                    perPage: 3,
+                },
+                800: {
+                    perPage: 2,
+                },
+            }
         }).mount();
     });
     $('.btn_day.next').click(function() {
@@ -600,6 +612,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         $('.activity_group.day_' + day).fadeIn('fast')
         $('.activity_change.day_' + day).removeClass('d-none')
         $('.change_day h5').html('วันที่ ' + day)
+        $('.activity_change_day').html('วันที่ ' + day)
     })
     $('.btn_day.back').click(function() {
         let day = $('.change_day').attr('data_day')
@@ -612,6 +625,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         $('.change_day').attr('data_day', day)
         $('.activity_change.day_' + day).removeClass('d-none')
         $('.change_day h5').html('วันที่ ' + day)
+        $('.activity_change_day').html('วันที่ ' + day)
     })
     $('.btn_checkin').click(function() {
         if (sess == '' || sess == null) {
@@ -691,14 +705,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
         let df_price = $('.df_' + key).attr('data-price')
         let day = $(this).attr('data-day')
 
-        $('.day_'+day+' .df_' + key + ' .title p').html(name)
-        $('.day_'+day+' .df_' + key).attr('data-name', name)
-        $('.day_'+day+' .df_' + key).attr('data-detail', detail)
-        $('.day_'+day+' .df_' + key).attr('data-price', price)
+        $('.day_' + day + ' .df_' + key + ' .title p').html(name)
+        $('.day_' + day + ' .df_' + key).attr('data-name', name)
+        $('.day_' + day + ' .df_' + key).attr('data-detail', detail)
+        $('.day_' + day + ' .df_' + key).attr('data-price', price)
 
-        $('.day_'+day+' .change_' + key_me + ' .title p').html(df_name + '<br>+' + df_price + ' บาท')
-        $('.day_'+day+' .change_' + key_me + ' .box_detail .title').html(df_name)
-        $('.day_'+day+' .change_' + key_me + ' .box_detail .detail').html(df_detail)
+        $('.day_' + day + ' .change_' + key_me + ' .title p').html(df_name + '<br>+' + df_price + ' บาท')
+        $('.day_' + day + ' .change_' + key_me + ' .box_detail .title').html(df_name)
+        $('.day_' + day + ' .change_' + key_me + ' .box_detail .detail').html(df_detail)
         $(this).attr('data-name', df_name)
         $(this).attr('data-detail', df_detail)
         $(this).attr('data-price', df_price)

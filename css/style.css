@@ -442,7 +442,7 @@ img {
     margin: 0 0.5rem; }
 
 .detail .activity_change .box_activity {
-  width: 150px;
+  width: 80%;
   background-color: #ece2d2;
   border-radius: 10px;
   padding: 1rem;
@@ -485,6 +485,7 @@ img {
   display: flex; }
   .detail .activity_change .activty_cha .box_activity {
     margin: 0 0.5rem;
+    min-width: 140px;
     background-color: #c0a88d;
     position: relative;
     display: flex;

@@ -36,7 +36,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <span>จำนวนคน</span>
+                            <span>ขนาดห้อง (จำนวนคน)</span>
                             <select name="" id="" class="form-select total_menber">
                                 <option value="5" data-min='1'>1-5</option>
                                 <option value="10" data-min='6'>6-10</option>
