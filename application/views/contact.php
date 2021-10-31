@@ -25,11 +25,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="row">
                     <div class="col">
                         <div class="text">
-                            <p>ที่อยู่ : xx/xxx Lorem ipsum dolor sit amet</p>
-                            <p>consectet uradipiscing elit 12345</p>
-                            <p>เบอร์โทรศัพท์ : 08x-xxx-xxx</p>
-                            <p>อีเมล์ : xxx@hotmail.com</p>
-                            <p>เว็บไซต์ : www.xxxxx.com</p>
+                            <p>ที่อยู่ : 88 ถนน หมู่ 2 ตำบลแก่งเสี้ยน </p>
+                            <p>อำเภอเมืองกาญจนบุรี กาญจนบุรี 71000</p>
+                            <p>เบอร์โทรศัพท์ : 094-670-6212</p>
+                            <p>อีเมล์ : pft.forfamily@hotmail.com</p>
+                            <p>เว็บไซต์ : http://localhost/resort</p>
                         </div>
                         <div class="map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.348807625575!2d99.45465941483394!3d14.056568390150812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e375d576753e7f%3A0xc0e64c616c7d2229!2sRoyal%20Riverkwaii%20Resort%20and%20Spa!5e0!3m2!1sth!2sth!4v1634972337740!5m2!1sth!2sth" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>

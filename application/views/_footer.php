@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col">
                     <div class="logo">
-                        <img src="<?= base_url() ?>../images/logo.png" alt="">
+                        <img src="<?= base_url() ?>../images/logomain.png" alt="">
                     </div>
                     <div class="social">
                         <div class="icon">
@@ -18,10 +18,11 @@
                         </div>
                     </div>
                     <div class="contact">
-                        <p>ที่อยู่ : xx/xxx Lorem ipsum dolor sit amet <br>consectetur adipiscing elit 12345<br>
-                            เบอร์โทรศัพท์ : 08x-xxx-xxx <br>
-                            อีเมล์ : xxx@hotmail.com<br>
-                            เว็บไซต์ : www.xxxxx.com</p>
+                        <p><b>ที่อยู่</b> :88 ถนน หมู่ 2 ตำบลแก่งเสี้ยน <br>อำเภอเมืองกาญจนบุรี กาญจนบุรี 71000 <br>
+                            <b>เบอร์โทรศัพท์</b> : 094-670-6212 <br>
+                            <b>อีเมล์</b> : pft.forfamily@hotmail.com<br>
+                            <b>เว็บไซต์</b> : http://localhost/resort
+                        </p>
                     </div>
                 </div>
                 <div class="col">
@@ -86,7 +87,7 @@
 <div class="bg_login" style="display:none">
     <div class="box login ">
         <div class="logo">
-            <img src="<?= base_url() ?>../images/logo.png" alt="">
+            <img src="<?= base_url() ?>../images/logo_new.png" alt="">
         </div>
         <div class="box_input mt-4">
             <form id="form_login">
@@ -103,8 +104,8 @@
         </div>
     </div>
     <div class="box register d-none">
-        <div class="logo">
-            <img src="<?= base_url() ?>../images/logo.png" alt="">
+        <div class="logo register">
+            <img src="<?= base_url() ?>../images/logo_new.png" alt="">
         </div>
         <div class="box_input mt-4">
             <form id="form_regis">

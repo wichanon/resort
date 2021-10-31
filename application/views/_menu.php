@@ -7,7 +7,7 @@ if (isset($_SESSION['firstname'])) {
     <div class="col p-0">
         <div class="bar">
             <div class="logo">
-                <img src="<?= base_url() ?>../images/logo.png" alt="">
+                <img src="<?= base_url() ?>../images/logomain.png" alt="">
             </div>
             <div class="list_menu">
                 <div class="menu">
@@ -35,6 +35,16 @@ if (isset($_SESSION['firstname'])) {
                             <div class="active"></div>
                         <?php } ?>
                     </div>
+                    <?php if(isset($_SESSION['id'])){ ?>
+                    <div class="name_menu">
+                        <a href="<?= base_url() ?>Welcome/my_package">
+                            <p>แพ็คเกจของฉัน</p>
+                        </a>
+                        <?php if ($menu == 'mypackage') { ?>
+                            <div class="active"></div>
+                        <?php } ?>
+                    </div>
+                    <?php }?>
                     <div class="name_menu">
                         <a href="<?= base_url() ?>Welcome/contact">
                             <p>ติดต่อ</p>

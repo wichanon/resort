@@ -1,7 +1,7 @@
 $(document).ready(function() {
     textFit($('.detail_2 .box1'));
     textFit($('.detail_2 .box3 .price'));
-})
+});
 /**
  * textFit v2.3.1
  * Previously known as jQuery.textFit

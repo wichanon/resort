@@ -51,7 +51,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					</div>
 					<div class="box_text">
 						<h1>เกี่ยวกับเรา</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in dictumst sodales senectus vestibulum ipsum luctus. Consequat turpis ac, nisl habitasse viverra. Lacus, erat aliquam venenatis quisque nisi, risus orci. Consectetur risus morbi facilisis lacus, fermentum. Ultrices eu eu, at suspendisse orci, euismod volutpat, eros. Sit placerat convallis viverra tellus facilisis nunc, convallis suscipit at. Mus sem vulputate justo, tincidunt. Risus congue eu nunc, nibh quis ipsum amet vel nibh. Non mauris aliquam neque nam nisl tristique pellentesque. Consectetur egestas adipiscing blandit dictumst quam. Neque egestas augue risus integer blandit donec. Enim, semper varius porttitor cras ante mauris, pretium.</p>
+						<p style="text-indent: 1.5em">เว็บไซต์เพื่อการจัดโปรแกรมสำหรับการท่องเที่ยวเหมาะสำหรับครอบครัว กรณีศึกษา รอยัล ริเวอร์แคว รีสอร์ท แอนด์ สปา มีหลักในการจัดการอันสำคัญที่สุดคือ การทำให้ผู้เข้าพักรู้สึกประทับใจ และอบอุ่นเหมือนอยู่บ้าน เนื่องจากนักท่องเที่ยวเมื่อมาเที่ยวแล้วก็ต้องการ การผ่อนคลายจากการท่องเที่ยว โดยเป็นตัวกลางในการประสานงานในการจัดหาที่พักสำหรับผู้ที่ต้องการมาพักผ่อน และมีโปรแกรมท่องเที่ยวต่าง ๆ ในแพ็คเกจ</p>
+							<p style="text-indent: 1.5em">รีสอร์ทที่ตั้งอยู่ริมฝั่งแม่น้ำแควเป็นที่รู้จักกันดีในจังหวัดกาญจนบุรี พร้อมมอบประสบการณ์และความสุขที่ไม่เหมือนใคร ให้คุณได้ผ่อนคลายจิตใจและร่างกายไปพร้อม ๆ กัน สวนสไตล์เขตร้อนที่เต็มไปด้วยพืชพรรณ ดื่มด่ำกับการผ่อนคลายที่ รันตี สปา สปาตั้งอยู่ภายในสวนหย่อมและริมแม่น้ำ </p>
 					</div>
 				</div>
 			</div>

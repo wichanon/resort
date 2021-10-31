@@ -14,7 +14,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="container-fluid review">
         <?php $this->load->view('_menu'); ?>
         <div class="row mt-5">
-            <div class="col-10 mx-auto">
+            <div class="col-8 mx-auto">
                 <div class="row">
                     <div class="col">
                         <h2 style="color:#936C46"><b>รีวิวแพ็คเกจ</b> </h2>
@@ -23,100 +23,56 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="row">
                     <div class="col">
                         <div class="box_review">
-                            <div class="review_list my-3">
-                                <div class="package">
-                                    <div class="box">
-                                        <div class="image">
-                                            <img src="<?= base_url() ?>../images/mock/1 (3).jpg" alt="">
-                                        </div>
-                                        <div class="detail">
-                                            <h3>แพ็คเกจ 1</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus eget viverra turpis id id feugiat vulputate. Sit dictum nulla quis ultrices dolor lectus.</p>
-                                        </div>
-                                        <div class="detail_2">
-                                            <div class="box1">
-                                                <h6>3 วัน 2 คืน</h6>
+                            <?php foreach ($list as $key => $value) { ?>
+                                <div class="review_list my-3">
+                                    <div class="package">
+                                        <div class="box">
+                                            <div class="image">
+                                                <img src="<?= base_url() ?>../<?= $value['cover'] ?>" alt="">
                                             </div>
-                                            <div class="box2">
-                                                <img src="<?= base_url() ?>../images/mock/image3.png" alt="">
+                                            <div class="detail">
+                                                <h3><?= $value['name'] ?></h3>
+                                                <p><?= $value['package_detail'] ?></p>
                                             </div>
-                                            <div class="box3">
-                                                <div class="price">
-                                                    <div class="old">
-                                                        10,990
+                                            <div class="detail_2">
+                                                <div class="box1">
+                                                    <h6><?= $value['type'] ?></h6>
+                                                </div>
+                                                <div class="box2">
+                                                    <img src="<?= base_url() ?>../images/mock/image3.png" alt="">
+                                                </div>
+                                                <div class="box3">
+                                                    <div class="price">
+                                                        <div class="old">
+                                                            <?= number_format($value['price_full']) ?>
+                                                        </div>
+                                                        <div class="new">
+                                                        <?= number_format($value['price']) ?> <last>บาท</last>
+                                                        </div>
                                                     </div>
-                                                    <div class="new">
-                                                        9,900 <last>บาท</last>
+                                                    <div class="start_pack">
+                                                        ราคาเริ่มต้น (ต่อแพ็คเกจ)
                                                     </div>
                                                 </div>
-                                                <div class="start_pack">
-                                                    ราคาเริ่มต้น (ต่อแพ็คเกจ)
-                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </div>
-                                <div class="review_">
-                                    <div class="box">
-                                        <div class="row">
-                                            <div class="col">
-                                                <span>นายสรวิท โพสเมื่อ 03-09-2564 เวลา 23:00 น.</span>
-                                                <div class="text_review">
-                                                    แพ็คเกจนี้คุ้มค่ามากครับ ราคากำลังดี กิจกรรมสนุกครับ
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="review_list my-3">
-                                <div class="package">
-                                    <div class="box">
-                                        <div class="image">
-                                            <img src="<?= base_url() ?>../images/mock/1 (3).jpg" alt="">
-                                        </div>
-                                        <div class="detail">
-                                            <h3>แพ็คเกจ 1</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus eget viverra turpis id id feugiat vulputate. Sit dictum nulla quis ultrices dolor lectus.</p>
-                                        </div>
-                                        <div class="detail_2">
-                                            <div class="box1">
-                                                <h6>3 วัน 2 คืน</h6>
-                                            </div>
-                                            <div class="box2">
-                                                <img src="<?= base_url() ?>../images/mock/image3.png" alt="">
-                                            </div>
-                                            <div class="box3">
-                                                <div class="price">
-                                                    <div class="old">
-                                                        10,990
-                                                    </div>
-                                                    <div class="new">
-                                                        9,900 <last>บาท</last>
+                                    <div class="review_">
+                                        <div class="box">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <?php $date = explode(" ", $value['date_time']); ?>
+                                                    <span><?= $value['firstname'] ?> <?= $value['lastname'] ?> โพสเมื่อ <?= $date[0] ?> เวลา <?= $date[1] ?> น.</span>
+                                                    <div class="text_review">
+                                                        <?= $value['detail'] ?>
                                                     </div>
                                                 </div>
-                                                <div class="start_pack">
-                                                    ราคาเริ่มต้น (ต่อแพ็คเกจ)
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="review_">
-                                    <div class="box">
-                                        <div class="row">
-                                            <div class="col">
-                                                <span>นายสรวิท โพสเมื่อ 03-09-2564 เวลา 23:00 น.</span>
-                                                <div class="text_review">
-                                                    แพ็คเกจนี้คุ้มค่ามากครับ ราคากำลังดี กิจกรรมสนุกครับ
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

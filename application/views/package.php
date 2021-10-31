@@ -209,6 +209,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
         console.log(min)
         let start_date = $('.start_date').val()
         let end_date = $('.end_date').val()
+        // start_date = start_date.split('-')
+        // start_date = start_date[2] + start_date[1] + start_date[0]
+        // end_date = end_date.split('-')
+        // end_date = end_date[2] + end_date[1] + end_date[0]
+        //let total_date = end_date - start_date;
+
         $.ajax({
                 url: base_url + 'package/search_package',
                 type: 'post',
@@ -218,7 +224,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     total_member: $('.total_menber').val(),
                     total_min: min,
                     total_adult: $('.total_adult').val(),
-                    total_kid: $('.total_kid').val()
+                    total_kid: $('.total_kid').val(),
+                    start_date : start_date,
+                    end_date:end_date
                 },
             })
             .done(function() {
@@ -245,6 +253,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             });
     })
+
+    
 
     function addCommas(nStr) {
         nStr += '';
