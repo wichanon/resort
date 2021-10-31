@@ -85,4 +85,8 @@ class Welcome extends CI_Controller
 		$data['list'] = $this->package_model->get_mypackage();
 		$this->load->view('list_mypackage', $data);
 	}
+	public function email()
+	{
+		$this->load->view('mail');
+	}
 }

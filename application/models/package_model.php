@@ -136,7 +136,7 @@ class package_model extends CI_model
         $data = $this->db->query('SELECT 
             *
 			FROM package 
-			WHERE name LIKE \'%' . $data['keyword'] . '%\'' . $total_member . $total_adult . $total_kid.' AND day_all ='.$data['total_day']);
+			WHERE name LIKE \'%' . $data['keyword'] . '%\'' . $total_member . $total_adult . $total_kid . ' AND day_all =' . $data['total_day']);
         if ($data->num_rows() > 0) {
             $output = $data->result_array();
         }
@@ -239,4 +239,5 @@ class package_model extends CI_model
         }
         return $output;
     }
+    
 }
