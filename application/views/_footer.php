@@ -155,7 +155,6 @@
 
 
 <script>
-    let base_url = '<?= base_url() ?>';
     $(function() {
         $("#form_regis").validate()
         $("#form_login").validate();
