@@ -442,7 +442,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="row mt-4 price_package_all">
                             <div class="col"><b>ราคารวม</b></div>
-                            <input type="text" class="price_show_val" name="" id="" hidden>
+                            <input type="text" class="price_show_val" value="<?=$list['price']?>" name="" id="" hidden>
                             <div class="col text-end price_show"><b><?= number_format($list['price']); ?></b></div>
                         </div>
                     </div>
@@ -685,7 +685,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             'success'
                         )
                         setTimeout(function() {
-                            location.reload();
+                            window.location.href = base_url+"Welcome/my_package";
                         }, 3000);
                     }
                 });
