@@ -155,6 +155,7 @@
 
 
 <script>
+    let s =0;
     $(function() {
         $("#form_regis").validate()
         $("#form_login").validate();
