@@ -12,17 +12,18 @@ class package extends CI_Controller
     {
         $data = $this->input->post();
         $total_day = (strtotime($data['end_date']) - strtotime($data['start_date'])) /  (60 * 60 * 24);
-        $total_day = intval($total_day+1);
-        $data['total_day']=$total_day;
+        $total_day = intval($total_day + 1);
+        $data['total_day'] = $total_day;
         //echo $total_day;
-        // echo "<pre>";
-        // print_r($total_day);
-        // echo "</pre>";
+
         $list['list'] = $this->package_model->search_package($data);
         foreach ($list['list'] as $key => $value) {
             $list['list'][$key]['house_id'] = $this->package_model->get_house($list['list'][$key]['house_id']);
         }
-
+        foreach ($list['list'] as $key => $value) {
+            $list['list'][$key]['can_booking'] = $this->package_model->check_checkin($value,$data['start_date'],$data['end_date']);
+        }
+        // echo"<pre>";print_r($list);echo "</pre>";
         print_r(json_encode($list));
     }
     public function DateDiff($strDate1, $strDate2)

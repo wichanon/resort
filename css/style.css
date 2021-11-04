@@ -570,7 +570,17 @@ img {
 .package .box_search {
   border-radius: 10px;
   background-color: #c0a88d;
-  display: flex; }
+  display: flex;
+  position: relative; }
+  .package .box_search .sold_out {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8rem;
+    z-index: 2; }
   .package .box_search .image {
     width: 40%;
     height: 340px;
@@ -608,6 +618,16 @@ img {
           transition: 0.3s; }
     .package .box_search .detail .sub p {
       text-indent: 1.5em; }
+    .package .box_search .detail .total_room {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      text-align: right; }
+      .package .box_search .detail .total_room p {
+        margin: 0;
+        line-height: 1.7rem; }
+      .package .box_search .detail .total_room sx {
+        font-size: 2rem; }
     .package .box_search .detail .total_activity p {
       margin: 0;
       text-indent: 2em; }
@@ -749,7 +769,7 @@ img {
     position: absolute;
     right: 1rem;
     top: 1rem;
-    padding: .5rem 2rem;
+    padding: 0.5rem 2rem;
     background-color: #fff;
     border-radius: 10px; }
     .listpackage .box_package .box_search .status h4 {
@@ -830,15 +850,15 @@ img {
     z-index: 11;
     position: relative; }
     .bg_black .popup .btn_send_review {
-      padding: .5rem 2rem;
+      padding: 0.5rem 2rem;
       border-radius: 5px;
       background-color: #ffac12;
       color: #fff;
-      transition: .3s;
+      transition: 0.3s;
       cursor: pointer; }
       .bg_black .popup .btn_send_review:hover {
         transform: scale(1.1);
-        transition: .3s; }
+        transition: 0.3s; }
     .bg_black .popup .btn_close {
       position: absolute;
       width: 30px;
@@ -849,4 +869,4 @@ img {
 
 .no_event {
   pointer-events: none;
-  opacity: .5; }
+  opacity: 0.5; }

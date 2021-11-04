@@ -420,6 +420,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                     <?php } ?>
                     <input class="form-control date_checkin my-1">
+                    <input class="form-control date_checkout my-1">
                     <input type="text" class="form-control name my-2" placeholder="ชื่อ-นามสกุล">
                     <input type="text" class="form-control tel my-2" placeholder="เบอร์โทรศัพท์">
                     <input type="text" class="form-control email my-2" placeholder="อีเมล์">
@@ -548,7 +549,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
         $('.date_checkin').datepicker({
             format: 'dd-mm-yyyy',
         })
+        $('.date_checkout').datepicker({
+            format: 'dd-mm-yyyy',
+        })
         $('.date_checkin').datepicker("setDate", date_start);
+        $('.date_checkout').datepicker("setDate", date_end);
         console.log(date_start)
         var secondarySlider = new Splide('#secondary-slider', {
             rewind: true,
@@ -661,6 +666,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         member_id: sess,
                         package_id: pagkage_id,
                         checkin: $('.checkin .date_checkin').val(),
+                        checkout: $('.checkin .date_checkout').val(),
                         activity_change : arr_change_activity,
                         price_totle : $('.price_package_all .price_show_val').val(),
                         price_add : $('.package_price_activity').val()

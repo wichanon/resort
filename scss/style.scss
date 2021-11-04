@@ -38,7 +38,7 @@ img {
 		}
 		.logo {
 			width: 30%;
-			&.register{
+			&.register {
 				width: 15%;
 			}
 		}
@@ -639,11 +639,11 @@ img {
 		input {
 			height: 50px;
 		}
-		.status_payment{
+		.status_payment {
 			border-radius: 5px;
 			border: 1px solid #000;
 			padding: 1rem 0;
-			h2{
+			h2 {
 				margin: 0;
 			}
 		}
@@ -705,6 +705,17 @@ img {
 		border-radius: 10px;
 		background-color: #c0a88d;
 		display: flex;
+		position: relative;
+		.sold_out {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 8rem;
+			z-index: 2;
+		}
 		.image {
 			width: 40%;
 			height: 340px;
@@ -726,6 +737,7 @@ img {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
+
 				.box_price {
 					h1 {
 						margin: 0;
@@ -752,6 +764,19 @@ img {
 			.sub {
 				p {
 					text-indent: 1.5em;
+				}
+			}
+			.total_room {
+				position: absolute;
+				right: 1rem;
+				top: 1rem;
+				text-align: right;
+				p {
+					margin: 0;
+					line-height: 1.7rem;
+				}
+				sx {
+					font-size: 2rem;
 				}
 			}
 			.total_activity {
@@ -920,22 +945,22 @@ img {
 		}
 	}
 }
-.listpackage{
-	.box_package{
+.listpackage {
+	.box_package {
 		.box_search {
 			border-radius: 10px;
 			background-color: #c0a88d;
 			display: flex;
 			overflow: hidden;
 			position: relative;
-			.status{
+			.status {
 				position: absolute;
 				right: 1rem;
 				top: 1rem;
-				padding: .5rem 2rem;
+				padding: 0.5rem 2rem;
 				background-color: #fff;
 				border-radius: 10px;
-				h4{
+				h4 {
 					margin: 0;
 				}
 			}
@@ -960,7 +985,7 @@ img {
 					display: flex;
 					justify-content: space-between;
 					align-items: center;
-					a{
+					a {
 						text-decoration: none;
 					}
 					.box_price {
@@ -997,7 +1022,7 @@ img {
 						}
 					}
 				}
-	
+
 				.sub {
 					p {
 						text-indent: 1.5em;
@@ -1019,7 +1044,7 @@ img {
 		}
 	}
 }
-.bg_black{
+.bg_black {
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.6);
@@ -1030,7 +1055,7 @@ img {
 	top: 0;
 	left: 0;
 	z-index: 10;
-	.popup{
+	.popup {
 		width: 40%;
 		padding: 2rem;
 		background-color: #fff;
@@ -1038,19 +1063,19 @@ img {
 		pointer-events: all;
 		z-index: 11;
 		position: relative;
-		.btn_send_review{
-			padding: .5rem 2rem;
+		.btn_send_review {
+			padding: 0.5rem 2rem;
 			border-radius: 5px;
 			background-color: #ffac12;
 			color: #fff;
-			transition: .3s;
+			transition: 0.3s;
 			cursor: pointer;
-			&:hover{
+			&:hover {
 				transform: scale(1.1);
-				transition: .3s;
+				transition: 0.3s;
 			}
 		}
-		.btn_close{
+		.btn_close {
 			position: absolute;
 			width: 30px;
 			height: 30px;
@@ -1060,7 +1085,7 @@ img {
 		}
 	}
 }
-.no_event{
+.no_event {
 	pointer-events: none;
-	opacity: .5;
+	opacity: 0.5;
 }

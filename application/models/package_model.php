@@ -12,6 +12,12 @@ class package_model extends CI_model
         }
         return $output;
     }
+    public function check_booking($data)
+    {
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+    }
     public function get_booking_by_id($booking)
     {
         $output = [];
@@ -123,6 +129,7 @@ class package_model extends CI_model
         $total_member = '';
         $total_adult = '';
         $total_kid = '';
+
         if ($data['total_member'] != '') {
             $total_member = ' AND total_member <=' . $data['total_member'] . ' AND total_member >=' . $data['total_min'];
         }
@@ -135,22 +142,65 @@ class package_model extends CI_model
 
         $data = $this->db->query('SELECT 
             *
-			FROM package 
+			FROM package p
 			WHERE name LIKE \'%' . $data['keyword'] . '%\'' . $total_member . $total_adult . $total_kid . ' AND day_all =' . $data['total_day']);
         if ($data->num_rows() > 0) {
             $output = $data->result_array();
         }
+        foreach ($output as $key => $value) {
+            $data = $this->db->query('SELECT COUNT(id) as booking_member
+            FROM booking
+            WHERE package_id =' . $value['id'] . ' AND status = 0');
+            if ($data->num_rows() > 0) {
+                $out = $data->result_array();
+                $output[$key]['booking_member'] = $out[0]['booking_member'];
+            }
+            $data_pay = $this->db->query('SELECT checkin
+            FROM booking
+            WHERE package_id =' . $value['id'] . ' AND status = 1');
+            if ($data_pay->num_rows() > 0) {
+                $out_pay = $data_pay->result_array();
+                $output[$key]['booking_member_pay'] = $out_pay;
+            }
+        }
+        // echo "<pre>";
+        // print_r($output);
+        // echo "</pre>";
         return $output;
+    }
+    public function check_checkin($data, $in, $out)
+    {
+        $datechickin = explode("-", $in);
+        $datechickin = $datechickin[2] . $datechickin[1] . $datechickin[0];
+        $datechickout = explode("-", $out);
+        $datechickout = $datechickout[2] . $datechickout[1] . $datechickout[0];
+        $status = 'true';
+        $data_ = $this->db->query('SELECT 
+            b.id
+            FROM booking b
+            WHERE b.package_id = ' . $data['id'] . '
+            AND b.checkin <=' . $datechickin . ' AND b.checkout >' . $datechickin . '
+            OR b.checkin <' . $datechickout . ' AND b.checkout >' . $datechickout);
+        if ($data_->num_rows() > 0) {
+            $out_ = $data_->result_array();
+            $status = 'false';
+        }
+        return $status;
     }
     public function booking($data)
     {
+        $datechickin = explode("-", $data['checkin']);
+        $datechickin = $datechickin[2] . $datechickin[1] . $datechickin[0];
+        $datechickout = explode("-", $data['checkout']);
+        $datechickout = $datechickout[2] . $datechickout[1] . $datechickout[0];
         $data_insert = array(
             'member_id' => $data['member_id'],
             'package_id' => $data['package_id'],
             'name_booking' => $data['name'],
             'tel_booking' => $data['tel'],
             'email_booking' => $data['email'],
-            'checkin' => $data['checkin'],
+            'checkin' =>  $datechickin,
+            'checkout' => $datechickout,
             'price' => $data['price_totle'],
             'price_plus' => $data['price_add']
         );
@@ -239,5 +289,4 @@ class package_model extends CI_model
         }
         return $output;
     }
-    
 }
