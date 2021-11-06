@@ -207,6 +207,9 @@ img {
       .list_pack .slide_pack .box_pack .box:hover {
         transform: scale(1.05);
         transition: 0.3s; }
+      .list_pack .slide_pack .box_pack .box .image {
+        height: 220px;
+        background-size: cover; }
   .list_pack .slide_pack .detail {
     padding: 1rem;
     height: 150px;

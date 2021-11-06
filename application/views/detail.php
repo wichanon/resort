@@ -248,156 +248,169 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="activity_change d-flex day_1">
+                                        <div class="activity_change day_1">
                                             <?php foreach ($activity['day1'] as $key => $value) {
                                                 if ($value['canchange'] == 1) { ?>
-                                                    <div class="col-3">
-                                                        <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
-                                                            <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                            <div class="title">
-                                                                <p><?= $value['name'] ?></p>
-                                                            </div>
-                                                            <div class="tools">
-                                                                <p>กิจกรรมเดิม</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col" style="width: 75%; display:flex">
-                                                        <div class="activty_cha">
-
-                                                            <?php
-                                                            foreach ($value['activity_change'] as $k => $v) { ?>
-                                                                <div class="box_activity change change_<?= $k ?>">
-                                                                    <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
-                                                                    <div class="title">
-                                                                        <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
-                                                                    </div>
-                                                                    <div class="tools" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="1" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
-                                                                        <img src="<?= base_url() ?>../images/icons/re.png" alt="">
-                                                                    </div>
-                                                                    <div class="box_detail" style="display: none;">
-                                                                        <div class="title"><?= $v['name'] ?></div>
-                                                                        <div class="detail"><?= $v['detail'] ?></div>
-                                                                    </div>
+                                                    <div class="row row_<?= $key ?> mb-5">
+                                                        <div class="col-3">
+                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
+                                                                <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
+                                                                <div class="title">
+                                                                    <p><?= $value['name'] ?></p>
                                                                 </div>
-                                                            <?php } ?>
+                                                                <div class="tools">
+                                                                    <p>กิจกรรมเดิม</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col" style="width: 75%; display:flex">
+                                                            <div class="activty_cha">
+
+                                                                <?php
+                                                                foreach ($value['activity_change'] as $k => $v) { ?>
+                                                                    <div class="box_activity change change_<?= $k ?>">
+                                                                        <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
+                                                                        <div class="title">
+                                                                            <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
+                                                                        </div>
+                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="1" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
+                                                                            <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                        </div>
+                                                                        <div class="box_detail" style="display: none;">
+                                                                            <div class="title"><?= $v['name'] ?></div>
+                                                                            <div class="detail"><?= $v['detail'] ?></div>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } ?>
+                                                            </div>
                                                         </div>
                                                     </div>
+
 
                                             <?php }
                                             } ?>
                                         </div>
-                                        <div class="activity_change d-flex day_2 d-none">
+                                        <div class="activity_change day_2 d-none">
                                             <?php foreach ($activity['day2'] as $key => $value) {
+
                                                 if ($value['canchange'] == 1) { ?>
-                                                    <div class="col-3">
-                                                        <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
-                                                            <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                            <div class="title">
-                                                                <p><?= $value['name'] ?></p>
-                                                            </div>
-                                                            <div class="tools">
-                                                                <p>กิจกรรมเดิม</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col" style="width: 75%; display:flex">
-                                                        <div class="activty_cha">
-                                                            <?php
-                                                            foreach ($value['activity_change'] as $k => $v) { ?>
-                                                                <div class="box_activity change change_<?= $k ?>">
-                                                                    <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
-                                                                    <div class="title">
-                                                                        <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
-                                                                    </div>
-                                                                    <div class="tools" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="2" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
-                                                                        <img src="<?= base_url() ?>../images/icons/re.png" alt="">
-                                                                    </div>
-                                                                    <div class="box_detail" style="display: none;">
-                                                                        <div class="title"><?= $v['name'] ?></div>
-                                                                        <div class="detail"><?= $v['detail'] ?></div>
-                                                                    </div>
+                                                    <div class="row row_<?= $key ?> mb-5">
+                                                        <div class="col-3">
+                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
+                                                                <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
+                                                                <div class="title">
+                                                                    <p><?= $value['name'] ?></p>
                                                                 </div>
-                                                            <?php } ?>
+                                                                <div class="tools">
+                                                                    <p>กิจกรรมเดิม</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col" style="width: 75%; display:flex">
+                                                            <div class="activty_cha">
+                                                                <?php
+                                                                foreach ($value['activity_change'] as $k => $v) { ?>
+                                                                    <div class="box_activity change change_<?= $k ?>">
+                                                                        <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
+                                                                        <div class="title">
+                                                                            <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
+                                                                        </div>
+                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="2" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
+                                                                            <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                        </div>
+                                                                        <div class="box_detail" style="display: none;">
+                                                                            <div class="title"><?= $v['name'] ?></div>
+                                                                            <div class="detail"><?= $v['detail'] ?></div>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } ?>
+                                                            </div>
                                                         </div>
                                                     </div>
+
 
                                             <?php }
                                             } ?>
                                         </div>
-                                        <div class="activity_change d-flex day_3 d-none">
+                                        <div class="activity_change day_3 d-none">
                                             <?php foreach ($activity['day3'] as $key => $value) {
                                                 if ($value['canchange'] == 1) { ?>
-                                                    <div class="col-3">
-                                                        <div class="box_activity df df_<?= $key ?>" data-id_activity="<?= $value['id'] ?>" data-id_activity_new="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
-                                                            <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                            <div class="title">
-                                                                <p><?= $value['name'] ?></p>
-                                                            </div>
-                                                            <div class="tools">
-                                                                <p>กิจกรรมเดิม</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col" style="width: 75%; display:flex">
-                                                        <div class="activty_cha">
-                                                            <?php
-                                                            foreach ($value['activity_change'] as $k => $v) { ?>
-                                                                <div class="box_activity change change_<?= $k ?>">
-                                                                    <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
-                                                                    <div class="title">
-                                                                        <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
-                                                                    </div>
-                                                                    <div class="tools" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="3" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
-                                                                        <img src="<?= base_url() ?>../images/icons/re.png" alt="">
-                                                                    </div>
-                                                                    <div class="box_detail" style="display: none;">
-                                                                        <div class="title"><?= $v['name'] ?></div>
-                                                                        <div class="detail"><?= $v['detail'] ?></div>
-                                                                    </div>
+                                                    <div class="row row_<?= $key ?> mb-5">
+                                                        <div class="col-3">
+                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity="<?= $value['id'] ?>" data-id_activity_new="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
+                                                                <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
+                                                                <div class="title">
+                                                                    <p><?= $value['name'] ?></p>
                                                                 </div>
-                                                            <?php } ?>
+                                                                <div class="tools">
+                                                                    <p>กิจกรรมเดิม</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col" style="width: 75%; display:flex">
+                                                            <div class="activty_cha">
+                                                                <?php
+                                                                foreach ($value['activity_change'] as $k => $v) { ?>
+                                                                    <div class="box_activity change change_<?= $k ?>">
+                                                                        <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
+                                                                        <div class="title">
+                                                                            <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
+                                                                        </div>
+                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="3" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
+                                                                            <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                        </div>
+                                                                        <div class="box_detail" style="display: none;">
+                                                                            <div class="title"><?= $v['name'] ?></div>
+                                                                            <div class="detail"><?= $v['detail'] ?></div>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } ?>
+                                                            </div>
                                                         </div>
                                                     </div>
+
 
                                             <?php }
                                             } ?>
                                         </div>
-                                        <div class="activity_change d-flex day_4 d-none">
+                                        <div class="activity_change day_4 d-none">
                                             <?php foreach ($activity['day4'] as $key => $value) {
                                                 if ($value['canchange'] == 1) { ?>
-                                                    <div class="col-3">
-                                                        <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
-                                                            <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                            <div class="title">
-                                                                <p><?= $value['name'] ?></p>
-                                                            </div>
-                                                            <div class="tools">
-                                                                <p>กิจกรรมเดิม</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col" style="width: 75%; display:flex">
-                                                        <div class="activty_cha">
-
-                                                            <?php
-                                                            foreach ($value['activity_change'] as $k => $v) { ?>
-                                                                <div class="box_activity change change_<?= $k ?>">
-                                                                    <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
-                                                                    <div class="title">
-                                                                        <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
-                                                                    </div>
-                                                                    <div class="tools" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="4" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
-                                                                        <img src="<?= base_url() ?>../images/icons/re.png" alt="">
-                                                                    </div>
-                                                                    <div class="box_detail" style="display: none;">
-                                                                        <div class="title"><?= $v['name'] ?></div>
-                                                                        <div class="detail"><?= $v['detail'] ?></div>
-                                                                    </div>
+                                                    <div class="row row_<?= $key ?> mb-5">
+                                                        <div class="col-3">
+                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
+                                                                <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
+                                                                <div class="title">
+                                                                    <p><?= $value['name'] ?></p>
                                                                 </div>
-                                                            <?php } ?>
+                                                                <div class="tools">
+                                                                    <p>กิจกรรมเดิม</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col" style="width: 75%; display:flex">
+                                                            <div class="activty_cha">
+
+                                                                <?php
+                                                                foreach ($value['activity_change'] as $k => $v) { ?>
+                                                                    <div class="box_activity change change_<?= $k ?>">
+                                                                        <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
+                                                                        <div class="title">
+                                                                            <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
+                                                                        </div>
+                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="4" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
+                                                                            <img src="<?= base_url() ?>../images/icons/re.png" alt="">
+                                                                        </div>
+                                                                        <div class="box_detail" style="display: none;">
+                                                                            <div class="title"><?= $v['name'] ?></div>
+                                                                            <div class="detail"><?= $v['detail'] ?></div>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php } ?>
+                                                            </div>
                                                         </div>
                                                     </div>
+
 
                                             <?php }
                                             } ?>
@@ -420,7 +433,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                     <?php } ?>
                     <input class="form-control date_checkin my-1">
-                    <input class="form-control date_checkout my-1">
+                    <input class="form-control date_checkout my-1 no_event" readonly>
                     <input type="text" class="form-control name my-2" placeholder="ชื่อ-นามสกุล">
                     <input type="text" class="form-control tel my-2" placeholder="เบอร์โทรศัพท์">
                     <input type="text" class="form-control email my-2" placeholder="อีเมล์">
@@ -443,7 +456,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </div>
                         <div class="row mt-4 price_package_all">
                             <div class="col"><b>ราคารวม</b></div>
-                            <input type="text" class="price_show_val" value="<?=$list['price']?>" name="" id="" hidden>
+                            <input type="text" class="price_show_val" value="<?= $list['price'] ?>" name="" id="" hidden>
                             <div class="col text-end price_show"><b><?= number_format($list['price']); ?></b></div>
                         </div>
                     </div>
@@ -485,8 +498,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <div class="box_2_row">
                                                 <a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/<?= $value['id'] ?>">
                                                     <div class="box">
-                                                        <div class="image">
-                                                            <img src="<?= base_url() ?>../<?= $value['cover'] ?>" alt="">
+                                                        <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['cover'] ?>);">
                                                         </div>
                                                         <div class="detail">
                                                             <h3><?= $value['name'] ?></h3>
@@ -537,6 +549,61 @@ defined('BASEPATH') or exit('No direct script access allowed');
     let date_start = '<?= $date_start ?>';
     let date_end = '<?= $date_end ?>';
     let sess_user = '';
+    $('.date_checkin').change(function() {
+        let date = $(this).val();
+        let end_date = incr_date(date, day_all);
+        $('.date_checkout').datepicker("setDate", end_date);
+        $.ajax({
+                url: base_url + 'package/check_date_checkin',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    id: pagkage_id,
+                    in: date,
+                    out: end_date
+                },
+            })
+            .done(function() {
+                console.log("success");
+            })
+            .fail(function() {
+                // console.log("error");
+                // Swal.fire(
+                //     'เกิดข้อผิดพลาด !',
+                //     'ตรวจสอบข้อมูลอีกครั้ง',
+                //     'warning'
+                // )
+            })
+            .always(function(data) {
+                if (data != true) {
+                    $('.btn_checkin').html('แพ็คเกจนี้เต็มแล้ว')
+                    $('.btn_checkin').addClass('no_event')
+                } else {
+                    $('.btn_checkin').html('จองแพ็คเกจ')
+                    $('.btn_checkin').removeClass('no_event')
+                }
+            });
+    })
+
+    function incr_date(date_str, day) {
+        var parts = date_str.split("-");
+        var dt = new Date(
+            parseInt(parts[2], 10), // year
+            parseInt(parts[1], 10) - 1, // month (starts with 0)
+            parseInt(parts[0], 10) // date
+        );
+        dt.setDate(dt.getDate() + (parseInt(day) - 1));
+        parts[2] = "" + dt.getFullYear();
+        parts[1] = "" + (dt.getMonth() + 1);
+        if (parts[1].length < 2) {
+            parts[1] = "0" + parts[1];
+        }
+        parts[0] = "" + dt.getDate();
+        if (parts[0].length < 2) {
+            parts[0] = "0" + parts[0];
+        }
+        return parts.join("-");
+    }
     $(document).ready(function() {
 
         $('.box_activity.df').each(function(key, e) {
@@ -553,7 +620,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
             format: 'dd-mm-yyyy',
         })
         $('.date_checkin').datepicker("setDate", date_start);
-        $('.date_checkout').datepicker("setDate", date_end);
+        if (date_end != '' && date_end != null && date_end != '0') {
+
+            $('.date_checkout').datepicker("setDate", date_end);
+        } else {
+            let d = new Date();
+
+            let month = d.getMonth() + 1;
+            let day = d.getDate();
+
+            let output = d.getFullYear() + '/' +
+                (month < 10 ? '0' : '') + month + '/' +
+                (day < 10 ? '0' : '') + day;
+            output = output.split('/')
+            output = output[2] + '-' + output[1] + '-' + output[0]
+            let end_date = incr_date(output, day_all);
+            $('.date_checkout').datepicker("setDate", end_date);
+        }
+
+
         console.log(date_start)
         var secondarySlider = new Splide('#secondary-slider', {
             rewind: true,
@@ -642,19 +727,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $('.box.login').removeClass('d-none')
             $('.bg_login').fadeIn('fast')
         } else {
+            if ($('.checkin .name').val() == '' && $('.checkin .tel').val() == '' && $('.checkin .email').val() == '') {
+                Swal.fire(
+                    'เกิดข้อผิดพลาด !',
+                    'กรุณากรอกข้อมูลให้ครบถ้วน',
+                    'warning'
+                )
+                return;
+            }
             let arr_change_activity = []
             $('.box_activity.df').each(function(key, e) {
                 let activity_old = $(e).attr('data-id_activity')
                 let activity_new = $(e).attr('data-id_activity_new')
-                if(activity_old != activity_new){
-                    let arr ={};
+                if (activity_old != activity_new) {
+                    let arr = {};
                     arr = {
-                        activity_old:activity_old,
-                        activity_new:activity_new
+                        activity_old: activity_old,
+                        activity_new: activity_new
                     }
                     arr_change_activity.push(arr)
                 }
             })
+            console.log(arr_change_activity)
             $.ajax({
                     url: base_url + 'package/booking',
                     type: 'post',
@@ -667,9 +761,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         package_id: pagkage_id,
                         checkin: $('.checkin .date_checkin').val(),
                         checkout: $('.checkin .date_checkout').val(),
-                        activity_change : arr_change_activity,
-                        price_totle : $('.price_package_all .price_show_val').val(),
-                        price_add : $('.package_price_activity').val()
+                        activity_change: arr_change_activity,
+                        price_totle: $('.price_package_all .price_show_val').val(),
+                        price_add: $('.package_price_activity').val()
                     },
                 })
                 .done(function() {
@@ -691,8 +785,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             'success'
                         )
                         setTimeout(function() {
-                            window.location.href = base_url+"Welcome/my_package";
-                        }, 3000);
+                            window.location.href = base_url + "Welcome/my_package";
+                        }, 2000);
                     }
                 });
         }
@@ -725,32 +819,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
         let price = $(this).attr('data-price')
         let image = $(this).attr('data-image')
         let key = $(this).attr('key')
+        let row = $(this).attr('data-row')
+        let day = $(this).attr('data-day')
         let id_activity = $(this).attr('data-id_activity_new')
         let key_me = $(this).attr('key_me')
-        let df_name = $('.df_' + key).attr('data-name')
-        let df_detail = $('.df_' + key).attr('data-detail')
-        let df_price = $('.df_' + key).attr('data-price')
-        let df_image = $('.df_' + key).attr('data-image')
-        let df_id_activity = $('.df_' + key).attr('data-id_activity_new')
-        let day = $(this).attr('data-day')
+        let df_name = $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-name')
+        let df_detail = $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-detail')
+        let df_price = $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-price')
+        let df_image = $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-image')
+        let df_id_activity = $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-id_activity_new')
 
-        $('.day_' + day + ' .df_' + key + ' .title p').html(name)
-        $('.day_' + day + ' .df_' + key + ' .image').css('background-image', 'url(' + base_url + '../' + image + ')')
-        $('.day_' + day + ' .df_' + key).attr('data-name', name)
-        $('.day_' + day + ' .df_' + key).attr('data-detail', detail)
-        $('.day_' + day + ' .df_' + key).attr('data-price', price)
-        $('.day_' + day + ' .df_' + key).attr('data-image', image)
-        $('.day_' + day + ' .df_' + key).attr('data-id_activity_new', id_activity)
+        $('.day_' + day + ' .row_' + row + ' .df_' + key + ' .title p').html(name)
+        $('.day_' + day + ' .row_' + row + ' .df_' + key + ' .image').css('background-image', 'url(' + base_url + '../' + image + ')')
+        $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-name', name)
+        $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-detail', detail)
+        $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-price', price)
+        $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-image', image)
+        $('.day_' + day + ' .row_' + row + ' .df_' + key).attr('data-id_activity_new', id_activity)
 
-        $('.day_' + day + ' .change_' + key_me + ' .title p').html(df_name + '<br>+' + df_price + ' บาท')
-        $('.day_' + day + ' .change_' + key_me + ' .image').css('background-image', 'url(' + base_url + '../' + df_image + ')')
-        $('.day_' + day + ' .change_' + key_me + ' .box_detail .title').html(df_name)
-        $('.day_' + day + ' .change_' + key_me + ' .box_detail .detail').html(df_detail)
+        $('.day_' + day + ' .row_' + row + ' .change_' + key_me + ' .title p').html(df_name + '<br>+' + df_price + ' บาท')
+        $('.day_' + day + ' .row_' + row + ' .change_' + key_me + ' .image').css('background-image', 'url(' + base_url + '../' + df_image + ')')
+        $('.day_' + day + ' .row_' + row + ' .change_' + key_me + ' .box_detail .title').html(df_name)
+        $('.day_' + day + ' .row_' + row + ' .change_' + key_me + ' .box_detail .detail').html(df_detail)
         $(this).attr('data-name', df_name)
         $(this).attr('data-detail', df_detail)
         $(this).attr('data-price', df_price)
         $(this).attr('data-image', df_image)
-        console.log(df_id_activity)
         $(this).attr('data-id_activity_new', df_id_activity)
 
         if (df_price == 0 && price != 0) {
@@ -780,7 +874,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         let price_package_add = $('.package_price_activity').val();
         console.log(price_package, price_package_add)
         price_package = parseInt(price_package) + parseInt(price_package_add)
-        
+
         $('.price_package_all .price_show_val').attr('value', price_package)
         $('.price_package_all .price_show').html(addCommas(price_package))
     }

@@ -42,4 +42,9 @@ class package extends CI_Controller
         //echo"<pre>";print_r($data);echo "</pre>";
         $check = $this->package_model->review($data);
     }
+    function check_date_checkin(){
+        $data = $this->input->post();
+        $list = $this->package_model->check_checkin($data,$data['in'],$data['out']);
+        echo $list;
+    }
 }

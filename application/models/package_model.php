@@ -283,7 +283,8 @@ class package_model extends CI_model
         p.price_full
         FROM reviews r
         INNER JOIN member m ON m.id = r.member_id
-        INNER JOIN package p ON p.id = r.package_id');
+        INNER JOIN package p ON p.id = r.package_id
+        ORDER BY r.id DESC');
         if ($data->num_rows() > 0) {
             $output = $data->result_array();
         }

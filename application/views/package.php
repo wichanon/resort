@@ -138,8 +138,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <div class="box_2_row">
                                                 <a style="text-decoration: none; color:unset" href="<?= base_url() ?>Welcome/detail/<?= $value['id'] ?>">
                                                     <div class="box">
-                                                        <div class="image">
-                                                            <img src="<?= base_url() ?>../<?= $value['cover'] ?>" alt="">
+                                                        <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['cover'] ?>);">
                                                         </div>
                                                         <div class="detail">
                                                             <h3><?= $value['name'] ?></h3>
