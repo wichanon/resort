@@ -467,7 +467,10 @@ img {
     background-repeat: no-repeat; }
   .detail .activity_change .box_activity .title {
     margin-top: 0.5rem;
-    text-align: center; }
+    text-align: center;
+    height: 90px;
+    overflow: hidden;
+    margin-bottom: 1rem; }
     .detail .activity_change .box_activity .title p {
       color: #936c46; }
   .detail .activity_change .box_activity .tools {

@@ -137,8 +137,8 @@
                 </div>
                 <div class="row">
                     <div class="col-6 mx-auto">
-                        <span>* ไม่ต่ำกว่า 8 ตัวอักษร ห้ามมีสัญลักษณ์ </span>
-                        <input type="password" class="form-control my-1 regis password" required value="" title="รหัสผ่านต้องมีมากกว่าหรือเท่ากับ 8 ตัวอักษร" minlength="8" name="password" placeholder="Password">
+                        <span>* ไม่ต่ำกว่า 4 ตัวอักษร ห้ามมีสัญลักษณ์ </span>
+                        <input type="password" class="form-control my-1 regis password" required value="" title="รหัสผ่านต้องมีมากกว่าหรือเท่ากับ 8 ตัวอักษร" minlength="4" name="password" placeholder="Password">
                     </div>
                 </div>
             </form>

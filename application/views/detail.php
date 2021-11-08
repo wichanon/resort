@@ -255,7 +255,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                         <div class="col-3">
                                                             <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
                                                                 <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                                <div class="title">
+                                                                <div class="title" title="<?= $value['name'] ?>">
                                                                     <p><?= $value['name'] ?></p>
                                                                 </div>
                                                                 <div class="tools">
@@ -298,7 +298,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                         <div class="col-3">
                                                             <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
                                                                 <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                                <div class="title">
+                                                                <div class="title" title="<?= $value['name'] ?>">
                                                                     <p><?= $value['name'] ?></p>
                                                                 </div>
                                                                 <div class="tools">
@@ -339,7 +339,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                         <div class="col-3">
                                                             <div class="box_activity df df_<?= $key ?>" data-id_activity="<?= $value['id'] ?>" data-id_activity_new="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
                                                                 <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                                <div class="title">
+                                                                <div class="title" title="<?= $value['name'] ?>">
                                                                     <p><?= $value['name'] ?></p>
                                                                 </div>
                                                                 <div class="tools">
@@ -380,7 +380,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                         <div class="col-3">
                                                             <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
                                                                 <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                                <div class="title">
+                                                                <div class="title" title="<?= $value['name'] ?>">
                                                                     <p><?= $value['name'] ?></p>
                                                                 </div>
                                                                 <div class="tools">
