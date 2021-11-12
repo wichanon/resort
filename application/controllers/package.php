@@ -17,6 +17,7 @@ class package extends CI_Controller
         //echo $total_day;
 
         $list['list'] = $this->package_model->search_package($data);
+        
         foreach ($list['list'] as $key => $value) {
             $list['list'][$key]['house_id'] = $this->package_model->get_house($list['list'][$key]['house_id']);
         }
@@ -46,5 +47,10 @@ class package extends CI_Controller
         $data = $this->input->post();
         $list = $this->package_model->check_checkin($data,$data['in'],$data['out']);
         echo $list;
+    }
+    public function pay()
+    {
+        $data = $this->input->post();
+        $this->package_model->pay($data['id'],$data['status']);
     }
 }

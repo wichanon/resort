@@ -290,4 +290,38 @@ class package_model extends CI_model
         }
         return $output;
     }
+    public function get_package_payment()
+    {
+        $output = [];
+        $data = $this->db->query('SELECT 
+        p.name ,
+        p.type,
+        b.name_booking ,
+        b.tel_booking,
+        b.email_booking,
+        b.checkin,
+        b.checkout,
+        b.price,
+        b.id
+        FROM booking b 
+        INNER JOIN package p ON p.id = b.package_id
+        WHERE b.status = 0');
+        if ($data->num_rows() > 0) {
+            $output = $data->result_array();
+        }
+        return $output;
+    }
+    public function pay($id,$status)
+    {
+        $data_insert = array(
+            'status' => $status
+        );
+        $this->db->where('id',$id);
+        $check = $this->db->update('booking', $data_insert);
+        if($check){
+            echo true;
+        }else{
+            echo false;
+        }
+    }
 }

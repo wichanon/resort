@@ -85,34 +85,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="row">
             <div class="col-10 mx-auto">
                 <div class="list_search">
-
-                    <!-- <div class="box_search">
-                        <div class="image" style="background-image: url(<?= base_url() ?>../images/mock/pack_1.png);"></div>
-                        <div class="detail">
-                            <div class="title">
-                                <h2>แพ็คเกจ 1 <ss>3 วัน 2 คืน</ss>
-                                </h2>
-                            </div>
-                            <div class="sub">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl, volutpat pretium montes, pharetra. Eu faucibus ut augue et purus, feugiat.</p>
-                            </div>
-                            <div class="sub_2">
-                                <div class="total_activity">
-                                    <p>10 กิจกรรม (รวมทั้ง 3 วัน) </p>
-                                    <p>5-6 x ผู้ใหญ่</p>
-                                </div>
-                            </div>
-                            <div class="box_bottom">
-                                <div class="box_price">
-                                    <p>29535</p>
-                                    <h2>4000 บาท</h2>
-                                </div>
-                                <div class="btn_see_detail">
-                                    ดูรายละเอียด
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                
                 </div>
             </div>
         </div>
@@ -237,6 +210,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             })
             .always(function(data) {
                 let list = data.list;
+                console.log(list)
                 $('.list_search').empty()
                 if (list == '') {
                     $('.list_search').append('<div class="no_list text-center mt-5"><h2>ไม่มีแพ็คเกจที่ตามหา</h2></div>')

@@ -11,7 +11,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body>
-
     <div class="container-fluid">
         <?php $this->load->view('_menu'); ?>
     </div>
