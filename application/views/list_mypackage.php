@@ -71,6 +71,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <h4 style="color: red;">ยังไม่ได้ชำระเงิน</h4>
                                         <?php } else if ($v['status'] == 1) { ?>
                                             <h4 style="color: green;">ชำระเงินเรียบร้อย</h4>
+                                        <?php } else if ($v['status'] == 2) { ?>
+                                            <h4 style="color: red;">ยกเลิก</h4>
                                         <?php } else { ?>
                                             <h4 style="color: #333;">เข้าพักเรียบร้อย</h4>
                                         <?php } ?>
