@@ -23,9 +23,10 @@ class backend extends CI_Controller {
         $data['list'] = $this->package_model->get_all_package();
         $this->load->view('backend/package_manage',$data);
 	}
-	public function package_manage_($id)
+	public function package_manage_($id = 0)
 	{
         $data['menu'] = '';
+		$data['house'] = $this->package_model->get_all_house();
         $data['list'] = $this->package_model->get_all_package();
         $this->load->view('backend/package_manage_add',$data);
 	}

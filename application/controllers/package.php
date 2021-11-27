@@ -53,4 +53,10 @@ class package extends CI_Controller
         $data = $this->input->post();
         $this->package_model->pay($data['id'],$data['status']);
     }
+    public function add_package()
+    {
+        $data = $this->input->post();
+        //echo"<pre>";print_r($data);echo "</pre>";
+        $this->package_model->add_package($data);
+    }
 }

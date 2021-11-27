@@ -248,9 +248,10 @@ img {
 					transform: scale(1.05);
 					transition: 0.3s;
 				}
-				.image{
+				.image {
 					height: 220px;
 					background-size: cover;
+					background-position: center;
 				}
 			}
 		}
@@ -1095,4 +1096,24 @@ img {
 .no_event {
 	pointer-events: none;
 	opacity: 0.5;
+}
+.back_package_manage {
+	.list_activity {
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		background-color: #fff;
+		padding: 1rem 0;
+		margin: 0.3rem 0;
+	}
+	.day_btn{
+		&.no_active{
+			opacity: .5;
+		}
+	}
+	.btn_add_pack{
+		position: fixed;
+		bottom: 1rem;
+		right: 1rem;
+		padding: 1rem 2rem;
+	}
 }

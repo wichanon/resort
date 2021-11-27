@@ -102,6 +102,15 @@ class package_model extends CI_model
         // echo "</pre>";
         return $output;
     }
+    public function get_all_house()
+    {
+        $output = [];
+        $data = $this->db->get('house');
+        if ($data->num_rows() > 0) {
+            $output = $data->result_array();
+        }
+        return $output;
+    }
     public function get_house($id)
     {
         $output = [];
@@ -311,17 +320,58 @@ class package_model extends CI_model
         }
         return $output;
     }
-    public function pay($id,$status)
+    public function pay($id, $status)
     {
         $data_insert = array(
             'status' => $status
         );
-        $this->db->where('id',$id);
+        $this->db->where('id', $id);
         $check = $this->db->update('booking', $data_insert);
-        if($check){
+        if ($check) {
             echo true;
-        }else{
+        } else {
             echo false;
         }
+    }
+    public function add_package($data)
+    {
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        $data_insert = array(
+            'name' => $data['name'],
+            'detail' => $data['detail'],
+            'cover' => 'images/image.jpg',
+            'type' => $data['type'],
+            'price' => $data['price_sell'],
+            'price_full' =>  $data['price_full'],
+            'total_member' => $data['total_member'],
+            'total_adult' => $data['total_adult'],
+            'total_kid' => $data['total_kid'],
+            'house_id' => $data['house_id'],
+            'day_all' => $data['day_all']
+        );
+        $check = $this->db->insert('package', $data_insert);
+        if ($check) {
+            $id_package = $this->db->insert_id();
+            foreach ($data['activity'] as $key => $value) {
+                foreach ($value as $k => $v) {
+                    $data_insert_ac = array(
+                        'name' => $v['name'],
+                        'detail' => $v['detail'],
+                        'image' => 'images/image.jpg',
+                        'price' => $v['price_add'],
+                        'day' => $v['day'],
+                        'time' =>  $v['time'],
+                        'canchange' =>  0,
+                        'package_id' =>  $id_package
+                    );
+                    $check = $this->db->insert('activity', $data_insert_ac);
+                }
+            }
+        } else {
+            echo "false";
+        }
+        echo "true";
     }
 }
