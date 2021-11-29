@@ -17,6 +17,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="row mt-5">
             <div class="col-8 mx-auto">
                 <h2>แพ็คเกจ</h2>
+                <div class="row mb-2">
+                    <div class="col d-flex justify-content-end">
+                        <a href="<?=base_url()?>backend/package_manage_"><button class="btn btn-info">เพิ่มแพ็คเกจ</button></a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col">
                         <table class="table">
@@ -107,6 +112,52 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         })
 
+    }
+    function del(id){
+        Swal.fire({
+            title: 'ต้องการทำการลบ?',
+            text: "เมื่อทำรายการแล้วไม่สามารถแก้ไขได้!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'ใช่, ต้องการลบ!',
+            cancelButtonText: 'ไม่, ยกเลิกการทำรายการ!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                        url: base_url + 'backend/del_package',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            id: id,
+                        },
+                    })
+                    .done(function() {
+                        console.log("success");
+                    })
+                    .fail(function() {
+                        console.log("error");
+                        Swal.fire(
+                            'เกิดข้อผิดพลาด !',
+                            'ตรวจสอบข้อมูลอีกครั้ง',
+                            'warning'
+                        )
+                    })
+                    .always(function(data) {
+                        if (data == true) {
+                            Swal.fire(
+                                'ทำรายการสำเร็จ',
+                                'แพ็คเกจได้ถูกลบเรียบร้อย',
+                                'success'
+                            )
+                            setTimeout(function() {
+                                location.reload();
+                            }, 2000);
+                        }
+                    });
+            }
+        })
     }
 </script>
 

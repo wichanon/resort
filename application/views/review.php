@@ -25,8 +25,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="box_review">
                             <?php foreach ($list as $key => $value) { ?>
                                 <div class="review_list my-3">
-                                    <div class="package">
-                                        <div class="box">
+                                    <div class="package" style="background-image: url(<?= base_url() ?>../<?= $value['cover'] ?>);">
+                                        <div class="text_name">
+                                            <h5><?= $value['name'] ?></h5>
+                                            <p><?= number_format($value['price']) ?> บาท</p>
+                                        </div>
+                                        <!-- <div class="box">
                                             <div class="image">
                                                 <img src="<?= base_url() ?>../<?= $value['cover'] ?>" alt="">
                                             </div>
@@ -55,7 +59,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                     </div>
                                     <div class="review_">

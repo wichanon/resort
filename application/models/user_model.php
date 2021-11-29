@@ -32,4 +32,18 @@ class user_model extends CI_model
             echo "false";
         }
     }
+    public function login_backend($data)
+    {
+        $output = [];
+        $this->db->where('username', $data['username']);
+        $this->db->where('password', md5($data['password']));
+        $data = $this->db->get('admins');
+        if ($data->num_rows() > 0) {
+            echo 'true';
+            $newdata = array(
+                'role'  => 'admin'
+            );
+            $this->session->set_userdata($newdata);
+        }
+    }
 }

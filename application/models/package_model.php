@@ -374,4 +374,14 @@ class package_model extends CI_model
         }
         echo "true";
     }
+    public function del_package($data)
+    {
+        $this->db->where('id', $data['id']);
+        $check = $this->db->delete('package');
+        if($check){
+            echo 'true';
+        }else{
+            echo 'false';
+        }
+    }
 }

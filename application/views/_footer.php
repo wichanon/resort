@@ -56,29 +56,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col contact_box">
-                            <div class="box">
-                                <h4>ติดต่อสอบถาม</h4>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" placeholder="ชื่อ-นามสกุล">
-                                    </div>
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" placeholder="เบอร์โทรศัพท์">
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                        <textarea name="" id="" cols="30" class="form-control" rows="5" placeholder="รายละเอียด"></textarea>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col d-flex justify-content-end">
-                                        <div class="btn_submit">ส่ง</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -839,14 +839,28 @@ img {
 .review {
 	.box_review {
 		.review_list {
-			padding: 2rem;
+			overflow: hidden;
 			background-color: #ece2d2;
 			border-radius: 10px;
 			box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 			display: flex;
 			.package {
-				width: 20%;
+				width: 30%;
 				padding: 0;
+				height: 250px;
+				background-position: center;
+				background-size: cover;
+				display: flex;
+				align-items: flex-end;
+				.text_name{
+					width: 100%;
+					background-color: #fff;
+					padding: .5rem 0;
+					text-align: center;
+					h5,p{
+						margin: 0;
+					}
+				}
 				.image {
 					width: 100%;
 					background-size: cover;
@@ -860,11 +874,12 @@ img {
 				justify-content: center;
 				align-items: center;
 				span {
-					font-size: 0.8rem;
+					font-size: 1rem;
 					color: #c0a88d;
 				}
 				.text_review {
 					color: #936c46;
+					font-size: 1.2rem;
 				}
 				.box {
 					width: 65%;
@@ -1115,5 +1130,25 @@ img {
 		bottom: 1rem;
 		right: 1rem;
 		padding: 1rem 2rem;
+	}
+}
+.bg_back{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #f1f1f1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.popup{
+		width: 30%;
+		padding: 1rem;
+		border-radius: 10px;
+		background-color: #fff;
+		.image{
+			width: 25%;
+		}
 	}
 }
