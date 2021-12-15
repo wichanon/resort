@@ -19,7 +19,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <h2>แพ็คเกจ</h2>
                 <div class="row mb-2">
                     <div class="col d-flex justify-content-end">
-                        <a href="<?=base_url()?>backend/package_manage_"><button class="btn btn-info">เพิ่มแพ็คเกจ</button></a>
+                        <a href="<?=base_url()?>admin/package_manage_"><button class="btn btn-info">เพิ่มแพ็คเกจ</button></a>
                     </div>
                 </div>
                 <div class="row">
@@ -44,7 +44,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <td><?= number_format($value['price']) ?></td>
                                         <td><?= $value['type'] ?></td>
                                         <td>
-                                            <a href="<?= base_url() ?>backend/package_manage_/<?= $value['id'] ?>"><button class="btn btn-warning">แก้ไข</button></a>
+                                            <a href="<?= base_url() ?>admin/package_manage_/<?= $value['id'] ?>"><button class="btn btn-warning">แก้ไข</button></a>
                                             <button class="btn btn-danger" onclick="del(<?= $value['id'] ?>)">ลบ</button>
                                         </td>
                                     </tr>
@@ -126,7 +126,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                        url: base_url + 'backend/del_package',
+                        url: base_url + 'admin/del_package',
                         type: 'post',
                         dataType: 'json',
                         data: {

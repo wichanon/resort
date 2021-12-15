@@ -891,6 +891,14 @@ img {
   pointer-events: none;
   opacity: 0.5; }
 
+.back_package_manage .box_image_cover .preview, .back_package_manage .box_image_activty .preview {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../images/image.jpg"); }
+
 .back_package_manage .list_activity {
   border-radius: 5px;
   border: 1px solid #ccc;

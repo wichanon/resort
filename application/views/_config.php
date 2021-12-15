@@ -13,6 +13,7 @@
 <script src="<?= base_url() ?>../validate/jquery.validate.js"></script>
 <script src="<?= base_url() ?>../validate/additional-methods.min.js"></script>
 <script src="<?= base_url() ?>../js/textfit.js"></script>
+<script src="<?= base_url() ?>../js/upload.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>

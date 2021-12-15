@@ -41,7 +41,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script>
     $('.btn_login').click(function() {
         $.ajax({
-                url: base_url + 'backend/login',
+                url: base_url + 'admin/login',
                 type: 'post',
                 dataType: 'json',
                 data: {
@@ -68,7 +68,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         'success'
                     )
                     setTimeout(function() {
-                        window.location.href = base_url+'backend/package_manage';
+                        window.location.href = base_url+'admin/package_manage';
                     }, 2000);
                 }
             });

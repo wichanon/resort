@@ -349,24 +349,61 @@ class package_model extends CI_model
             'total_adult' => $data['total_adult'],
             'total_kid' => $data['total_kid'],
             'house_id' => $data['house_id'],
-            'day_all' => $data['day_all']
+            'day_all' => $data['day_all'],
+            'cover' =>  $data['image_cover'][0]
         );
         $check = $this->db->insert('package', $data_insert);
         if ($check) {
             $id_package = $this->db->insert_id();
+            foreach ($data['image_cover'] as $key => $value) {
+                $data_insert_image = array(
+                    'image' => $value,
+                    'type' => '',
+                    'package_id' =>  $id_package
+                );
+                $this->db->insert('image', $data_insert_image);
+            }
             foreach ($data['activity'] as $key => $value) {
                 foreach ($value as $k => $v) {
+                    if (isset($v['change'])) {
+                        $canchange = 1;
+                    } else {
+                        $canchange = 0;
+                    }
+                    $image = $v['image'];
+                    if ($image == null) {
+                        $image = 'images/image.jpg';
+                    }
                     $data_insert_ac = array(
                         'name' => $v['name'],
                         'detail' => $v['detail'],
-                        'image' => 'images/image.jpg',
+                        'image' => $image,
                         'price' => $v['price_add'],
                         'day' => $v['day'],
                         'time' =>  $v['time'],
-                        'canchange' =>  0,
+                        'canchange' =>  $canchange,
                         'package_id' =>  $id_package
                     );
-                    $check = $this->db->insert('activity', $data_insert_ac);
+                    $check2 = $this->db->insert('activity', $data_insert_ac);
+                    if ($check2) {
+                        $id_package_2 = $this->db->insert_id();
+                        if (isset($v['change'])) {
+                            foreach ($v['change'] as $k2 => $v2) {
+                                $image = $v2['image'];
+                                if ($image == null) {
+                                    $image = 'images/image.jpg';
+                                }
+                                $data_insert_change = array(
+                                    'activity_id' => $id_package_2,
+                                    'name' => $v2['name'],
+                                    'detail' => $v2['detail'],
+                                    'price' => $v2['price_add'],
+                                    'image' => $image
+                                );
+                                $check3 = $this->db->insert('activity_change', $data_insert_change);
+                            }
+                        }
+                    }
                 }
             }
         } else {
@@ -378,9 +415,9 @@ class package_model extends CI_model
     {
         $this->db->where('id', $data['id']);
         $check = $this->db->delete('package');
-        if($check){
+        if ($check) {
             echo 'true';
-        }else{
+        } else {
             echo 'false';
         }
     }
