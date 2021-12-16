@@ -251,7 +251,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 ac['day'] = (key + 1);
                 ac['change'] = [];
                 let change_length = $('.list_activity.list_' + (key + 1) + '_' + (i + 1) + ' .activity_change_box .list').length
-                console.log(change_length)
+                //console.log(change_length)
                 $('.list_activity.list_' + (key + 1) + '_' + (i + 1) + ' .activity_change_box .list').each(function() {
                     //array.push($(this).data("val"));
                     let cac = {}
@@ -265,7 +265,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
 
         })
-        //console.log(data_activity)
+        
+        console.log(data_activity)
+
+        //add ข้อมูลเข้า DB
         $.ajax({
                 url: base_url + 'package/add_package',
                 type: 'post',
@@ -308,6 +311,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     }, 2000);
                 }
             });
+             //add ข้อมูลเข้า DB end
     })
 
     function check_activity_change(day, activity, e) {
