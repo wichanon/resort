@@ -709,7 +709,8 @@ img {
       color: #936c46;
       font-size: 1.2rem; }
     .review .box_review .review_list .review_ .box {
-      width: 65%;
+      width: 90%;
+      height: 80%;
       padding: 1rem;
       border-radius: 10px;
       background-color: #fff; }

@@ -2,7 +2,7 @@
     <div class="col p-0">
         <div class="box">
             <div class="row">
-                <div class="col">
+                <div class="col" style="display: flex;flex-flow:column;align-items: center;">
                     <div class="logo">
                         <img src="<?= base_url() ?>../images/logomain.png" alt="">
                     </div>
@@ -16,13 +16,6 @@
                         <div class="icon">
                             <img src="<?= base_url() ?>../images/icons/instagram.png" alt="">
                         </div>
-                    </div>
-                    <div class="contact">
-                        <p><b>ที่อยู่</b> :88 ถนน หมู่ 2 ตำบลแก่งเสี้ยน <br>อำเภอเมืองกาญจนบุรี กาญจนบุรี 71000 <br>
-                            <b>เบอร์โทรศัพท์</b> : 094-670-6212 <br>
-                            <b>อีเมล์</b> : pft.forfamily@hotmail.com<br>
-                            <b>เว็บไซต์</b> : http://localhost/resort
-                        </p>
                     </div>
                 </div>
                 <div class="col">
@@ -115,7 +108,7 @@
                 <div class="row">
                     <div class="col-6 mx-auto">
                         <span>* ไม่ต่ำกว่า 4 ตัวอักษร ห้ามมีสัญลักษณ์ </span>
-                        <input type="password" class="form-control my-1 regis password" required value="" title="รหัสผ่านต้องมีมากกว่าหรือเท่ากับ 8 ตัวอักษร" minlength="4" name="password" placeholder="Password">
+                        <input type="password" class="form-control my-1 regis password" required value="" title="รหัสผ่านต้องมีมากกว่าหรือเท่ากับ 4 ตัวอักษร" minlength="4" name="password" placeholder="Password">
                     </div>
                 </div>
             </form>
@@ -132,7 +125,20 @@
 
 
 <script>
-    let s =0;
+    let s = 0;
+
+    $(".regis.firstname,.regis.lastname").keypress(function(event) {
+        var ew = event.which;
+        if (ew == 32)
+            return false;
+        if (48 <= ew && ew <= 57)
+            return false;
+        if (65 <= ew && ew <= 90)
+            return false;
+        if (97 <= ew && ew <= 122)
+            return false;
+        return true;
+    });
     $(function() {
         $("#form_regis").validate()
         $("#form_login").validate();
@@ -185,6 +191,15 @@
     })
     $('.btn_login.register_sent').click(function() {
         if ($('#form_regis').valid()) {
+            let total_tel = $('.regis.tel').val();
+            if (total_tel.length > 10) {
+                Swal.fire(
+                    'เกิดข้อผิดพลาด !',
+                    'ตรวจสอบข้อมูลอีกครั้ง',
+                    'warning'
+                )
+                return;
+            }
             $.ajax({
                     url: base_url + 'user/register',
                     type: 'post',

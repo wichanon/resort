@@ -20,9 +20,19 @@ class admin extends CI_Controller {
 			$this->load->view('backend/login');
 			return;
 		}
-        $data['menu'] = '';
+        $data['menu'] = 'confirm_payment';
         $data['list'] = $this->package_model->get_package_payment();
         $this->load->view('backend/packlist',$data);
+	}
+	public function packlist_booking_end()
+	{
+		if(!isset($_SESSION['role'])){
+			$this->load->view('backend/login');
+			return;
+		}
+        $data['menu'] = 'confirm_booking_end';
+        $data['list'] = $this->package_model->get_package_payment_end();
+        $this->load->view('backend/packlist_booking_end',$data);
 	}
 	public function package_manage()
 	{
@@ -30,7 +40,7 @@ class admin extends CI_Controller {
 			$this->load->view('backend/login');
 			return;
 		}
-        $data['menu'] = '';
+        $data['menu'] = 'managepackage';
         $data['list'] = $this->package_model->get_all_package();
         $this->load->view('backend/package_manage',$data);
 	}

@@ -14,6 +14,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body>
     <div class="container-fluid back_package_manage">
+    <?php $this->load->view('backend/_menu'); ?>
         <div class="row mt-5">
             <div class="col-5 mx-auto">
                 <h2>เพิ่มแพ็คเกจ</h2>

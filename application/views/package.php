@@ -161,6 +161,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
             perPage: 5,
             perMove: 1,
             focus: 'left',
+            breakpoints: {
+                1700: {
+                    perPage: 4,
+                },
+                1200: {
+                    perPage: 3,
+                },
+                800: {
+                    perPage: 2,
+                },
+            }
         }).mount();
         $('.start_date').datepicker({
             format: 'dd-mm-yyyy',

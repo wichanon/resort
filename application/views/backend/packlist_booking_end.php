@@ -54,8 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <td><?= $checkin ?> - <?= $checkout ?></td>
                                         <td><?= number_format($value['price']) ?></td>
                                         <td>
-                                            <button class="btn btn-success" onclick="pay(<?= $value['id'] ?>,1)">ยืนยันการโอน</button>
-                                            <button class="btn btn-danger" onclick="pay(<?= $value['id'] ?>,2)">ยกเลิก</button>
+                                            <button class="btn btn-success" onclick="pay(<?= $value['id'] ?>,10)">เข้าพักเรียบร้อย</button>
                                         </td>
                                     </tr>
                                 <?php } ?>
