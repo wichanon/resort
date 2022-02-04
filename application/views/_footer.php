@@ -87,11 +87,11 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <span>* ภาษาไทยเท่านั้น</span>
+                        <span>* ห้ามกรอกอักษรพิเศษ</span>
                         <input type="text" class="form-control my-1 regis firstname" required name="firstname" value="" placeholder="ชื่อจริง">
                     </div>
                     <div class="col">
-                        <span>* ภาษาไทยเท่านั้น</span>
+                        <span>* ห้ามกรอกอักษรพิเศษ</span>
                         <input type="text" class="form-control my-1 regis lastname" required name="lastname" value="" placeholder="นามสกุล">
                     </div>
                 </div>
@@ -128,15 +128,23 @@
     let s = 0;
 
     $(".regis.firstname,.regis.lastname").keypress(function(event) {
-        var ew = event.which;
-        if (ew == 32)
+        // var ew = event.which;
+        // if (ew == 32)
+        //     return false;
+        // if (48 <= ew && ew <= 57)
+        //     return false;
+        // if (65 <= ew && ew <= 90)
+        //     return false;
+        // if (97 <= ew && ew <= 122)
+        //     return false;
+
+        var regex = new RegExp("^([A-Z]|[a-z]|[ๅภถุึคตจขชๆไำพะัีรนยบลฃฟหกดเ้่าสวงผปแอิืทมใฝ๑๒๓๔ู฿๕๖๗๘๙๐ฎฑธํ๊ณฯญฐฅฤฆฏโฌ็๋ษศซฉฮฺ์ฒฬฦ])+$","g");
+        var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+        if (!regex.test(key)) {
+            event.preventDefault();
+            console.log('d')
             return false;
-        if (48 <= ew && ew <= 57)
-            return false;
-        if (65 <= ew && ew <= 90)
-            return false;
-        if (97 <= ew && ew <= 122)
-            return false;
+        }
         return true;
     });
     $(function() {

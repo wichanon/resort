@@ -252,10 +252,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 if ($value['canchange'] == 1) { ?>
                                                     <div class="row row_<?= $key ?> mb-5">
                                                         <div class="col-3">
-                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
+                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name_short'] ?>" data-detail="<?= $value['detail'] ?>">
                                                                 <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                                <div class="title" title="<?= $value['name'] ?>">
-                                                                    <p><?= $value['name'] ?></p>
+                                                                <div class="title" title="<?= $value['name_short'] ?>">
+                                                                    <p><?= $value['name_short'] ?></p>
                                                                 </div>
                                                                 <div class="tools">
                                                                     <p>กิจกรรมเดิม</p>
@@ -270,13 +270,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                                     <div class="box_activity change change_<?= $k ?>">
                                                                         <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
                                                                         <div class="title">
-                                                                            <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
+                                                                            <p><?= $v['name_short'] ?><br>+<?= $v['price'] ?> บาท</p>
                                                                         </div>
-                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="1" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
+                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="1" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name_short'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
                                                                             <img src="<?= base_url() ?>../images/icons/re.png" alt="">
                                                                         </div>
                                                                         <div class="box_detail" style="display: none;">
-                                                                            <div class="title"><?= $v['name'] ?></div>
+                                                                            <div class="title"><?= $v['name_short'] ?></div>
                                                                             <div class="detail"><?= $v['detail'] ?></div>
                                                                         </div>
                                                                     </div>
@@ -295,10 +295,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 if ($value['canchange'] == 1) { ?>
                                                     <div class="row row_<?= $key ?> mb-5">
                                                         <div class="col-3">
-                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
+                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name_short'] ?>" data-detail="<?= $value['detail'] ?>">
                                                                 <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                                <div class="title" title="<?= $value['name'] ?>">
-                                                                    <p><?= $value['name'] ?></p>
+                                                                <div class="title" title="<?= $value['name_short'] ?>">
+                                                                    <p><?= $value['name_short'] ?></p>
                                                                 </div>
                                                                 <div class="tools">
                                                                     <p>กิจกรรมเดิม</p>
@@ -312,13 +312,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                                     <div class="box_activity change change_<?= $k ?>">
                                                                         <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
                                                                         <div class="title">
-                                                                            <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
+                                                                            <p><?= $v['name_short'] ?><br>+<?= $v['price'] ?> บาท</p>
                                                                         </div>
-                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="2" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
+                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="2" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name_short'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
                                                                             <img src="<?= base_url() ?>../images/icons/re.png" alt="">
                                                                         </div>
                                                                         <div class="box_detail" style="display: none;">
-                                                                            <div class="title"><?= $v['name'] ?></div>
+                                                                            <div class="title"><?= $v['name_short'] ?></div>
                                                                             <div class="detail"><?= $v['detail'] ?></div>
                                                                         </div>
                                                                     </div>
@@ -336,10 +336,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 if ($value['canchange'] == 1) { ?>
                                                     <div class="row row_<?= $key ?> mb-5">
                                                         <div class="col-3">
-                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity="<?= $value['id'] ?>" data-id_activity_new="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
+                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity="<?= $value['id'] ?>" data-id_activity_new="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name_short'] ?>" data-detail="<?= $value['detail'] ?>">
                                                                 <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                                <div class="title" title="<?= $value['name'] ?>">
-                                                                    <p><?= $value['name'] ?></p>
+                                                                <div class="title" title="<?= $value['name_short'] ?>">
+                                                                    <p><?= $value['name_short'] ?></p>
                                                                 </div>
                                                                 <div class="tools">
                                                                     <p>กิจกรรมเดิม</p>
@@ -353,13 +353,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                                     <div class="box_activity change change_<?= $k ?>">
                                                                         <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
                                                                         <div class="title">
-                                                                            <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
+                                                                            <p><?= $v['name_short'] ?><br>+<?= $v['price'] ?> บาท</p>
                                                                         </div>
-                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="3" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
+                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="3" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name_short'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
                                                                             <img src="<?= base_url() ?>../images/icons/re.png" alt="">
                                                                         </div>
                                                                         <div class="box_detail" style="display: none;">
-                                                                            <div class="title"><?= $v['name'] ?></div>
+                                                                            <div class="title"><?= $v['name_short'] ?></div>
                                                                             <div class="detail"><?= $v['detail'] ?></div>
                                                                         </div>
                                                                     </div>
@@ -377,10 +377,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 if ($value['canchange'] == 1) { ?>
                                                     <div class="row row_<?= $key ?> mb-5">
                                                         <div class="col-3">
-                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name'] ?>" data-detail="<?= $value['detail'] ?>">
+                                                            <div class="box_activity df df_<?= $key ?>" data-id_activity_new="<?= $value['id'] ?>" data-id_activity="<?= $value['id'] ?>" data-image="<?= $value['image'] ?>" data-price="<?= $value['price'] ?>" data-name="<?= $value['name_short'] ?>" data-detail="<?= $value['detail'] ?>">
                                                                 <div class="image" style="background-image: url(<?= base_url() ?>../<?= $value['image'] ?>);"></div>
-                                                                <div class="title" title="<?= $value['name'] ?>">
-                                                                    <p><?= $value['name'] ?></p>
+                                                                <div class="title" title="<?= $value['name_short'] ?>">
+                                                                    <p><?= $value['name_short'] ?></p>
                                                                 </div>
                                                                 <div class="tools">
                                                                     <p>กิจกรรมเดิม</p>
@@ -395,13 +395,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                                     <div class="box_activity change change_<?= $k ?>">
                                                                         <div class="image" style="background-image: url(<?= base_url() ?>../<?= $v['image'] ?>);"></div>
                                                                         <div class="title">
-                                                                            <p><?= $v['name'] ?><br>+<?= $v['price'] ?> บาท</p>
+                                                                            <p><?= $v['name_short'] ?><br>+<?= $v['price'] ?> บาท</p>
                                                                         </div>
-                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="4" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
+                                                                        <div class="tools" data-row="<?= $key ?>" data-image="<?= $v['image'] ?>" data-id_activity_new="<?= $v['id'] ?>" data-id_activity="<?= $v['id'] ?>" data-day="4" key="<?= $key ?>" key_me="<?= $k ?>" data-name="<?= $v['name_short'] ?>" data-price="<?= $v['price'] ?>" data-detail="<?= $v['detail'] ?>">
                                                                             <img src="<?= base_url() ?>../images/icons/re.png" alt="">
                                                                         </div>
                                                                         <div class="box_detail" style="display: none;">
-                                                                            <div class="title"><?= $v['name'] ?></div>
+                                                                            <div class="title"><?= $v['name_short'] ?></div>
                                                                             <div class="detail"><?= $v['detail'] ?></div>
                                                                         </div>
                                                                     </div>
@@ -604,7 +604,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
         return parts.join("-");
     }
     $(document).ready(function() {
-
+        let he_top = 0;
+        setTimeout(function() {
+            $('.box .detail').each(function(key, e) {
+                if ($(e).outerHeight() > he_top) {
+                    he_top = $(e).outerHeight()
+                    console.log(he_top)
+                    $('.box .detail').css('height', he_top + 'px')
+                }
+            })
+        }, 500)
         $('.box_activity.df').each(function(key, e) {
             console.log($(e).attr('data-id_activity'))
         })
@@ -683,7 +692,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             focus: 'left',
             breakpoints: {
                 1700: {
-                    perPage: 4,
+                    perPage: 3,
                 },
                 1200: {
                     perPage: 3,
@@ -734,60 +743,74 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 )
                 return;
             }
-            let arr_change_activity = []
-            $('.box_activity.df').each(function(key, e) {
-                let activity_old = $(e).attr('data-id_activity')
-                let activity_new = $(e).attr('data-id_activity_new')
-                if (activity_old != activity_new) {
-                    let arr = {};
-                    arr = {
-                        activity_old: activity_old,
-                        activity_new: activity_new
-                    }
-                    arr_change_activity.push(arr)
+            Swal.fire({
+                title: 'ต้องการจอง?',
+                text: "เมื่อทำการจองแล้วไม่สามารถแก้ไขข้อมูลได้อีก!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ใช่, ต้องการจอง!',
+                cancelButtonText: 'ไม่, ยังก่อน!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let arr_change_activity = []
+                    $('.box_activity.df').each(function(key, e) {
+                        let activity_old = $(e).attr('data-id_activity')
+                        let activity_new = $(e).attr('data-id_activity_new')
+                        if (activity_old != activity_new) {
+                            let arr = {};
+                            arr = {
+                                activity_old: activity_old,
+                                activity_new: activity_new
+                            }
+                            arr_change_activity.push(arr)
+                        }
+                    })
+                    console.log(arr_change_activity)
+                    $.ajax({
+                            url: base_url + 'package/booking',
+                            type: 'post',
+                            dataType: 'json',
+                            data: {
+                                name: $('.checkin .name').val(),
+                                tel: $('.checkin .tel').val(),
+                                email: $('.checkin .email').val(),
+                                member_id: sess,
+                                package_id: pagkage_id,
+                                checkin: $('.checkin .date_checkin').val(),
+                                checkout: $('.checkin .date_checkout').val(),
+                                activity_change: arr_change_activity,
+                                price_totle: $('.price_package_all .price_show_val').val(),
+                                price_add: $('.package_price_activity').val()
+                            },
+                        })
+                        .done(function() {
+                            console.log("success");
+                        })
+                        .fail(function() {
+                            console.log("error");
+                            Swal.fire(
+                                'เกิดข้อผิดพลาด !',
+                                'ตรวจสอบข้อมูลอีกครั้ง',
+                                'warning'
+                            )
+                        })
+                        .always(function(data) {
+                            if (data == true) {
+                                Swal.fire(
+                                    'จองแพ็คเกจสำเร็จ',
+                                    'กรุณาเช็คอีเมลเพื่อชำระค่าใช้จ่าย',
+                                    'success'
+                                )
+                                setTimeout(function() {
+                                    window.location.href = base_url + "Welcome/my_package";
+                                }, 2000);
+                            }
+                        });
                 }
             })
-            console.log(arr_change_activity)
-            $.ajax({
-                    url: base_url + 'package/booking',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        name: $('.checkin .name').val(),
-                        tel: $('.checkin .tel').val(),
-                        email: $('.checkin .email').val(),
-                        member_id: sess,
-                        package_id: pagkage_id,
-                        checkin: $('.checkin .date_checkin').val(),
-                        checkout: $('.checkin .date_checkout').val(),
-                        activity_change: arr_change_activity,
-                        price_totle: $('.price_package_all .price_show_val').val(),
-                        price_add: $('.package_price_activity').val()
-                    },
-                })
-                .done(function() {
-                    console.log("success");
-                })
-                .fail(function() {
-                    console.log("error");
-                    Swal.fire(
-                        'เกิดข้อผิดพลาด !',
-                        'ตรวจสอบข้อมูลอีกครั้ง',
-                        'warning'
-                    )
-                })
-                .always(function(data) {
-                    if (data == true) {
-                        Swal.fire(
-                            'จองแพ็คเกจสำเร็จ',
-                            'กรุณาเช็คอีเมลเพื่อชำระค่าใช้จ่าย',
-                            'success'
-                        )
-                        setTimeout(function() {
-                            window.location.href = base_url + "Welcome/my_package";
-                        }, 2000);
-                    }
-                });
+
         }
     })
     $('.checkin_me').change(function() {

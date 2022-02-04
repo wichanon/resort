@@ -213,12 +213,10 @@ img {
         background-position: center; }
   .list_pack .slide_pack .detail {
     padding: 1rem;
-    height: 150px;
     overflow: hidden;
     color: #936c46; }
   .list_pack .slide_pack .detail_2 {
     width: 100%;
-    margin-top: 1rem;
     display: flex; }
     .list_pack .slide_pack .detail_2 .box1,
     .list_pack .slide_pack .detail_2 .box2,
@@ -452,7 +450,7 @@ img {
     margin: 0 0.5rem; }
 
 .detail .activity_change .box_activity {
-  width: 80%;
+  width: 100%;
   background-color: #ece2d2;
   border-radius: 10px;
   padding: 1rem;
@@ -469,7 +467,6 @@ img {
   .detail .activity_change .box_activity .title {
     margin-top: 0.5rem;
     text-align: center;
-    height: 90px;
     overflow: hidden;
     margin-bottom: 1rem; }
     .detail .activity_change .box_activity .title p {
@@ -671,6 +668,20 @@ img {
       transform: scale(1.05);
       transition: 0.3s; }
 
+.review .btn_page .col {
+  display: flex;
+  justify-content: flex-end; }
+
+.review .btn_page .box_page {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0 0.3rem;
+  cursor: pointer; }
+  .review .btn_page .box_page.active {
+    background-color: #c99446;
+    color: #fff; }
+
 .review .box_review .review_list {
   overflow: hidden;
   background-color: #ece2d2;
@@ -688,9 +699,10 @@ img {
     .review .box_review .review_list .package .text_name {
       width: 100%;
       background-color: #fff;
-      padding: .5rem 0;
+      padding: 0.5rem 0;
       text-align: center; }
-      .review .box_review .review_list .package .text_name h5, .review .box_review .review_list .package .text_name p {
+      .review .box_review .review_list .package .text_name h5,
+      .review .box_review .review_list .package .text_name p {
         margin: 0; }
     .review .box_review .review_list .package .image {
       width: 100%;
@@ -702,12 +714,35 @@ img {
     display: flex;
     justify-content: center;
     align-items: center; }
+    .review .box_review .review_list .review_ .box_star {
+      display: flex;
+      margin: 0.5rem 0; }
+      .review .box_review .review_list .review_ .box_star .star {
+        width: 20px;
+        margin: 0 0.2rem; }
     .review .box_review .review_list .review_ span {
       font-size: 1rem;
       color: #c0a88d; }
     .review .box_review .review_list .review_ .text_review {
       color: #936c46;
       font-size: 1.2rem; }
+    .review .box_review .review_list .review_ .box_image {
+      width: 100%;
+      padding: 0.5rem;
+      display: flex; }
+      .review .box_review .review_list .review_ .box_image .image {
+        width: 60px;
+        height: 60px;
+        background-color: #ccc;
+        margin: 0 0.3rem;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+        transition: 0.3s; }
+        .review .box_review .review_list .review_ .box_image .image:hover {
+          transform: scale(1.1);
+          transition: 0.3s;
+          cursor: pointer; }
     .review .box_review .review_list .review_ .box {
       width: 90%;
       height: 80%;
@@ -862,6 +897,22 @@ img {
   top: 0;
   left: 0;
   z-index: 10; }
+  .bg_black .close {
+    position: absolute;
+    width: 50px;
+    top: 15px;
+    right: 40px;
+    opacity: 0.6;
+    transition: 0.3s; }
+    .bg_black .close:hover {
+      transform: scale(1.1);
+      transition: 0.3s;
+      opacity: 1;
+      cursor: pointer; }
+  .bg_black .image_review {
+    width: 60%; }
+    .bg_black .image_review img {
+      width: 100%; }
   .bg_black .popup {
     width: 40%;
     padding: 2rem;
@@ -870,6 +921,32 @@ img {
     pointer-events: all;
     z-index: 11;
     position: relative; }
+    .bg_black .popup .box_star {
+      display: flex;
+      margin: 0.5rem 0; }
+      .bg_black .popup .box_star .star {
+        width: 35px;
+        margin: 0 0.5rem;
+        cursor: pointer;
+        transition: 0.3s; }
+        .bg_black .popup .box_star .star:hover {
+          transform: scale(1.1);
+          transition: 0.3s; }
+    .bg_black .popup .box_image {
+      display: flex; }
+      .bg_black .popup .box_image .image {
+        width: 100px;
+        height: 100px;
+        margin: 0 0.2rem;
+        background-position: center;
+        background-size: cover;
+        border-radius: 5px;
+        position: relative; }
+        .bg_black .popup .box_image .image .close {
+          width: 25px;
+          position: absolute;
+          right: 5px;
+          top: 5px; }
     .bg_black .popup .btn_send_review {
       padding: 0.5rem 2rem;
       border-radius: 5px;
@@ -892,7 +969,27 @@ img {
   pointer-events: none;
   opacity: 0.5; }
 
-.back_package_manage .box_image_cover .preview, .back_package_manage .box_image_activty .preview {
+.back_package_manage .image_cover {
+  position: relative; }
+
+.back_package_manage .box_image_cover .close,
+.back_package_manage .box_image_activty .close {
+  width: 50px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: flex;
+  transition: 0.3s;
+  cursor: pointer;
+  opacity: 0.6; }
+  .back_package_manage .box_image_cover .close:hover,
+  .back_package_manage .box_image_activty .close:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    transition: 0.3s; }
+
+.back_package_manage .box_image_cover .preview,
+.back_package_manage .box_image_activty .preview {
   width: 100%;
   height: 100px;
   background-color: #fff;
@@ -905,10 +1002,29 @@ img {
   border: 1px solid #ccc;
   background-color: #fff;
   padding: 1rem 0;
-  margin: 0.3rem 0; }
+  margin: 0.3rem 0;
+  position: relative; }
+  .back_package_manage .list_activity .close {
+    width: 50px;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+    transition: 0.3s;
+    cursor: pointer;
+    opacity: 0.6; }
+    .back_package_manage .list_activity .close:hover {
+      transform: scale(1.1);
+      opacity: 1;
+      transition: 0.3s; }
+  .back_package_manage .list_activity .box_activity_change .activity_change_box .list {
+    position: relative; }
+    .back_package_manage .list_activity .box_activity_change .activity_change_box .list .close {
+      position: absolute;
+      top: 0; }
 
 .back_package_manage .day_btn.no_active {
-  opacity: .5; }
+  opacity: 0.5; }
 
 .back_package_manage .btn_add_pack {
   position: fixed;

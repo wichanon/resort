@@ -16,8 +16,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="container-fluid back_package">
         <?php $this->load->view('backend/_menu'); ?>
         <div class="row mt-5">
-            <div class="col-8 mx-auto">
-                <h2>รอทำรายการ(ยืนยันการจอง)</h2>
+            <div class="col-11 mx-auto">
+                <h2>เช็คเอาท์</h2>
                 <div class="row">
                     <div class="col">
                         <table class="table">

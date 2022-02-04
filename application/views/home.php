@@ -189,6 +189,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </body>
 <script>
 	$(document).ready(function() {
+		let he_top = 0;
+        setTimeout(function() {
+            $('.box .detail').each(function(key, e) {
+                if ($(e).outerHeight() > he_top) {
+                    he_top = $(e).outerHeight()
+                    console.log(he_top)
+                    $('.box .detail').css('height', he_top + 'px')
+                }
+            })
+        }, 500)
 		let x = new Splide('#cover', {
 			type: 'loop',
 			autoplay: true

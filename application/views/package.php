@@ -85,7 +85,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="row">
             <div class="col-10 mx-auto">
                 <div class="list_search">
-                
+
                 </div>
             </div>
         </div>
@@ -157,13 +157,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </body>
 <script>
     $(document).ready(function() {
+        let he_top = 0;
+        setTimeout(function() {
+            $('.box .detail').each(function(key, e) {
+                if ($(e).outerHeight() > he_top) {
+                    he_top = $(e).outerHeight()
+                    console.log(he_top)
+                    $('.box .detail').css('height', he_top + 'px')
+                }
+            })
+        }, 500)
         let y = new Splide('#pack', {
             perPage: 5,
             perMove: 1,
             focus: 'left',
             breakpoints: {
                 1700: {
-                    perPage: 4,
+                    perPage: 3,
                 },
                 1200: {
                     perPage: 3,

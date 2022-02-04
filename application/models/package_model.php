@@ -261,10 +261,21 @@ class package_model extends CI_model
         $data_insert = array(
             'package_id' => $data['package_id'],
             'detail' => nl2br($data['review']),
-            'member_id	' => $_SESSION['id']
+            'member_id	' => $_SESSION['id'],
+            'star' => $data['star']
         );
         $check = $this->db->insert('reviews', $data_insert);
         if ($check) {
+            $id_review = $this->db->insert_id();
+            foreach ($data['image'] as $key => $value) {
+                $data_insert_image = array(
+                    'image' => $value,
+                    'type' => 'review',
+                    'package_id' =>  $data['package_id'],
+                    'review_id' =>  $id_review
+                );
+                $this->db->insert('image', $data_insert_image);
+            }
             $data_update = array(
                 'review' => 1
             );
@@ -278,11 +289,24 @@ class package_model extends CI_model
             echo 'false';
         }
     }
+    public function get_reviews_image($data)
+    {
+        foreach ($data as $key => $value) {
+            $this->db->where('review_id', $value['review_id']);
+            $image_ = $this->db->get('image');
+            if ($image_->num_rows() > 0) {
+                $data[$key]['images'] = $image_->result_array();
+            }
+        }
+        return $data;
+    }
     public function get_reviews()
     {
         $output = [];
         $data = $this->db->query('SELECT r.detail,
         r.date_time,
+        r.star,
+        r.id as review_id,
         m.firstname,
         m.lastname,
         p.name,
@@ -391,15 +415,15 @@ class package_model extends CI_model
                     } else {
                         $canchange = 0;
                     }
-                    $image = $v['image'];
-                    if ($image == null) {
-                        $image = 'images/image.jpg';
+                    $image = 'images/image.jpg';
+                    if (isset($v['image'])) {
+                        $image = $v['image'];
                     }
                     $data_insert_ac = array(
                         'name' => $v['name'],
                         'detail' => $v['detail'],
                         'image' => $image,
-                        'price' => $v['price_add'],
+                        'name_short' => $v['name_short'],
                         'day' => $v['day'],
                         'time' =>  $v['time'],
                         'canchange' =>  $canchange,
@@ -410,13 +434,14 @@ class package_model extends CI_model
                         $id_package_2 = $this->db->insert_id();
                         if (isset($v['change'])) {
                             foreach ($v['change'] as $k2 => $v2) {
-                                $image = $v2['image'];
-                                if ($image == null) {
-                                    $image = 'images/image.jpg';
+                                $image = 'images/image.jpg';
+                                if (isset($v2['image'])) {
+                                    $image = $v2['image'];
                                 }
                                 $data_insert_change = array(
                                     'activity_id' => $id_package_2,
                                     'name' => $v2['name'],
+                                    'name_short' => $v2['name_short'],
                                     'detail' => $v2['detail'],
                                     'price' => $v2['price_add'],
                                     'image' => $image
@@ -430,6 +455,98 @@ class package_model extends CI_model
         } else {
             echo "false";
         }
+        echo "true";
+    }
+    public function edit_package($data)
+    {
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
+        $this->db->where('package_id', $data['id']);
+        $del = $this->db->delete('activity');
+
+        $this->db->where('package_id', $data['id']);
+        $del = $this->db->delete('image');
+
+        $data_insert = array(
+            'name' => $data['name'],
+            'detail' => $data['detail'],
+            'cover' => 'images/image.jpg',
+            'type' => $data['type'],
+            'price' => $data['price_sell'],
+            'price_full' =>  $data['price_full'],
+            'total_member' => $data['total_member'],
+            'total_adult' => $data['total_adult'],
+            'total_kid' => $data['total_kid'],
+            'house_id' => $data['house_id'],
+            'day_all' => $data['day_all'],
+            'cover' =>  $data['image_cover'][0]
+        );
+        $this->db->where('id', $data['id']);
+        $check = $this->db->update('package', $data_insert);
+        if ($del) {
+            if ($check) {
+                if (isset($data['image_cover'])) {
+                    foreach ($data['image_cover'] as $key => $value) {
+                        $data_insert_image = array(
+                            'image' => $value,
+                            'type' => '',
+                            'package_id' =>  $data['id']
+                        );
+                        $this->db->insert('image', $data_insert_image);
+                    }
+                }
+                if (isset($data['activity'])) {
+                    foreach ($data['activity'] as $key => $value) {
+                        foreach ($value as $k => $v) {
+                            if (isset($v['change'])) {
+                                $canchange = 1;
+                            } else {
+                                $canchange = 0;
+                            }
+                            $image = 'images/image.jpg';
+                            if (isset($v['image'])) {
+                                $image = $v['image'];
+                            }
+                            $data_insert_ac = array(
+                                'name' => $v['name'],
+                                'detail' => $v['detail'],
+                                'image' => $image,
+                                'name_short' => $v['name_short'],
+                                'day' => $v['day'],
+                                'time' =>  $v['time'],
+                                'canchange' =>  $canchange,
+                                'package_id' =>  $data['id']
+                            );
+                            $check2 = $this->db->insert('activity', $data_insert_ac);
+                            if ($check2) {
+                                $id_package_2 = $this->db->insert_id();
+                                if (isset($v['change'])) {
+                                    foreach ($v['change'] as $k2 => $v2) {
+                                        $image = 'images/image.jpg';
+                                        if (isset($v2['image'])) {
+                                            $image = $v2['image'];
+                                        }
+                                        $data_insert_change = array(
+                                            'activity_id' => $id_package_2,
+                                            'name' => $v2['name'],
+                                            'name_short' => $v2['name_short'],
+                                            'detail' => $v2['detail'],
+                                            'price' => $v2['price_add'],
+                                            'image' => $image
+                                        );
+                                        $check3 = $this->db->insert('activity_change', $data_insert_change);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                echo "false";
+            }
+        }
+
         echo "true";
     }
     public function del_package($data)

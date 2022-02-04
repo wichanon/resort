@@ -16,7 +16,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="container-fluid back_package">
     <?php $this->load->view('backend/_menu'); ?>
         <div class="row mt-5">
-            <div class="col-8 mx-auto">
+            <div class="col-11 mx-auto">
                 <h2>แพ็คเกจ</h2>
                 <div class="row mb-2">
                     <div class="col d-flex justify-content-end">
@@ -45,7 +45,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <td><?= number_format($value['price']) ?></td>
                                         <td><?= $value['type'] ?></td>
                                         <td>
-                                            <a href="<?= base_url() ?>admin/package_manage_/<?= $value['id'] ?>"><button class="btn btn-warning">แก้ไข</button></a>
+                                            <a href="<?= base_url() ?>admin/package_manage_edit/<?= $value['id'] ?>"><button class="btn btn-warning">แก้ไข</button></a>
                                             <button class="btn btn-danger" onclick="del(<?= $value['id'] ?>)">ลบ</button>
                                         </td>
                                     </tr>

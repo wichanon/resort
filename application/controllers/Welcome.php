@@ -76,6 +76,7 @@ class Welcome extends CI_Controller
 	{
 		$data['menu'] = 'review';
 		$data['list'] = $this->package_model->get_reviews();
+		$data['list'] = $this->package_model->get_reviews_image($data['list']);
 		//echo"<pre>";print_r($data);echo "</pre>";
 		$this->load->view('review', $data);
 	}

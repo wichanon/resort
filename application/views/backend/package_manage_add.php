@@ -14,7 +14,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body>
     <div class="container-fluid back_package_manage">
-    <?php $this->load->view('backend/_menu'); ?>
+        <?php $this->load->view('backend/_menu'); ?>
         <div class="row mt-5">
             <div class="col-5 mx-auto">
                 <h2>เพิ่มแพ็คเกจ</h2>
@@ -120,8 +120,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <input type="text" class="form-control name">
                                     </div>
                                     <div class="col">
-                                        <span>ราคาจ่ายเพิ่ม</span>
-                                        <input type="number" class="form-control price_add">
+                                        <span>ชื่อสั้น</span>
+                                        <input type="text" class="form-control name_short">
                                     </div>
                                     <div class="col">
                                         <span>เวลา</span>
@@ -202,7 +202,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     function add_activty(day) {
         ac_day[day - 1]++;
-        $('.box_actity.box_' + day).append('<div class="row list_activity list_' + day + '_' + ac_day[day - 1] + '"><h5>กิจกรรมที่ ' + (ac_day[day - 1]) + '</h5><div class="col-12"><div class="row"><div class="col box_image_activty"><div class="row image_activty d-flex align-items-end"><div class="col"><div class="preview"></div></div><div class="col-9"><input type="file" class="form-control imagecover image_upload main" onchange="uploadFile(\'list_' + day + '_' + ac_day[day - 1] + '\',\'image\')"></div></div></div></div><div class="row"><div class="col"><span>ชื่อกิจกรรม</span><input type="text" class="form-control name"></div><div class="col"><span>ราคาจ่ายเพิ่ม</span><input type="number" class="form-control price_add"></div><div class="col"><span>เวลา</span><input type="time" class="form-control time"></div></div></div><div class="col-12"><span>คำอธิบาย</span><textarea name="" class="form-control detail" id="" cols="30" rows="3"></textarea></div><div class="col-12 mt-2"><div class="form-check"><input onchange="check_activity_change(' + day + ',' + ac_day[day - 1] + ',this)" class="form-check-input" type="checkbox" value=""><label class="form-check-label" for="flexCheckDefault">สามารถเปลี่ยนกิจกรรมได้</label></div></div> <div class="box_activity_change d-none"><div class="col-12 activity_change_box"></div><div class="col-12 mt-3"><button class="form-control btn_add_activity" onclick="add_activty_change(' + day + ',' + ac_day[day - 1] + ')">เพิ่มช่อง</button></div></div></div>')
+        $('.box_actity.box_' + day).append('<div class="row list_activity list_' + day + '_' + ac_day[day - 1] + '"><div class="close" onclick="del_activity(this)"><img src="<?= base_url() ?>../images/icons/cancel.png" alt=""></div><h5>กิจกรรมที่ ' + (ac_day[day - 1]) + '</h5><div class="col-12"><div class="row"><div class="col box_image_activty"><div class="row image_activty d-flex align-items-end"><div class="col"><div class="preview"></div></div><div class="col-9"><input type="file" class="form-control imagecover image_upload main" onchange="uploadFile(\'list_' + day + '_' + ac_day[day - 1] + '\',\'image\')"></div></div></div></div><div class="row"><div class="col"><span>ชื่อกิจกรรม</span><input type="text" class="form-control name"></div><div class="col"><span>ชื่อสั้น</span><input type="text" class="form-control name_short"></div><div class="col"><span>เวลา</span><input type="time" class="form-control time"></div></div></div><div class="col-12"><span>คำอธิบาย</span><textarea name="" class="form-control detail" id="" cols="30" rows="3"></textarea></div><div class="col-12 mt-2"><div class="form-check"><input onchange="check_activity_change(' + day + ',' + ac_day[day - 1] + ',this)" class="form-check-input" type="checkbox" value=""><label class="form-check-label" for="flexCheckDefault">สามารถเปลี่ยนกิจกรรมได้</label></div></div> <div class="box_activity_change d-none"><div class="col-12 activity_change_box"></div><div class="col-12 mt-3"><button class="form-control btn_add_activity" onclick="add_activty_change(' + day + ',' + ac_day[day - 1] + ')">เพิ่มช่อง</button></div></div></div>')
         //$('.box_actity.box_' + day).append('<div class="row list_activity list_' + day + '_' + ac_day[day - 1] + '"><h5>กิจกรรมที่ ' + (ac_day[day - 1]) + '</h5><div class="col-12"><div class="row"><div class="col"><span>ชื่อกิจกรรม</span><input type="text" class="form-control name"></div><div class="col"><span>ราคาจ่ายเพิ่ม</span><input type="number" class="form-control price_add"></div><div class="col"><span>เวลา</span><input type="time" class="form-control time"></div></div></div><div class="col-12"><span>คำอธิบาย</span><textarea name="" class="form-control detail" id="" cols="30" rows="3"></textarea></div><div class="col-12 mt-2"><div class="form-check"><input onchange="check_activity_change('+day+','+ac_day[day - 1]+',this)" class="form-check-input" type="checkbox" value=""><label class="form-check-label" for="flexCheckDefault">สามารถเปลี่ยนกิจกรรมได้</label></div></div></div>')
         $("html, body").animate({
             scrollTop: $(document).height()
@@ -211,6 +211,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     $('.day_btn').click(function() {
 
         let day_ac = $(this).attr('data-day')
+        day_active = day_ac;
         $('.day_btn').addClass('no_active')
         $(this).removeClass('no_active')
         $('.box_actity').addClass('d-none')
@@ -232,6 +233,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
         $('.box_image_cover .imagecover.image_upload').each(function() {
             image_cover.push($(this).attr('path'));
         })
+        if (image_cover.length == 1) {
+            Swal.fire(
+                'เกิดข้อผิดพลาด !',
+                'กรุณาอัปโหลดรูปปกอย่างน้อย 1 รูป',
+                'warning'
+            )
+            return
+        }
+
         //console.log(name,detail,type,price_full,price_sell,total_member,total_adult,total_kid,house_id,day_all)
 
         let data_activity = {};
@@ -244,7 +254,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             for (let i = 0; i < e; i++) {
                 let ac = {};
                 ac['name'] = $('.list_activity.list_' + (key + 1) + '_' + (i + 1) + ' .name').val();
-                ac['price_add'] = $('.list_activity.list_' + (key + 1) + '_' + (i + 1) + ' .price_add').val();
+                ac['name_short'] = $('.list_activity.list_' + (key + 1) + '_' + (i + 1) + ' .name_short').val();
                 ac['time'] = $('.list_activity.list_' + (key + 1) + '_' + (i + 1) + ' .time').val();
                 ac['detail'] = $('.list_activity.list_' + (key + 1) + '_' + (i + 1) + ' .detail').val();
                 ac['image'] = $('.list_activity.list_' + (key + 1) + '_' + (i + 1) + ' .image_upload.main').attr('path')
@@ -257,6 +267,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     let cac = {}
                     cac['name'] = $('.name_', this).val();
                     cac['price_add'] = $('.add_price_', this).val();
+                    cac['name_short'] = $('.name_short_', this).val();
                     cac['detail'] = $('.detail_', this).val();
                     cac['image'] = $('.image_upload', this).attr('path');
                     ac['change'].push(cac)
@@ -265,7 +276,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
 
         })
-        
+
         console.log(data_activity)
 
         //add ข้อมูลเข้า DB
@@ -308,10 +319,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     )
                     setTimeout(function() {
                         window.location.href = base_url + "admin/package_manage";
-                    }, 2000);
+                    }, 1000);
                 }
             });
-             //add ข้อมูลเข้า DB end
+        //add ข้อมูลเข้า DB end
     })
 
     function check_activity_change(day, activity, e) {
@@ -344,10 +355,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     function add_activty_change(day, activty) {
         let uuid = idGen.getId();
-        $('.list_activity.list_' + day + '_' + activty + ' .activity_change_box').append('<div class="row my-2 d-flex justify-content-end list uuid_' + uuid + '"><div class="col-10"><div class="row"><div class="col box_image_activty"><div class="row image_activty d-flex align-items-end"><div class="col"><div class="preview"></div></div><div class="col-9"><input type="file" class="form-control imagecover image_upload" onchange="uploadFile(\'list_' + day + '_' + activty + '\',\'image\',\'' + uuid + '\')"> </div></div></div></div><div class="row"><div class="col"><span>ชื่อกิจกรรม</span><input type="text" class="form-control name_"></div><div class="col"><span>ราคาจ่ายเพิ่ม</span><input type="number" class="form-control add_price_"></div></div><div class="row"><div class="col"><span>คำอธิบาย</span><textarea name="" class="form-control detail_" id="" cols="30" rows="3"></textarea> </div></div> </div></div>')
+        $('.list_activity.list_' + day + '_' + activty + ' .activity_change_box').append('<div class="row my-2 d-flex justify-content-end list uuid_' + uuid + '"><div class="close" onclick="del_activity_change(this)"><img src="<?= base_url() ?>../images/icons/cancel.png" alt=""></div><div class="col-10"><div class="row"><div class="col box_image_activty"><div class="row image_activty d-flex align-items-end"><div class="col"><div class="preview"></div></div><div class="col-9"><input type="file" class="form-control imagecover image_upload" onchange="uploadFile(\'list_' + day + '_' + activty + '\',\'image\',\'' + uuid + '\')"> </div></div></div></div><div class="row"><div class="col"><span>ชื่อกิจกรรม</span><input type="text" class="form-control name_"></div><div class="col"><span>ชื่อสั้น</span><input type="text" class="form-control name_short_"></div><div class="col"><span>ราคาจ่ายเพิ่ม</span><input type="number" class="form-control add_price_"></div></div><div class="row"><div class="col"><span>คำอธิบาย</span><textarea name="" class="form-control detail_" id="" cols="30" rows="3"></textarea> </div></div> </div></div>')
         $("html, body").animate({
             scrollTop: $(document).height()
         }, 50);
+    }
+
+    function del_activity(data) {
+        $(data).parent().remove()
+        ac_day[day_active - 1]--;
+        $('.box_actity.box_' + day_active + ' .list_activity').each(function(key, e) {
+            $(e).attr('class', '').addClass('row list_activity list_' + day_active + '_' + (key + 1)).find('h5').html('กิจกรรมที่ ' + (key + 1))
+        })
+    }
+
+    function del_activity_change(data) {
+        console.log($(data).parent().remove())
     }
 </script>
 

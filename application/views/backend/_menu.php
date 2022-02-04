@@ -16,7 +16,7 @@ if (isset($_SESSION['firstname'])) {
                             <p>จัดการแพ็คเกจ</p>
                         </a>
                         <?php if ($menu == 'managepackage') { ?>
-                            <div class="active"></div>
+                            <div style="bottom: -10px" class="active"></div>
                         <?php } ?>
                     </div>
                     <div class="name_menu">
@@ -24,7 +24,7 @@ if (isset($_SESSION['firstname'])) {
                             <p>ยืนยันการโอน</p>
                         </a>
                         <?php if ($menu == 'confirm_payment') { ?>
-                            <div class="active"></div>
+                            <div style="bottom: -10px" class="active"></div>
                         <?php } ?>
                     </div>
                     <div class="name_menu">
@@ -32,7 +32,7 @@ if (isset($_SESSION['firstname'])) {
                             <p>ยืนยันการเข้าพักสำเร็จ</p>
                         </a>
                         <?php if ($menu == 'confirm_booking_end') { ?>
-                            <div class="active"></div>
+                            <div style="bottom: -10px" class="active"></div>
                         <?php } ?>
                     </div>
                 </div>

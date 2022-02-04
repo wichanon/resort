@@ -1,17 +1,19 @@
-let cover = 1;
-function uploadFile(file_select, type, uid = "0") {
+function uploadFile(file_select, type, uid = "0", cover = 1) {
 	//$('#spinner').fadeIn('fast');
 	var tmp = $("#submit").attr("onclick");
 	$("#submit").attr("onclick", "");
 	$("#submit").addClass("onclick");
 	//$('#'+file_select+'_name').html($('#'+file_select)[0].files[0].name)
-  var file;
-  if(uid != "0"){
-    file = $("." + file_select + " .uuid_"+uid+" .image_upload")[0].files[0];
-  }else{
-    file = $("." + file_select + " .image_upload")[0].files[0];
-  }
- 
+	var file;
+	if (type == "review") {
+		file = $('.'+file_select)[0].files[0];
+	} else if (uid != "0") {
+		file = $("." + file_select + " .uuid_" + uid + " .image_upload")[0]
+			.files[0];
+	} else {
+		file = $("." + file_select + " .image_upload")[0].files[0];
+	}
+
 	var formdata = new FormData();
 	formdata.append(file_select, file);
 	var ajax = new XMLHttpRequest();
@@ -33,9 +35,15 @@ function uploadFile(file_select, type, uid = "0") {
 						"','cover')\"></div></div>"
 				);
 			}
-			if (uid != "0") {
-        $("." + file_select + " .uuid_"+uid+" .image_upload").attr("path", res.data);
-				$("." + file_select + " .uuid_"+uid+" .preview").css(
+			if(type =='review'){
+				$('.popup .box_image').append('<div path="'+res.data+'" class="image" style="background-image:url('+base_url+'../'+res.data+')"><div class="close" onclick="del_review_image(this)"><img src="../../images/icons/cancel.png" alt=""></div></div>');
+			}
+			else if (uid != "0") {
+				$("." + file_select + " .uuid_" + uid + " .image_upload").attr(
+					"path",
+					res.data
+				);
+				$("." + file_select + " .uuid_" + uid + " .preview").css(
 					"background-image",
 					"url(" + base_url + "../" + res.data + ")"
 				);

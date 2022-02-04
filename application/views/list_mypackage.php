@@ -92,6 +92,29 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="row">
                 <div class="col-12">
                     <h2>รีวิว</h2>
+                    <span>คะแนนที่ให้</span>
+                    <div class="box_star">
+                        <div class="star" data-star="1">
+                            <img src="<?= base_url() ?>../images/icons/star.png" alt="">
+                        </div>
+                        <div class="star" data-star="2">
+                            <img src="<?= base_url() ?>../images/icons/star.png" alt="">
+                        </div>
+                        <div class="star" data-star="3">
+                            <img src="<?= base_url() ?>../images/icons/star.png" alt="">
+                        </div>
+                        <div class="star" data-star="4">
+                            <img src="<?= base_url() ?>../images/icons/star.png" alt="">
+                        </div>
+                        <div class="star" data-star="5">
+                            <img src="<?= base_url() ?>../images/icons/star.png" alt="">
+                        </div>
+                    </div>
+                    <div class="box_image my-4"></div>
+                    <div class="box_upload my-2">
+                        <span>อัปโหลดรูป <xxx style="font-size: .7rem; color:red;">ไม่เกิน 5 รูป</xxx></span>
+                        <input type="file" class="form-control image_review" onchange="uploadFile('image_review','review')">
+                    </div>
                     <span>รายละเอียด</span>
                     <textarea name="" class="form-control review_" id="" cols="30" rows="10"></textarea>
                 </div>
@@ -123,6 +146,44 @@ defined('BASEPATH') or exit('No direct script access allowed');
             focus: 'left'
         }).mount();
     });
+    let status_star = false;
+    let num_star = 0;
+    $('.box_star .star').mouseover(function() {
+        let num = $(this).attr('data-star')
+        $('.box_star .star img').attr('src', base_url + '../images/icons/star.png')
+        $('img', this).attr('src', base_url + '../images/icons/star_2.png')
+        $('.box_star .star').each(function(key, e) {
+            if ($(e).attr('data-star') < num) {
+                $('img', e).attr('src', base_url + '../images/icons/star_2.png')
+            }
+        })
+        status_star = false;
+    })
+    $('.box_star .star').click(function() {
+        let num = $(this).attr('data-star')
+        $('.box_star .star img').attr('src', base_url + '../images/icons/star.png')
+        $('img', this).attr('src', base_url + '../images/icons/star_2.png')
+        num_star = num;
+        $('.box_star .star').each(function(key, e) {
+            if ($(e).attr('data-star') < num) {
+                $('img', e).attr('src', base_url + '../images/icons/star_2.png')
+            }
+        })
+        status_star = true;
+    })
+    $('.box_star .star').mouseout(function() {
+        if (num_star == 0) {
+            $('.box_star .star img').attr('src', base_url + '../images/icons/star.png')
+        } else {
+            $('.box_star .star img').attr('src', base_url + '../images/icons/star.png')
+            $('.box_star .star').each(function(key, e) {
+                if ($(e).attr('data-star') <= num_star) {
+                    $('img', e).attr('src', base_url + '../images/icons/star_2.png')
+                }
+            })
+        }
+
+    })
     $('.btn_review').click(function() {
         $('.bg_black').fadeIn('fast')
         $('.btn_send_review').attr('data-id_package', $(this).attr('data-id_package'))
@@ -146,6 +207,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 let text = $('.review_').val()
                 let package_id = $(this).attr('data-id_package')
                 let booking_id = $(this).attr('data-id_booking')
+                let image_review = [];
+                $('.popup .box_image .image').each(function() {
+                    image_review.push($(this).attr('path'));
+                })
+                console.log(image_review)
                 if (text != '') {
                     $.ajax({
                             url: base_url + 'package/review',
@@ -153,8 +219,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             dataType: 'json',
                             data: {
                                 review: text,
+                                star: num_star,
                                 package_id: package_id,
-                                booking_id: booking_id
+                                booking_id: booking_id,
+                                image:image_review
                             },
                         })
                         .done(function() {
@@ -191,6 +259,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         })
     })
+    
+    function del_review_image(data) {
+        console.log($(data).parent().remove())
+    }
 </script>
 
 </html>
