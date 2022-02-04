@@ -183,12 +183,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 },
             }
         }).mount();
+        let dateToday = new Date();
+        console.log(dateToday)
         $('.start_date').datepicker({
             format: 'dd-mm-yyyy',
+            startDate: new Date()
         })
-        $('.start_date').datepicker("setDate", new Date());
+        $('.start_date').datepicker("setDate", new Date())
         $('.end_date').datepicker({
             format: 'dd-mm-yyyy',
+            startDate: new Date()
         })
         $('.end_date').datepicker("setDate", new Date());
     });

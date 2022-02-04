@@ -98,11 +98,11 @@
                 <div class="row">
                     <div class="col">
                         <span></span>
-                        <input type="text" class="form-control my-1 regis tel" title="เบอร์โทรศัพท์ต้องมี 10 ตัว" required value="" minlength="10" name="tel" placeholder="เบอร์โทรศัพท์">
+                        <input type="text" maxlength="10" class="form-control my-1 regis tel" title="เบอร์โทรศัพท์ต้องมี 10 ตัว" required value="" minlength="10" name="tel" placeholder="เบอร์โทรศัพท์">
                     </div>
                     <div class="col">
                         <span></span>
-                        <input type="text" class="form-control my-1 regis email" required name="email" value="" placeholder="อีเมล์">
+                        <input type="email" class="form-control my-1 regis email" required name="email" value="" placeholder="อีเมล์" title="อีเมล์ไม่ถูกต้อง">
                     </div>
                 </div>
                 <div class="row">
@@ -138,7 +138,7 @@
         // if (97 <= ew && ew <= 122)
         //     return false;
 
-        var regex = new RegExp("^([A-Z]|[a-z]|[ๅภถุึคตจขชๆไำพะัีรนยบลฃฟหกดเ้่าสวงผปแอิืทมใฝ๑๒๓๔ู฿๕๖๗๘๙๐ฎฑธํ๊ณฯญฐฅฤฆฏโฌ็๋ษศซฉฮฺ์ฒฬฦ])+$","g");
+        var regex = new RegExp("^([A-Z]|[a-z]|[ๅภถุึคตจขชๆไำพะัีรนยบลฃฟหกดเ้่าสวงผปแอิืทมใฝ๑๒๓๔ู฿๕๖๗๘๙๐ฎฑธํ๊ณฯญฐฅฤฆฏโฌ็๋ษศซฉฮฺ์ฒฬฦ])+$", "g");
         var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
         if (!regex.test(key)) {
             event.preventDefault();
@@ -146,6 +146,15 @@
             return false;
         }
         return true;
+    });
+    $('.regis.tel').keypress(function(e) {
+
+        var charCode = (e.which) ? e.which : event.keyCode
+
+        if (String.fromCharCode(charCode).match(/[^0-9]/g))
+
+            return false;
+
     });
     $(function() {
         $("#form_regis").validate()

@@ -623,9 +623,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
         $('.date_checkin').datepicker({
             format: 'dd-mm-yyyy',
+            startDate: new Date()
         })
         $('.date_checkout').datepicker({
             format: 'dd-mm-yyyy',
+            startDate: new Date()
         })
         $('.date_checkin').datepicker("setDate", date_start);
         if (date_end != '' && date_end != null && date_end != '0') {
