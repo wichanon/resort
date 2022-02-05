@@ -213,6 +213,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 })
                 console.log(image_review)
                 if (text != '') {
+                    if(image_review.length == 0){
+                        image_review = 0;
+                    }
                     $.ajax({
                             url: base_url + 'package/review',
                             type: 'post',

@@ -267,14 +267,16 @@ class package_model extends CI_model
         $check = $this->db->insert('reviews', $data_insert);
         if ($check) {
             $id_review = $this->db->insert_id();
-            foreach ($data['image'] as $key => $value) {
-                $data_insert_image = array(
-                    'image' => $value,
-                    'type' => 'review',
-                    'package_id' =>  $data['package_id'],
-                    'review_id' =>  $id_review
-                );
-                $this->db->insert('image', $data_insert_image);
+            if ($data['image'] != 0) {
+                foreach ($data['image'] as $key => $value) {
+                    $data_insert_image = array(
+                        'image' => $value,
+                        'type' => 'review',
+                        'package_id' =>  $data['package_id'],
+                        'review_id' =>  $id_review
+                    );
+                    $this->db->insert('image', $data_insert_image);
+                }
             }
             $data_update = array(
                 'review' => 1
